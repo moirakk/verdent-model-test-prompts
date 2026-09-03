@@ -84,6 +84,71 @@ These prompts are intentionally written as pressure tests, not feature requests:
 | 29 | [Test The Untested Flow - Add Confidence Without Rewriting The App](#prompt-29) |
 | 30 | [Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set](#prompt-30) |
 
+## Case Capability Matrix
+
+Use this matrix to choose prompts based on the model ability you want to show or test.
+
+Showcase fit:
+
+- High: good for public demos because the result is visually or interactively obvious.
+- Medium: good for deeper product walkthroughs or technical comparison.
+- Low: better for internal engineering evaluation than public launch clips.
+
+| # | Type | Best For Showcasing | Primary Abilities Tested | Showcase Fit |
+|---:|---|---|---|---|
+| 1 | Mobile product app | AI app UX, mobile polish, local-state product loop | Product shaping, mobile-first UI, editable estimates, state updates, trustworthy AI simulation | High |
+| 2 | Operating dashboard | Founder workflow, dense one-screen command center | Information architecture, prioritization logic, scenario state, B2B product judgment | Medium |
+| 3 | Service-business app | Practical B2B workflow, client/invoice operations | Workflow modeling, tables, status logic, capacity planning, business specificity | Medium |
+| 4 | Household coordination app | Everyday product complexity, mobile utility | Cross-system state, conflict resolution, calendar/list UX, mobile ergonomics | Medium |
+| 5 | Creator workflow app | Creator tooling, multi-platform launch flow | Pipeline design, readiness scoring, platform differences, content operations | High |
+| 6 | Knowledge workspace | Research-to-action workflow, local-first productivity | Search/filter, linked notes, evidence handling, tri-pane layout, simulated extraction | Medium |
+| 7 | Creator editing tool | Complex product UI, synchronized editor workflow | Transcript selection, timeline state, clip rules, export queue, dense workspace design | High |
+| 8 | Spatial project tool | Novel interaction model, visual project management | Drag/update state, spatial reasoning, filters, dependency/risk modeling | High |
+| 9 | Builder tool | App-builder/product-builder capability | Schema state, conditional logic, validation, live preview, form UX | High |
+| 10 | Developer tool | Keyboard-first coding workflow | Fuzzy search, command actions, file preview, local mutations, developer UX | Medium |
+| 11 | Automation canvas | Agentic workflow interface, node systems | Graph UI, run simulation, failure states, approvals, logs, stateful automation | High |
+| 12 | Design collaboration tool | Visual feedback workflow | Spatial comments, pin/thread sync, review status, screen versions, zoom behavior | High |
+| 13 | Analytics workspace | Business decision dashboard | Computed metrics, filtering/sorting, drilldown, recommendations, data-product judgment | High |
+| 14 | Data cleaning tool | Messy-data reasoning, analyst workflow | Profiling, anomaly detection, cleaning toggles, table state, insight summary | Medium |
+| 15 | Finance operations tool | Savings/waste detection, decision workflow | Recurring-cost modeling, recommendation logic, scenario savings, renewal states | Medium |
+| 16 | Support intelligence tool | Text operations, product signal extraction | Clustering metadata, triage state, filters, action creation, product-support bridge | Medium |
+| 17 | Training analytics app | Personal analytics and coaching UX | Time-series trends, recommendation logic, logging state, health-safe language | Medium |
+| 18 | SaaS revenue analytics | Executive analytics, cohort exploration | Cohort calculations, heatmap interaction, MRR bridge, account drilldown | Medium |
+| 19 | 3D browser game demo | Cinematic visual wow, playable 3D | Three.js/canvas, intro camera, controls, game states, performance, scene density | High |
+| 20 | Simulation game | Living system, visible mechanics, gameplay loop | Animation loop, throughput simulation, bottlenecks, upgrades, feedback systems | High |
+| 21 | Mission game | Control constraints, route planning, HUD clarity | Game physics, resource limits, objective design, restart/fail states | High |
+| 22 | Systems sandbox | Cause-and-effect simulation | Simulation variables, scenario controls, visual state changes, recovery logic | High |
+| 23 | Dispatch simulation | Operations game, animated network | Real-time movement, conflict detection, prioritization, event handling | High |
+| 24 | Creative coding toy | Visual rhythm, playful interaction | Animation timing, sequencer state, pattern controls, canvas polish | High |
+| 25 | Existing app rescue | Practical agent usefulness | Codebase inspection, scoped implementation, state repair, responsive fixes, honest summary | Medium |
+| 26 | Performance rescue | Technical depth without visual loss | Bottleneck reasoning, optimization judgment, behavior preservation, performance verification | Low |
+| 27 | Mobile rescue | UI reliability and responsive craft | Layout debugging, viewport checks, overflow fixes, preserving desktop behavior | Medium |
+| 28 | Design system migration | Maintainable UI improvement | Token/component extraction, consistency, incremental refactor, regression control | Low |
+| 29 | Test coverage | Engineering discipline | Test discovery, behavior coverage, minimal testability changes, honest limits | Low |
+| 30 | Bug triage | Senior coding-agent judgment | Triage, prioritization, scoped fixes, not-a-bug handling, verification per report | Low |
+
+## Suggested Prompt Picks
+
+For public model demos:
+
+- Start with 19, 20, 21, 22, 23, or 24 when you want a result that is visually obvious in the first few seconds.
+- Use 7, 9, 11, 12, or 13 when you want to show that a model can build serious product software, not only spectacle.
+- Use 1 or 5 when you want a mobile/product story that is easy for a broad audience to understand.
+
+For balanced model comparison:
+
+- Visual/playable: 19 or 20
+- Complex workflow: 7 or 11
+- Data product: 13 or 14
+- Mobile product: 1 or 4
+- Engineering discipline: 25, 27, or 30
+
+For internal evaluation:
+
+- Use 25-30 to test whether the model can inspect an existing project, preserve intent, avoid broad rewrites, and verify honestly.
+- Use 13-18 to test whether the model computes from data rather than decorating static metrics.
+- Use 7-12 to test whether the model can keep multiple panels, selections, and stateful controls synchronized.
+
 ## Suggested Model Comparison Notes
 
 For each model run, judge the final output more than the explanation.
