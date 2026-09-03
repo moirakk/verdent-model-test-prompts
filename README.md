@@ -17,6 +17,18 @@ These prompts are intentionally written as pressure tests, not feature requests:
 - Local by default: external services are simulated with local data so model runs stay comparable.
 - Reviewable output: every prompt ends with an audit packet for cross-model review.
 
+## Common Failure Modes To Watch
+
+These are the failures this collection is designed to expose:
+
+- Template substitution: the model builds a familiar generic app instead of the specific requested product.
+- Static theater: controls, charts, timelines, maps, or game objects look real but do not change state.
+- First-screen weakness: the page opens with marketing copy, empty setup, or a bland dashboard instead of the requested working surface.
+- Fake computation: totals, recommendations, scores, or alerts are hard-coded instead of derived from sample data.
+- Shallow interaction: the model implements clicks but not the cross-panel consequences the prompt asks for.
+- Visual collapse: text overlaps, mobile breaks, 3D scenes render blank, or dense tools become unreadable.
+- Verification bluffing: the model claims success without running, previewing, or honestly describing what could not be checked.
+
 ## Sections
 
 | Section | Prompts | Count |
@@ -278,6 +290,11 @@ This must not be a generic calorie tracker, a static landing page, a diet blog l
 - Make the meal cards scannable. Numbers should be readable, but the product should not feel like a spreadsheet.
 - No overlapping text, no clipped buttons, no tiny tap targets, and no giant hero typography inside app panels.
 
+#### DEPTH CHECKPOINTS
+- Include at least one low-confidence estimate and one corrected meal so reviewers can judge uncertainty handling.
+- Daily totals must visibly recalculate after a macro edit.
+- Advice should reference the current day/week data, not generic nutrition tips.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists. If starting from a blank folder, create the simplest appropriate browser app.
 - Use real interactive state rather than only static mock data.
@@ -342,6 +359,11 @@ This must not be a generic CRM, a decorative startup dashboard, or a pile of unr
 - Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
 - Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
 
+#### DEPTH CHECKPOINTS
+- The top-three action list must be derived from sample company data, not hard-coded as decorative text.
+- Runway scenario changes should affect at least two visible values.
+- At least one customer/product/risk item should be linked across panels.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed values.
 - Build the full implementation with the existing stack if one exists.
@@ -402,6 +424,11 @@ This must not be a generic project tracker or invoice mockup. It should expose t
 - Professional, compact, and service-business specific.
 - Avoid generic admin templates; every visible element should connect to consultant decision-making.
 - Mobile should support quick client triage and invoice follow-up.
+
+#### DEPTH CHECKPOINTS
+- Scope creep must have a visible cost or capacity consequence.
+- Invoice state changes should affect client priority or money-at-risk totals.
+- At least one client should be healthy, one blocked, and one financially urgent.
 
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real derived status calculations.
@@ -464,6 +491,11 @@ This must not be a simple calendar, a todo list, or a recipe app. It should show
 - Use color to separate people, urgency, and categories without overwhelming the screen.
 - Mobile must be excellent; desktop can show the full week and detail panel.
 
+#### DEPTH CHECKPOINTS
+- At least one meal decision must update pantry, grocery, and budget views.
+- At least one scheduling conflict must show cause and resolution.
+- Family members should have distinguishable responsibilities without relying only on color.
+
 #### TECHNICAL REQUIREMENTS
 - Build with local sample data and computed conflicts.
 - No external APIs required.
@@ -525,6 +557,11 @@ This must not be a generic content calendar or social media dashboard. It should
 - Clear pipeline, compact cards, readable platform differences, and obvious blockers.
 - Mobile should support idea capture and today's publishing tasks.
 
+#### DEPTH CHECKPOINTS
+- Readiness score must come from checklist/platform/asset state.
+- At least one idea should move through multiple pipeline stages during interaction.
+- Platform outputs should differ in real requirements, not just labels.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample content and real state updates.
 - Do not require social platform APIs.
@@ -585,6 +622,11 @@ This must not be a generic notes app, markdown editor, or static knowledge graph
 - Quiet, editorial, and tool-like.
 - Avoid mystical garden visuals unless they directly clarify the knowledge structure.
 - Desktop should support tri-pane work; mobile should support capture and review.
+
+#### DEPTH CHECKPOINTS
+- Claims in the brief should link back to source notes.
+- Weak evidence and unresolved questions must be visually distinct.
+- A note action should update both task/brief output and the topic view.
 
 #### TECHNICAL REQUIREMENTS
 - Use local data and state only.
@@ -653,6 +695,11 @@ This must not be a static transcript viewer, a generic media dashboard, or a pre
 - The timeline must have stable dimensions; selecting clips should not cause layout jumps.
 - The mobile view should degrade into a useful review mode rather than a broken mini desktop.
 
+#### DEPTH CHECKPOINTS
+- Transcript selection, timeline highlight, and clip queue must stay synchronized.
+- Duration warnings should change when start/end values change.
+- Export targets should enforce different constraints for at least three platforms.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists.
 - Use local sample transcript data with at least 12 speaker turns and 5 detected highlight candidates.
@@ -717,6 +764,11 @@ This must not be a normal kanban with a novelty background. The spatial position
 - Use stable card sizing, hover/selected states, and clear axes.
 - Mobile should become a prioritized list plus mini map.
 
+#### DEPTH CHECKPOINTS
+- Dragging or editing a card must alter both map position and risk/progress data.
+- Quadrants should have practical meaning and visible labels.
+- Dependencies should change the interpretation of at least one card.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real drag or controlled position updates.
 - Keep state synchronized between map, detail, and list.
@@ -778,6 +830,11 @@ This must not be a static form mockup or a settings page full of fake controls. 
 - Tool surface should feel precise and predictable.
 - Use compact controls, tabs or panels, and clear selected states.
 - Avoid huge empty builder areas and decorative app-builder marketing.
+
+#### DEPTH CHECKPOINTS
+- Conditional logic must be demonstrable in the preview using real answers.
+- Validation errors should appear inline and prevent or flag bad submissions.
+- Schema edits should persist during the session and affect submissions.
 
 #### TECHNICAL REQUIREMENTS
 - Use local state for schema and preview answers.
@@ -841,6 +898,11 @@ This must not be a simple file tree or static command palette. Search results, s
 - Avoid fake terminal decoration and generic IDE screenshots.
 - Mobile should support search-first file access.
 
+#### DEPTH CHECKPOINTS
+- Search should cover files and commands, not just one list.
+- At least one command must change local state.
+- Preview should show related files or metadata that changes with selection.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample file data and real filtering.
 - No filesystem access required.
@@ -903,6 +965,11 @@ This must not be a static flowchart. The user should be able to edit the workflo
 - Avoid tiny unreadable labels and random decorative graph layouts.
 - Mobile can become run-monitor and node-detail mode.
 
+#### DEPTH CHECKPOINTS
+- A workflow run must show several node states, not only success.
+- Retry or approval should visibly alter the run history.
+- Misconfigured or disconnected nodes should produce validation feedback.
+
 #### TECHNICAL REQUIREMENTS
 - Use local workflow data and state.
 - Use a graph/canvas library if already available; otherwise implement a simple robust layout.
@@ -964,6 +1031,11 @@ This must not be a comment list beside an image. The spatial pinning, threaded f
 - Should feel like a design tool, not a blog comment section.
 - Pins need clear states without covering the whole mockup.
 - Desktop is primary; mobile should support review and resolution.
+
+#### DEPTH CHECKPOINTS
+- Pins must stay aligned with the mockup during selection and zoom/fit changes where implemented.
+- Thread status changes should update project summary counts.
+- Screen switching should preserve and show screen-specific comments.
 
 #### TECHNICAL REQUIREMENTS
 - Use local placeholder mockups built with HTML/CSS or lightweight inline assets.
@@ -1032,6 +1104,11 @@ This must not be a generic chart dashboard, a table dump, or a fake analytics pa
 - Use color carefully for risk and opportunity. Avoid red/green overload without labels.
 - The desktop view should feel like a command center; the mobile view should prioritize alerts and campaign drilldown.
 
+#### DEPTH CHECKPOINTS
+- Top recommendations must be traceable to campaign metrics.
+- Budget simulation should recalculate projected impact.
+- Suspicious tracking data should be represented as a warning, not silently included.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists.
 - Use local sample data and real computed metrics; do not hard-code every displayed number independently.
@@ -1096,6 +1173,11 @@ This must not be a static dashboard or a file-upload facade. The app should incl
 - Use tables, histograms, badges, and side panels purposefully.
 - Avoid decorative analytics graphics that do not help diagnose data quality.
 
+#### DEPTH CHECKPOINTS
+- Cleaning toggles must change row counts, issue counts, or preview values.
+- Accepted/rejected findings should alter the generated brief.
+- At least three distinct data-quality issue types must be visible.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real computed stats.
 - Do not require file upload to prove functionality, though optional upload is welcome.
@@ -1157,6 +1239,11 @@ This must not be a generic expense dashboard. The product should help a user dec
 - Financially clear without feeling like a bank app.
 - Risk and savings should be visible, labeled, and not dependent on color alone.
 - Mobile should prioritize upcoming renewals and decisions.
+
+#### DEPTH CHECKPOINTS
+- Savings scenario must update from real keep/cancel/review decisions.
+- Duplicate subscriptions should be grouped or explained.
+- Renewal timing should affect urgency.
 
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed totals.
@@ -1220,6 +1307,11 @@ This must not be a generic inbox UI. It should help product and support teams un
 - Clear distinction between individual tickets and aggregate product signals.
 - Mobile should support triage and theme review.
 
+#### DEPTH CHECKPOINTS
+- Theme clusters must update counts when ticket filters/statuses change.
+- Promoting a cluster should create a visible product action.
+- Ticket-level and aggregate views must remain connected.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample ticket data and deterministic clustering metadata.
 - Do not require AI APIs.
@@ -1280,6 +1372,11 @@ This must not be a generic fitness dashboard. It should turn workout history int
 - Athletic but not gimmicky.
 - Charts should be readable and tied to decisions.
 - Mobile should support logging and quick readiness review.
+
+#### DEPTH CHECKPOINTS
+- Workout logging must update at least one trend or recommendation.
+- Plateau/fatigue signals should be tied to sample history.
+- Advice must stay coaching-oriented and avoid medical certainty.
 
 #### TECHNICAL REQUIREMENTS
 - Use local data and computed trends.
@@ -1342,6 +1439,11 @@ This must not be a generic revenue dashboard. It should let a user compare cohor
 - Executive-readable but analyst-useful.
 - Heatmap colors need labels and accessible contrast.
 - Avoid decorative charts and vague "AI insights".
+
+#### DEPTH CHECKPOINTS
+- Heatmap cell selection must drive the account list and insight panel.
+- MRR bridge values should be computed from account movements.
+- Filters should recompute summary and cohort views.
 
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed cohort metrics.
@@ -1410,6 +1512,11 @@ This must not be a static 3D scene, a car on an empty plane, a generic driving t
 - Avoid clipping through major objects during the intro and normal driving.
 - The demo should feel alive through motion: flags, dust, lights, moving silhouettes, or animated props.
 
+#### DEPTH CHECKPOINTS
+- The intro must transition into player control clearly.
+- Vehicle movement, checkpoints, and storm intensity should all be visible.
+- Performance choices should preserve scene density without going blank or muddy.
+
 #### TECHNICAL REQUIREMENTS
 - Use Three.js or an appropriate existing 3D library if available in the project.
 - If using Three.js from a CDN, pin a stable version and import consistently.
@@ -1473,6 +1580,11 @@ This must not be a static factory illustration or a clicker with numbers only. T
 - Avoid tiny unreadable sprites and chaotic animations.
 - UI overlay should be compact and game-like.
 
+#### DEPTH CHECKPOINTS
+- Items must visibly move through the factory loop.
+- Upgrades must change throughput, bottleneck, or goal progress.
+- The simulation should have enough rules that reviewers can improve or break it.
+
 #### TECHNICAL REQUIREMENTS
 - Use canvas/SVG/HTML or a game library appropriate to the stack.
 - Use local simulation state and a real update loop.
@@ -1535,6 +1647,11 @@ This must not be a generic top-down square moving around. The drone constraints 
 - Avoid visual clutter that makes the objective unclear.
 - UI should feel like a mission HUD, not a dashboard pasted onto a game.
 
+#### DEPTH CHECKPOINTS
+- Wind or battery must meaningfully affect route choices.
+- Rescue success/failure should be visible and recoverable.
+- The HUD must explain objective, constraints, and current risk at a glance.
+
 #### TECHNICAL REQUIREMENTS
 - Use local game state and a real loop.
 - No external assets required.
@@ -1595,6 +1712,11 @@ This must not be a static nature animation. User choices should change the balan
 - Organic and readable, not a dashboard with a nature wallpaper.
 - Use motion and color to show health and change.
 - Mobile should support scenario controls and overview.
+
+#### DEPTH CHECKPOINTS
+- At least two user controls must produce different ecosystem outcomes.
+- Balance states should emerge from variables, not only button labels.
+- The event log or explanation should connect cause to visible effect.
 
 #### TECHNICAL REQUIREMENTS
 - Use a real simulation loop with local state.
@@ -1658,6 +1780,11 @@ This must not be a static subway map or a decorative animation. The dispatch cho
 - Use color, line thickness, motion, and labels without overwhelming the map.
 - UI should feel like an operations console.
 
+#### DEPTH CHECKPOINTS
+- At least one route conflict must be solvable by user action.
+- Train movement and delay/score changes should be visible over time.
+- Random or scripted events should alter dispatch decisions.
+
 #### TECHNICAL REQUIREMENTS
 - Use local simulation data and real movement.
 - No external transit APIs required.
@@ -1720,6 +1847,11 @@ This must not be a static particle background. It should behave like an instrume
 - Avoid overwhelming bloom or unreadable controls.
 - Layout should keep grid, controls, and canvas stable.
 
+#### DEPTH CHECKPOINTS
+- Step toggles must change the visual rhythm immediately.
+- Tempo and pattern controls should alter animation timing/state.
+- Presets or randomization should create noticeably different compositions.
+
 #### TECHNICAL REQUIREMENTS
 - Use a real animation loop.
 - No audio dependency required.
@@ -1779,6 +1911,11 @@ This must not become a rewrite for rewrite's sake, a new unrelated app, or a cos
 - Do not introduce a new framework, state library, router, database, or build tool unless the project already points that way.
 - Do not delete large sections of existing functionality just to simplify the task.
 - If something is ambiguous, make a reasonable assumption and state it in the final summary.
+
+#### DEPTH CHECKPOINTS
+- The chosen primary flow must become actually usable, not merely prettier.
+- Changes should preserve the original product identity.
+- The summary must separate implemented work from assumptions and shortcuts.
 
 #### VERIFICATION REQUIREMENTS
 - Run the relevant install/build/test/dev command if available and practical.
@@ -1842,6 +1979,11 @@ This must not become a visual downgrade disguised as optimization. The goal is t
 - Avoid premature optimization unrelated to the observed issue.
 - Keep code readable.
 
+#### DEPTH CHECKPOINTS
+- Optimization must name a plausible bottleneck and the specific mitigation used.
+- The main spectacle or product promise should remain visible.
+- Before/after evidence can be qualitative, but must be honest.
+
 #### VERIFICATION REQUIREMENTS
 - Verify the app still renders and the primary interaction still works.
 - Compare before/after behavior using available signals: frame feel, render count, console, build output, or profiler if practical.
@@ -1901,6 +2043,11 @@ This must not be a superficial media-query pass. The goal is to fix real layout,
 - Avoid deleting desktop functionality.
 - Do not hide core actions on mobile.
 - Keep responsive rules understandable.
+
+#### DEPTH CHECKPOINTS
+- Mobile fixes must address actual overflow/clipping/unreachable controls.
+- Desktop behavior should be checked after responsive changes.
+- The primary user flow must remain complete on phone width.
 
 #### VERIFICATION REQUIREMENTS
 - Verify at desktop and mobile viewport sizes.
@@ -1962,6 +2109,11 @@ This must not become an abstract design-system project detached from the app. Th
 - Do not introduce a large UI library unless the project already uses it.
 - Keep compatibility with existing styles.
 
+#### DEPTH CHECKPOINTS
+- Tokens/components should replace real repeated patterns, not create unused abstractions.
+- At least one visible screen should use the migrated system.
+- Behavioral changes should be avoided or explicitly justified.
+
 #### VERIFICATION REQUIREMENTS
 - Run available checks.
 - Preview the affected screen if practical.
@@ -2021,6 +2173,11 @@ This must not become a testing-theater exercise. The tests should cover behavior
 - Do not snapshot-test everything just to claim coverage.
 - Do not mock away the behavior being tested.
 - Keep tests readable and maintainable.
+
+#### DEPTH CHECKPOINTS
+- Tests should cover user-observable behavior, not only implementation details.
+- At least one negative or edge state should be tested.
+- The chosen test style should match existing project conventions.
 
 #### VERIFICATION REQUIREMENTS
 - Run the relevant test command.
@@ -2088,6 +2245,11 @@ This must not become five rushed patches. The goal is to reason carefully, repro
 - Do not mark every report as fixed without evidence.
 - Do not remove constraints such as demo mode just to satisfy a report.
 - Keep commits or changes logically grouped in the final explanation.
+
+#### DEPTH CHECKPOINTS
+- Each bug report must be classified before fixing.
+- Fixed items need individual verification notes.
+- Reports that are expected behavior or unclear must not be force-fit into code changes.
 
 #### VERIFICATION REQUIREMENTS
 - Run relevant tests or manual verification.
