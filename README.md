@@ -23,55 +23,55 @@ The format is inspired by presentation-order prompt collections: numbered prompt
 | # | Title |
 |---:|---|
 | 1 | [Photo Meal Coach - From Camera Moment To Weekly Nutrition Loop](#prompt-01) |
-| 2 | Founder Operating Room - One Screen To Run A Tiny Startup |
-| 3 | Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions |
-| 4 | Family Logistics Console - The Week, The Fridge, The Budget And The Ride |
-| 5 | Creator Launch Studio - From Idea Backlog To Scheduled Release |
-| 6 | Local Knowledge Garden - Notes That Turn Into Tasks And Briefs |
+| 2 | [Founder Operating Room - One Screen To Run A Tiny Startup](#prompt-02) |
+| 3 | [Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions](#prompt-03) |
+| 4 | [Family Logistics Console - The Week, The Fridge, The Budget And The Ride](#prompt-04) |
+| 5 | [Creator Launch Studio - From Idea Backlog To Scheduled Release](#prompt-05) |
+| 6 | [Local Knowledge Garden - Notes That Turn Into Tasks And Briefs](#prompt-06) |
 
 ### Complex Interactive Tools
 
 | # | Title |
 |---:|---|
 | 7 | [Timeline Surgery - Edit A Podcast Without Playing Video](#prompt-07) |
-| 8 | Spatial Kanban - Projects As A Living Risk Map |
-| 9 | Logic Form Builder - Conditional Fields, Validation And Live Preview |
-| 10 | Command Palette File Explorer - Search, Actions And Keyboard Flow |
-| 11 | Visual Workflow Builder - Nodes, Edges, Runs And Failure States |
-| 12 | Design Review Board - Pin Comments Directly Onto Screens |
+| 8 | [Spatial Kanban - Projects As A Living Risk Map](#prompt-08) |
+| 9 | [Logic Form Builder - Conditional Fields, Validation And Live Preview](#prompt-09) |
+| 10 | [Command Palette File Explorer - Search, Actions And Keyboard Flow](#prompt-10) |
+| 11 | [Visual Workflow Builder - Nodes, Edges, Runs And Failure States](#prompt-11) |
+| 12 | [Design Review Board - Pin Comments Directly Onto Screens](#prompt-12) |
 
 ### Data-To-Decision Workspaces
 
 | # | Title |
 |---:|---|
 | 13 | [Ad Spend War Room - Campaigns That Explain Themselves](#prompt-13) |
-| 14 | CSV Forensics - Find The Story In A Messy Export |
-| 15 | Subscription Leak Detector - Where The Money Quietly Leaves |
-| 16 | Support Inbox Intelligence - Turn Tickets Into Product Signals |
-| 17 | Workout Progress Lab - Training Load, Recovery And Plateaus |
-| 18 | Revenue Cohort Explorer - Retention, Expansion And Churn In One View |
+| 14 | [CSV Forensics - Find The Story In A Messy Export](#prompt-14) |
+| 15 | [Subscription Leak Detector - Where The Money Quietly Leaves](#prompt-15) |
+| 16 | [Support Inbox Intelligence - Turn Tickets Into Product Signals](#prompt-16) |
+| 17 | [Workout Progress Lab - Training Load, Recovery And Plateaus](#prompt-17) |
+| 18 | [Revenue Cohort Explorer - Retention, Expansion And Churn In One View](#prompt-18) |
 
 ### Playable Browser Worlds
 
 | # | Title |
 |---:|---|
 | 19 | [Desert Evacuation Drive - Sandstorm, Signal Truck, Playable Escape](#prompt-19) |
-| 20 | Tiny Factory That Teaches Itself - Belts, Bottlenecks And Upgrades |
-| 21 | Rooftop Drone Rescue - Wind, Battery And Path Planning |
-| 22 | Ecosystem Sandbox - Water, Plants, Weather And Balance |
-| 23 | Cyber Train Dispatch - Prevent Delays Across A Living Network |
-| 24 | Particle Music Sequencer - Soundless Visual Rhythm Machine |
+| 20 | [Tiny Factory That Teaches Itself - Belts, Bottlenecks And Upgrades](#prompt-20) |
+| 21 | [Rooftop Drone Rescue - Wind, Battery And Path Planning](#prompt-21) |
+| 22 | [Ecosystem Sandbox - Water, Plants, Weather And Balance](#prompt-22) |
+| 23 | [Cyber Train Dispatch - Prevent Delays Across A Living Network](#prompt-23) |
+| 24 | [Particle Music Sequencer - Soundless Visual Rhythm Machine](#prompt-24) |
 
 ### Repair, Rescue, And Refactor
 
 | # | Title |
 |---:|---|
 | 25 | [Save This Half-Built App - From Static Mockup To Working Product](#prompt-25) |
-| 26 | Performance Rescue - Keep The Spectacle, Remove The Jank |
-| 27 | Mobile Overflow Cleanup - Make The Desktop Beauty Survive A Phone |
-| 28 | Design System Migration - Tokens, Components And No Regressions |
-| 29 | Test The Untested Flow - Add Confidence Without Rewriting The App |
-| 30 | Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set |
+| 26 | [Performance Rescue - Keep The Spectacle, Remove The Jank](#prompt-26) |
+| 27 | [Mobile Overflow Cleanup - Make The Desktop Beauty Survive A Phone](#prompt-27) |
+| 28 | [Design System Migration - Tokens, Components And No Regressions](#prompt-28) |
+| 29 | [Test The Untested Flow - Add Confidence Without Rewriting The App](#prompt-29) |
+| 30 | [Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set](#prompt-30) |
 
 ## Suggested Model Comparison Notes
 
@@ -87,6 +87,28 @@ Suggested dimensions:
 - State handling: are empty, loading, error, and edge states represented?
 - Engineering discipline: is the implementation coherent and maintainable?
 - Verification: did the model run or inspect the result before claiming success?
+
+## Cross-Audit Workflow
+
+Use the same prompt for every model. After each run, save the final app, demo, or patch plus the model's final summary.
+
+For cross-audit, give another model the finished output and this instruction:
+
+```text
+Review this model run against the original prompt. Judge the final working result, not the confidence of the explanation. Identify missed requirements, broken interactions, visual or UX issues, verification gaps, unnecessary complexity, and the three highest-leverage improvements. Do not rewrite the project unless asked; produce a scored audit.
+```
+
+Suggested cross-audit dimensions:
+
+- Prompt coverage
+- First-screen quality
+- Interaction correctness
+- Visual and responsive quality
+- Engineering maintainability
+- Verification honesty
+- Regression or hallucination risk
+
+Each prompt asks the builder model to leave an audit packet at the end of its response. That packet makes it easier to compare runs and easier for a second model to review the result.
 
 ## Prompts
 
@@ -135,6 +157,225 @@ This must not be a generic calorie tracker, a static landing page, a diet blog l
 
 #### FINAL OUTPUT INSTRUCTION
 Build the full implementation now. When finished, summarize what was created, how to open it, what interactions work, and what you verified.
+
+#### AUDIT PACKET
+End with: completed requirements, interactive behaviors, verification performed, known shortcuts, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-02"></a>
+
+<details>
+<summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
+
+```text
+Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
+
+This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
+
+#### FIRST SCREEN - TODAY'S COMPANY, AT A GLANCE
+- Open directly on the operating room, not a landing page.
+- Show runway, revenue pipeline, product progress, launch checklist, customer conversations, and urgent risks in one coherent workspace.
+- The first visible action should be operational: follow up with a customer, ship a feature, fix a blocker, or adjust runway.
+
+#### CORE SYSTEMS
+- Pipeline: leads, trials, active customers, expansion opportunities, churn risk.
+- Cash: current balance, monthly burn, expected invoices, runway, and scenario toggle.
+- Product: roadmap items, status, owner, user impact, and release confidence.
+- Daily focus: automatically derive the top three actions from sample data.
+- Decision log: record what the founder chose and why.
+
+#### INTERACTION AND STATE
+- Let the user update a deal stage, mark a product task shipped, log a customer note, and change a burn-rate scenario.
+- The priority list should update when state changes.
+- Include empty states, overdue states, and risk warnings.
+- Desktop should feel like a command center; mobile should become a tight daily action view.
+
+#### VISUAL AND UX QUALITY
+- Use a calm operating-system feel, not venture-capital theater.
+- Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
+- Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and computed values.
+- Build the full implementation with the existing stack if one exists.
+- Verify at least one pipeline update, one scenario change, and one decision-log entry.
+
+#### AUDIT PACKET
+End with: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-03"></a>
+
+<details>
+<summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
+
+```text
+Create a complete working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
+
+This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
+
+#### FIRST SCREEN - WHO NEEDS ATTENTION TODAY?
+- Open on a prioritized client list with money at risk, next milestone, unpaid amount, response status, and scope health.
+- Show one selected client with project timeline, open decisions, recent notes, invoice state, and next action.
+- The first interaction should let the user resolve a practical issue: send reminder, mark invoice paid, log scope change, or move a milestone.
+
+#### CORE SYSTEMS
+- Client portfolio with at least six clients and varied risk states.
+- Project scope tracker with original scope, added requests, estimate impact, and approval state.
+- Invoice tracker with sent, viewed, overdue, partial, and paid states.
+- Weekly capacity view showing booked hours, delivery load, and unallocated time.
+- Next-action engine that derives priorities from deadlines, money, and blocked decisions.
+
+#### INTERACTION AND STATE
+- Update invoice status, add a scope-change request, move a milestone, and filter by risk.
+- Show how one change affects client health or weekly capacity.
+- Include empty, overdue, over-capacity, and all-clear states.
+
+#### VISUAL AND UX QUALITY
+- Professional, compact, and service-business specific.
+- Avoid generic admin templates; every visible element should connect to consultant decision-making.
+- Mobile should support quick client triage and invoice follow-up.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and real derived status calculations.
+- Keep it self-contained and interactive.
+- Verify the primary client triage flow.
+
+#### AUDIT PACKET
+End with: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
+```
+
+</details>
+
+<a id="prompt-04"></a>
+
+<details>
+<summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
+
+```text
+Create a mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
+
+This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
+
+#### FIRST SCREEN - THE WEEK IS ALREADY IN MOTION
+- Open on the current week with today's schedule, dinner plan, grocery gaps, budget warning, pickup conflicts, and top household tasks.
+- The first screen should include at least one conflict that can be resolved.
+- The first interaction should be concrete: swap dinner, assign pickup, mark pantry item used, or move a task.
+
+#### CORE SYSTEMS
+- Weekly calendar with family members, locations, conflicts, and shared commitments.
+- Meal plan linked to pantry and grocery list.
+- Budget meter for grocery and household spending.
+- Chore/task board with ownership and overdue states.
+- Conflict resolver that suggests realistic changes.
+
+#### INTERACTION AND STATE
+- Let the user assign a task, resolve a pickup conflict, update pantry quantity, and swap a meal.
+- Updating meals should affect groceries and budget.
+- Include states for conflict, missing ingredient, over budget, and quiet day.
+
+#### VISUAL AND UX QUALITY
+- Warm but practical; avoid childish styling or generic productivity layout.
+- Use color to separate people, urgency, and categories without overwhelming the screen.
+- Mobile must be excellent; desktop can show the full week and detail panel.
+
+#### TECHNICAL REQUIREMENTS
+- Build with local sample data and computed conflicts.
+- No external APIs required.
+- Verify at least one cross-system update, such as meal swap changing grocery needs.
+
+#### AUDIT PACKET
+End with: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
+```
+
+</details>
+
+<a id="prompt-05"></a>
+
+<details>
+<summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
+
+```text
+Create a complete app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
+
+This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
+
+#### FIRST SCREEN - WHAT CAN SHIP NEXT?
+- Open on a launch board with idea backlog, active drafts, scheduled posts, asset gaps, and platform readiness.
+- Show one selected idea expanded into hook, outline, assets needed, platforms, and launch checklist.
+- The first action should move a piece of content closer to shipping.
+
+#### CORE SYSTEMS
+- Idea backlog with score for novelty, effort, audience fit, and urgency.
+- Content pipeline with statuses from raw idea to scheduled.
+- Platform adapters for YouTube, X, LinkedIn, newsletter, and short video.
+- Asset checklist and blocker tracking.
+- Lightweight postmortem area for results and learning.
+
+#### INTERACTION AND STATE
+- Let users promote an idea to draft, edit the hook, assign platforms, mark assets ready, and schedule a date.
+- Filters by platform, status, and blocker.
+- Readiness score should update from real state.
+
+#### VISUAL AND UX QUALITY
+- Creator-professional, not influencer glitter.
+- Clear pipeline, compact cards, readable platform differences, and obvious blockers.
+- Mobile should support idea capture and today's publishing tasks.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample content and real state updates.
+- Do not require social platform APIs.
+- Verify idea-to-scheduled flow.
+
+#### AUDIT PACKET
+End with: implemented workflow, state updates, verification performed, and what is simulated.
+```
+
+</details>
+
+<a id="prompt-06"></a>
+
+<details>
+<summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
+
+```text
+Create a complete local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
+
+This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
+
+#### FIRST SCREEN - KNOWLEDGE READY TO USE
+- Open on a workspace with recent notes, topic clusters, open questions, extracted tasks, and a draft brief.
+- Show one selected topic with source notes, linked claims, evidence strength, and next actions.
+- The first interaction should let the user connect notes, extract a task, or add a claim to the brief.
+
+#### CORE SYSTEMS
+- Notes with tags, source type, confidence, and linked topics.
+- Search and filter by topic, source, confidence, and task status.
+- Brief builder that collects claims with citations to local sample notes.
+- Task extraction from notes with ownership and due dates.
+- Knowledge graph or relationship view that is useful, not decorative.
+
+#### INTERACTION AND STATE
+- Add a note, link two notes, promote a highlight into a task, and add evidence to the brief.
+- Show empty search, weak evidence, and unresolved question states.
+- Updates should be reflected across note list, topic view, and brief.
+
+#### VISUAL AND UX QUALITY
+- Quiet, editorial, and tool-like.
+- Avoid mystical garden visuals unless they directly clarify the knowledge structure.
+- Desktop should support tri-pane work; mobile should support capture and review.
+
+#### TECHNICAL REQUIREMENTS
+- Use local data and state only.
+- Do not require AI APIs; simulate extraction with clear local actions if needed.
+- Verify note-to-brief and note-to-task flows.
+
+#### AUDIT PACKET
+End with: working knowledge flows, simulated parts, verification performed, and likely edge cases.
 ```
 
 </details>
@@ -186,6 +427,229 @@ This must not be a static transcript viewer, a generic media dashboard, or a pre
 
 #### FINAL OUTPUT INSTRUCTION
 Build the full implementation now. When finished, summarize the working editor flow, the sample data included, and what you verified.
+
+#### AUDIT PACKET
+End with: completed requirements, synchronized interactions, verification performed, known shortcuts, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-08"></a>
+
+<details>
+<summary><strong>08. Spatial Kanban - Projects As A Living Risk Map</strong></summary>
+
+```text
+Create an interactive tool called Spatial Kanban: a project board where work is arranged on a two-axis map instead of columns, with x-axis progress and y-axis risk.
+
+This must not be a normal kanban with a novelty background. The spatial position must matter and must help users see blocked, risky, nearly-done, and neglected work.
+
+#### FIRST SCREEN - THE MAP TELLS THE STORY
+- Open on a populated project risk map with at least 18 cards, axis labels, clusters, filters, and a selected card detail panel.
+- A user should immediately see which work is dangerous, which work is close to shipping, and which work lacks ownership.
+- The first interaction should be dragging a card or changing a filter.
+
+#### CORE SYSTEMS
+- Cards with owner, progress, risk, deadline, dependencies, and status.
+- Spatial axes for progress and risk with meaningful quadrants.
+- Detail panel with blockers, dependency chain, history, and recommended next action.
+- Views for map, list, and owner workload.
+- Saved filters for "at risk", "unowned", "shipping soon", and "blocked by dependency".
+
+#### INTERACTION AND STATE
+- Drag cards and update progress/risk values.
+- Filters, search, and owner selection should update the map.
+- Dependencies should visibly affect the selected card's risk.
+- Include undo or recent changes list.
+
+#### VISUAL AND UX QUALITY
+- Dense but readable. The map should not become a confetti field.
+- Use stable card sizing, hover/selected states, and clear axes.
+- Mobile should become a prioritized list plus mini map.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and real drag or controlled position updates.
+- Keep state synchronized between map, detail, and list.
+- Verify drag/update, filter, and card selection.
+
+#### AUDIT PACKET
+End with: spatial behaviors implemented, state synchronization, verification performed, and tradeoffs.
+```
+
+</details>
+
+<a id="prompt-09"></a>
+
+<details>
+<summary><strong>09. Logic Form Builder - Conditional Fields, Validation And Live Preview</strong></summary>
+
+```text
+Create a working app called Logic Form Builder: a form-building workspace with conditional fields, validation rules, live preview, and submission review.
+
+This must not be a static form mockup or a settings page full of fake controls. The user must be able to build or modify a form and see logic affect the preview.
+
+#### FIRST SCREEN - BUILDER AND PREVIEW SIDE BY SIDE
+- Open with a sample onboarding form loaded.
+- Show field list, selected field settings, conditional logic, live preview, and recent submissions.
+- The first interaction should be adding a field, toggling a condition, or editing a validation rule.
+
+#### CORE SYSTEMS
+- Field types: text, email, select, checkbox, number, date, textarea.
+- Conditional display rules based on previous answers.
+- Validation rules for required, min/max, format, and custom helper text.
+- Live preview that reflects builder changes.
+- Submission table showing valid, invalid, and incomplete attempts.
+
+#### INTERACTION AND STATE
+- Add, reorder, delete, and edit fields.
+- Configure at least one conditional field and see it appear/disappear in preview.
+- Validate preview input and show inline errors.
+- Include reset and duplicate field actions.
+
+#### VISUAL AND UX QUALITY
+- Tool surface should feel precise and predictable.
+- Use compact controls, tabs or panels, and clear selected states.
+- Avoid huge empty builder areas and decorative app-builder marketing.
+
+#### TECHNICAL REQUIREMENTS
+- Use local state for schema and preview answers.
+- Do not require a backend.
+- Verify that schema changes update the preview and validation works.
+
+#### AUDIT PACKET
+End with: builder features implemented, logic examples, verification performed, and missing production pieces.
+```
+
+</details>
+
+<a id="prompt-10"></a>
+
+<details>
+<summary><strong>10. Command Palette File Explorer - Search, Actions And Keyboard Flow</strong></summary>
+
+```text
+Create a browser app called Command Palette File Explorer: a file-navigation workspace optimized for keyboard search, actions, and fast project orientation.
+
+This must not be a simple file tree or static command palette. Search results, selected file context, commands, and recent actions should work together.
+
+#### FIRST SCREEN - KEYBOARD-FIRST PROJECT CONTROL
+- Open on a project explorer with file tree, command palette open, recent files, selected file preview, and available actions.
+- The first interaction should be typing to filter commands/files or pressing a visible shortcut-style action.
+- Include realistic sample project files across app, components, tests, docs, and config.
+
+#### CORE SYSTEMS
+- Fuzzy search across file names, paths, symbols, and commands.
+- Commands for open file, rename, duplicate, create file, reveal tests, copy path, and pin.
+- File preview with metadata, related files, and quick actions.
+- Recent actions log and pinned files.
+- Empty and no-results states with recovery suggestions.
+
+#### INTERACTION AND STATE
+- Search should update results live.
+- Selecting a result should update preview and active path.
+- Commands should mutate local state where practical.
+- Include keyboard hint UI even if full keyboard handling is limited.
+
+#### VISUAL AND UX QUALITY
+- Crisp developer-tool feel with excellent spacing and contrast.
+- Avoid fake terminal decoration and generic IDE screenshots.
+- Mobile should support search-first file access.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample file data and real filtering.
+- No filesystem access required.
+- Verify search, selection, and at least one state-changing command.
+
+#### AUDIT PACKET
+End with: commands implemented, keyboard/search behavior, verification performed, and limitations.
+```
+
+</details>
+
+<a id="prompt-11"></a>
+
+<details>
+<summary><strong>11. Visual Workflow Builder - Nodes, Edges, Runs And Failure States</strong></summary>
+
+```text
+Create a complete browser tool called Visual Workflow Builder: a node-based automation canvas with triggers, transforms, approvals, outputs, run history, and failure states.
+
+This must not be a static flowchart. The user should be able to edit the workflow and simulate a run with visible node states.
+
+#### FIRST SCREEN - A WORKFLOW MID-RUN
+- Open on a populated workflow canvas with nodes, edges, run status, selected node settings, and event log.
+- The first screen should show one failed node and one waiting approval node.
+- The first action should let the user retry, edit a node, approve a step, or add a connection.
+
+#### CORE SYSTEMS
+- Node types: trigger, filter, transform, AI draft, human approval, webhook, database write, notification.
+- Edge connections with labels and branch conditions.
+- Run simulator with queued, running, success, failed, skipped, and waiting states.
+- Node detail panel with inputs, outputs, settings, and logs.
+- Version or change history for workflow edits.
+
+#### INTERACTION AND STATE
+- Add nodes, select nodes, edit settings, connect or disconnect edges if practical.
+- Simulate run and update node states over time or step-by-step.
+- Retry failed node and show changed result.
+- Include validation for disconnected or misconfigured nodes.
+
+#### VISUAL AND UX QUALITY
+- Canvas should be legible and stable, with meaningful node colors and edge styling.
+- Avoid tiny unreadable labels and random decorative graph layouts.
+- Mobile can become run-monitor and node-detail mode.
+
+#### TECHNICAL REQUIREMENTS
+- Use local workflow data and state.
+- Use a graph/canvas library if already available; otherwise implement a simple robust layout.
+- Verify node selection, simulated run, and retry/approval flow.
+
+#### AUDIT PACKET
+End with: workflow features implemented, simulation behavior, verification performed, and simplifications.
+```
+
+</details>
+
+<a id="prompt-12"></a>
+
+<details>
+<summary><strong>12. Design Review Board - Pin Comments Directly Onto Screens</strong></summary>
+
+```text
+Create a web app called Design Review Board: a visual review workspace where users pin comments directly onto uploaded screen mockups and resolve design feedback.
+
+This must not be a comment list beside an image. The spatial pinning, threaded feedback, status, and screen navigation must be central to the experience.
+
+#### FIRST SCREEN - FEEDBACK ON THE ARTIFACT
+- Open on a selected screen mockup with visible pinned comments, zoom controls, sidebar threads, reviewer filters, and status summary.
+- Include at least three screens in the project and at least eight comments across open, resolved, and needs-decision states.
+- The first interaction should be adding a pin, selecting a comment, or resolving feedback.
+
+#### CORE SYSTEMS
+- Screen gallery with versions and review status.
+- Pin comments with x/y positions, author, priority, status, and replies.
+- Filters by reviewer, priority, status, and screen.
+- Compare mode or version notes for before/after design changes.
+- Summary of unresolved decisions.
+
+#### INTERACTION AND STATE
+- Clicking on the mockup should add a draft pin.
+- Selecting a pin should focus the matching thread.
+- Resolve/reopen comments and add replies.
+- Zoom or fit controls should keep pins aligned.
+
+#### VISUAL AND UX QUALITY
+- Should feel like a design tool, not a blog comment section.
+- Pins need clear states without covering the whole mockup.
+- Desktop is primary; mobile should support review and resolution.
+
+#### TECHNICAL REQUIREMENTS
+- Use local placeholder mockups built with HTML/CSS or lightweight inline assets.
+- Store comments in local state.
+- Verify pin selection, add/reply, resolve, and screen switching.
+
+#### AUDIT PACKET
+End with: review interactions implemented, spatial pin behavior, verification performed, and known gaps.
 ```
 
 </details>
@@ -237,6 +701,228 @@ This must not be a generic chart dashboard, a table dump, or a fake analytics pa
 
 #### FINAL OUTPUT INSTRUCTION
 Build the full implementation now. When finished, summarize what decisions the tool supports, what interactions work, and what you verified.
+
+#### AUDIT PACKET
+End with: completed requirements, computed metrics, verification performed, known shortcuts, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-14"></a>
+
+<details>
+<summary><strong>14. CSV Forensics - Find The Story In A Messy Export</strong></summary>
+
+```text
+Create a complete data app called CSV Forensics: a browser workspace that helps a user inspect a messy CSV export, clean it, find anomalies, and produce a short decision brief.
+
+This must not be a static dashboard or a file-upload facade. The app should include a built-in messy sample dataset and real interactions for cleaning, filtering, inspecting, and summarizing.
+
+#### FIRST SCREEN - THE DATA IS MESSY AND THE TOOL KNOWS IT
+- Open with a sample CSV already loaded.
+- Show detected columns, row count, missing values, duplicate rows, suspicious outliers, and a preview table.
+- The first interaction should let the user apply a cleaning step or inspect an anomaly.
+
+#### CORE SYSTEMS
+- Built-in dataset with missing values, inconsistent categories, duplicate IDs, date issues, and numeric outliers.
+- Cleaning checklist with preview of impact.
+- Profiling for column types, distributions, nulls, uniques, and anomalies.
+- Insight board with automatically generated findings.
+- Export preview for cleaned data and summary brief.
+
+#### INTERACTION AND STATE
+- Toggle cleaning steps and update table/metrics.
+- Filter anomalies by type.
+- Select a row or column to inspect.
+- Mark findings as accepted/rejected and update the brief.
+
+#### VISUAL AND UX QUALITY
+- Data-professional, dense, and readable.
+- Use tables, histograms, badges, and side panels purposefully.
+- Avoid decorative analytics graphics that do not help diagnose data quality.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and real computed stats.
+- Do not require file upload to prove functionality, though optional upload is welcome.
+- Verify cleaning toggle, anomaly filter, and finding-to-brief flow.
+
+#### AUDIT PACKET
+End with: data issues represented, computations implemented, verification performed, and shortcuts.
+```
+
+</details>
+
+<a id="prompt-15"></a>
+
+<details>
+<summary><strong>15. Subscription Leak Detector - Where The Money Quietly Leaves</strong></summary>
+
+```text
+Create a working app called Subscription Leak Detector: a personal or small-business tool that finds waste, duplicate tools, renewal risk, and quiet price increases across recurring subscriptions.
+
+This must not be a generic expense dashboard. The product should help a user decide what to cancel, renegotiate, consolidate, or keep.
+
+#### FIRST SCREEN - MONEY LEAKS FIRST
+- Open with monthly recurring spend, annualized cost, upcoming renewals, suspected waste, duplicate categories, and top recommended actions.
+- Show a prioritized list of subscriptions by decision urgency.
+- The first interaction should let the user mark a subscription as keep/cancel/review.
+
+#### CORE SYSTEMS
+- At least 18 sample subscriptions with vendor, category, owner, cost, billing cycle, renewal date, usage level, and contract notes.
+- Detection for duplicates, unused tools, annual renewal cliffs, price increases, and orphaned owner.
+- Scenario panel showing savings if selected actions are taken.
+- Renewal calendar and category breakdown.
+- Decision log with reason and expected savings.
+
+#### INTERACTION AND STATE
+- Filter by category, owner, renewal window, and recommendation.
+- Change decision status and update savings scenario.
+- Select subscription for usage, billing history, and cancellation notes.
+- Include empty and all-reviewed states.
+
+#### VISUAL AND UX QUALITY
+- Financially clear without feeling like a bank app.
+- Risk and savings should be visible, labeled, and not dependent on color alone.
+- Mobile should prioritize upcoming renewals and decisions.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and computed totals.
+- No banking APIs.
+- Verify filtering, decision update, and savings calculation.
+
+#### AUDIT PACKET
+End with: detection logic implemented, interactive decisions, verification performed, and simulated assumptions.
+```
+
+</details>
+
+<a id="prompt-16"></a>
+
+<details>
+<summary><strong>16. Support Inbox Intelligence - Turn Tickets Into Product Signals</strong></summary>
+
+```text
+Create a browser app called Support Inbox Intelligence: a workspace that clusters customer support tickets into product signals, urgency, themes, and recommended next actions.
+
+This must not be a generic inbox UI. It should help product and support teams understand what customers are really asking for and what to fix first.
+
+#### FIRST SCREEN - THE PATTERNS ARE VISIBLE
+- Open with a ticket inbox, theme clusters, urgency summary, affected customer segments, and recommended product actions.
+- Include at least 24 sample tickets with varied sentiment, plan, topic, and status.
+- The first interaction should let the user select a theme, triage a ticket, or create an action item.
+
+#### CORE SYSTEMS
+- Ticket list with customer, plan, sentiment, topic, age, status, and summary.
+- Theme clustering such as billing confusion, onboarding friction, missing integration, performance, bug, feature request.
+- Product signal panel with frequency, revenue affected, severity, and suggested owner.
+- Triage states: new, needs reply, escalated, product backlog, resolved.
+- Draft response or internal note for selected tickets.
+
+#### INTERACTION AND STATE
+- Filter by theme, plan, sentiment, status, and severity.
+- Change ticket status and watch counts update.
+- Promote a cluster into a product action.
+- Search ticket text and show no-results state.
+
+#### VISUAL AND UX QUALITY
+- Operational and text-heavy without becoming cramped.
+- Clear distinction between individual tickets and aggregate product signals.
+- Mobile should support triage and theme review.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample ticket data and deterministic clustering metadata.
+- Do not require AI APIs.
+- Verify filters, status updates, and action creation.
+
+#### AUDIT PACKET
+End with: ticket intelligence features, state updates, verification performed, and simulated AI pieces.
+```
+
+</details>
+
+<a id="prompt-17"></a>
+
+<details>
+<summary><strong>17. Workout Progress Lab - Training Load, Recovery And Plateaus</strong></summary>
+
+```text
+Create a complete web app called Workout Progress Lab: a training analysis workspace that helps an athlete understand load, recovery, strength progress, plateaus, and next-week adjustments.
+
+This must not be a generic fitness dashboard. It should turn workout history into coaching decisions while avoiding medical claims.
+
+#### FIRST SCREEN - SHOULD I PUSH OR RECOVER?
+- Open with weekly training load, recovery risk, recent PRs, plateau warnings, and recommended next workout adjustment.
+- Show a selected lift or activity with trend, volume, intensity, and notes.
+- The first interaction should let the user log a workout or change next week's plan.
+
+#### CORE SYSTEMS
+- Sample workout history for strength and conditioning across at least six weeks.
+- Metrics: volume, intensity, estimated max, consistency, rest days, soreness, and readiness.
+- Plateau detection for stagnant lifts or overreaching.
+- Plan adjustment suggestions with rationale.
+- Exercise detail view with history and notes.
+
+#### INTERACTION AND STATE
+- Add workout set, update readiness, switch exercise, and adjust plan.
+- Charts and recommendations should update from state.
+- Include deload, missed week, and high-fatigue states.
+
+#### VISUAL AND UX QUALITY
+- Athletic but not gimmicky.
+- Charts should be readable and tied to decisions.
+- Mobile should support logging and quick readiness review.
+
+#### TECHNICAL REQUIREMENTS
+- Use local data and computed trends.
+- No wearables or health APIs required.
+- Verify workout logging and recommendation update.
+
+#### AUDIT PACKET
+End with: computed metrics, interactive flows, verification performed, and health-related limitations.
+```
+
+</details>
+
+<a id="prompt-18"></a>
+
+<details>
+<summary><strong>18. Revenue Cohort Explorer - Retention, Expansion And Churn In One View</strong></summary>
+
+```text
+Create an analytics app called Revenue Cohort Explorer: a SaaS workspace for understanding retention, expansion, churn, and cohort behavior.
+
+This must not be a generic revenue dashboard. It should let a user compare cohorts, inspect accounts, and decide where growth or churn risk is coming from.
+
+#### FIRST SCREEN - COHORTS BEFORE VANITY METRICS
+- Open with a cohort heatmap, MRR movement summary, churn alerts, expansion wins, and selected cohort detail.
+- Include sample cohorts across at least 12 months.
+- The first interaction should let the user select a cohort cell or filter by segment.
+
+#### CORE SYSTEMS
+- Cohort table by signup month and months since signup.
+- Account list with plan, segment, MRR, expansion, contraction, churn risk, and health notes.
+- MRR bridge for new, expansion, contraction, churn, and reactivation.
+- Filters by segment, plan, acquisition source, and account owner.
+- Insight panel explaining why selected cohort changed.
+
+#### INTERACTION AND STATE
+- Select heatmap cells and update account detail.
+- Filter and recompute summary metrics.
+- Mark account risk and update churn watchlist.
+- Include empty and low-data states.
+
+#### VISUAL AND UX QUALITY
+- Executive-readable but analyst-useful.
+- Heatmap colors need labels and accessible contrast.
+- Avoid decorative charts and vague "AI insights".
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and computed cohort metrics.
+- Do not hard-code every displayed number.
+- Verify cohort selection, filtering, and risk update.
+
+#### AUDIT PACKET
+End with: cohort computations, interactions, verification performed, and caveats.
 ```
 
 </details>
@@ -288,6 +974,227 @@ This must not be a static 3D scene, a car on an empty plane, a generic driving t
 
 #### FINAL OUTPUT INSTRUCTION
 Build the full implementation now. When finished, summarize the controls, the objective, performance choices, and what you verified.
+
+#### AUDIT PACKET
+End with: completed requirements, controls and game states, verification performed, known shortcuts, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-20"></a>
+
+<details>
+<summary><strong>20. Tiny Factory That Teaches Itself - Belts, Bottlenecks And Upgrades</strong></summary>
+
+```text
+Create a playable browser simulation called Tiny Factory That Teaches Itself: a compact factory where belts, machines, buffers, bottlenecks, and upgrades form a visible production loop.
+
+This must not be a static factory illustration or a clicker with numbers only. The player should see materials move, understand bottlenecks, and improve throughput.
+
+#### FIRST MOMENT - THE LOOP IS ALREADY RUNNING
+- Open on a small animated factory with resources moving from input to machines to output.
+- Show throughput, bottleneck, backlog, money, and upgrade options.
+- The first interaction should upgrade, reroute, pause, or inspect a machine.
+
+#### WORLD AND GAME SYSTEM
+- At least four machine types with different speeds and outputs.
+- Belts or paths that visibly move items.
+- Bottleneck detection and highlighted slow points.
+- Upgrades for speed, capacity, reliability, or routing.
+- Goals such as hit target output before time runs out.
+
+#### INTERACTION AND STATE
+- Let the player upgrade machines and see throughput change.
+- Include pause/play, speed control, reset, and selected-machine details.
+- Include jam/failure or maintenance state.
+
+#### VISUAL AND UX QUALITY
+- Clear toy-like simulation with readable motion and labels.
+- Avoid tiny unreadable sprites and chaotic animations.
+- UI overlay should be compact and game-like.
+
+#### TECHNICAL REQUIREMENTS
+- Use canvas/SVG/HTML or a game library appropriate to the stack.
+- Use local simulation state and a real update loop.
+- Verify animation, upgrade, reset, and goal state.
+
+#### AUDIT PACKET
+End with: simulation rules, controls, verification performed, and simplifications.
+```
+
+</details>
+
+<a id="prompt-21"></a>
+
+<details>
+<summary><strong>21. Rooftop Drone Rescue - Wind, Battery And Path Planning</strong></summary>
+
+```text
+Create a playable browser game called Rooftop Drone Rescue: the player pilots a rescue drone across rooftops while managing wind, battery, payload, and safe landing zones.
+
+This must not be a generic top-down square moving around. The drone constraints should create meaningful decisions.
+
+#### FIRST MOMENT - RESCUE ROUTE UNDER PRESSURE
+- Open on a city rooftop map with drone, survivor beacon, wind direction, battery, payload status, and landing zones.
+- The first interaction should be flying or plotting a route.
+- The goal must be obvious: reach the survivor, pick up supplies or payload, and return safely.
+
+#### WORLD AND GAME SYSTEM
+- Rooftop obstacles, no-fly zones, wind corridors, charging pads, and rescue targets.
+- Drone movement affected by wind or battery drain.
+- Battery, altitude or payload limits.
+- Checkpoints, rescue completion, fail/retry states.
+- Optional route preview or path planning mode.
+
+#### INTERACTION AND STATE
+- Keyboard or pointer controls.
+- Battery and wind should visibly affect play.
+- Include restart, pause, and difficulty toggle.
+- Show feedback for collision, low battery, rescue success, and unsafe landing.
+
+#### VISUAL AND UX QUALITY
+- Clear city layout with readable hazards and route options.
+- Avoid visual clutter that makes the objective unclear.
+- UI should feel like a mission HUD, not a dashboard pasted onto a game.
+
+#### TECHNICAL REQUIREMENTS
+- Use local game state and a real loop.
+- No external assets required.
+- Verify controls, battery drain, rescue success/failure, and restart.
+
+#### AUDIT PACKET
+End with: game mechanics, controls, verification performed, and known limitations.
+```
+
+</details>
+
+<a id="prompt-22"></a>
+
+<details>
+<summary><strong>22. Ecosystem Sandbox - Water, Plants, Weather And Balance</strong></summary>
+
+```text
+Create an interactive browser sandbox called Ecosystem Sandbox: a living system where water, plants, weather, soil, and small organisms affect each other over time.
+
+This must not be a static nature animation. User choices should change the balance of the system and create visible consequences.
+
+#### FIRST MOMENT - A LIVING SYSTEM, NOT A SCREENSAVER
+- Open on a visible ecosystem with moving weather, water level, plant growth, organism activity, and balance indicators.
+- The first interaction should change rain, add plants, adjust temperature, or introduce organisms.
+- The user should immediately see cause and effect.
+
+#### WORLD AND SYSTEM
+- Variables: water, sunlight, temperature, soil nutrients, plant density, organism population, biodiversity.
+- Weather cycles with rain/drought/sun.
+- Growth and decay over time.
+- Balance states such as thriving, stressed, flooded, drought, overgrazed.
+- Timeline or event log explaining major changes.
+
+#### INTERACTION AND STATE
+- Controls for weather, planting, watering, speed, reset, and scenario presets.
+- Visual changes must match state changes.
+- Include warnings and recovery suggestions.
+
+#### VISUAL AND UX QUALITY
+- Organic and readable, not a dashboard with a nature wallpaper.
+- Use motion and color to show health and change.
+- Mobile should support scenario controls and overview.
+
+#### TECHNICAL REQUIREMENTS
+- Use a real simulation loop with local state.
+- Canvas/SVG/HTML are all acceptable.
+- Verify controls, simulation progression, reset, and at least two ecosystem states.
+
+#### AUDIT PACKET
+End with: simulation variables, user controls, verification performed, and model simplifications.
+```
+
+</details>
+
+<a id="prompt-23"></a>
+
+<details>
+<summary><strong>23. Cyber Train Dispatch - Prevent Delays Across A Living Network</strong></summary>
+
+```text
+Create a playable dispatch simulation called Cyber Train Dispatch: the user manages trains across a busy network, preventing delays, route conflicts, and station overload.
+
+This must not be a static subway map or a decorative animation. The dispatch choices must affect train movement and network health.
+
+#### FIRST MOMENT - THE NETWORK IS ABOUT TO JAM
+- Open on an animated rail network with moving trains, stations, route switches, delay warnings, and a dispatch queue.
+- The first interaction should reroute, hold, prioritize, or clear a train.
+- Include at least one visible conflict that the user can solve.
+
+#### WORLD AND GAME SYSTEM
+- Multiple train lines, stations, switches, and passenger-load indicators.
+- Trains with destinations, speed, delay, priority, and capacity.
+- Conflict detection for shared track segments.
+- Scoring based on on-time arrivals, passenger wait, and safety.
+- Random events such as signal issue, crowd surge, or disabled train.
+
+#### INTERACTION AND STATE
+- Select trains and stations.
+- Change route or hold/release trains.
+- Simulate time with pause/speed controls.
+- Include success, overload, and collision-prevention feedback.
+
+#### VISUAL AND UX QUALITY
+- Network should be readable at a glance.
+- Use color, line thickness, motion, and labels without overwhelming the map.
+- UI should feel like an operations console.
+
+#### TECHNICAL REQUIREMENTS
+- Use local simulation data and real movement.
+- No external transit APIs required.
+- Verify train movement, conflict resolution, and event handling.
+
+#### AUDIT PACKET
+End with: dispatch mechanics, interactions, verification performed, and simplifications.
+```
+
+</details>
+
+<a id="prompt-24"></a>
+
+<details>
+<summary><strong>24. Particle Music Sequencer - Soundless Visual Rhythm Machine</strong></summary>
+
+```text
+Create an interactive browser toy called Particle Music Sequencer: a soundless visual rhythm machine where particles, lanes, beats, patterns, and effects create an understandable composition.
+
+This must not be a static particle background. It should behave like an instrument even if it does not play audio.
+
+#### FIRST MOMENT - A PATTERN IS ALREADY PLAYING
+- Open with a running sequencer, visible beat grid, moving particles, active lanes, pattern controls, and playback state.
+- The first interaction should toggle a step, change tempo, switch pattern, or adjust an effect.
+- The visual rhythm should be obvious without sound.
+
+#### SYSTEM
+- Sequencer grid with at least four lanes and sixteen steps.
+- Particles triggered by active steps with distinct visual behavior per lane.
+- Controls for tempo, density, color mode, pattern, play/pause, clear, randomize.
+- Pattern memory or preset slots.
+- Visual effects such as trail, gravity, burst size, or lane style.
+
+#### INTERACTION AND STATE
+- Toggling steps changes the animation.
+- Tempo affects playback speed.
+- Randomize and clear should work.
+- Include selected-lane details.
+
+#### VISUAL AND UX QUALITY
+- Precise, playful, and legible.
+- Avoid overwhelming bloom or unreadable controls.
+- Layout should keep grid, controls, and canvas stable.
+
+#### TECHNICAL REQUIREMENTS
+- Use a real animation loop.
+- No audio dependency required.
+- Verify play/pause, step toggle, tempo, randomize, and clear.
+
+#### AUDIT PACKET
+End with: sequencer behavior, controls, verification performed, and limitations.
 ```
 
 </details>
@@ -336,6 +1243,226 @@ This must not become a rewrite for rewrite's sake, a new unrelated app, or a cos
 
 #### FINAL OUTPUT INSTRUCTION
 Make the rescue changes now. When finished, summarize the primary flow you chose, the files changed, the verification performed, and any remaining risks.
+
+#### AUDIT PACKET
+End with: primary flow rescued, changes made, verification performed, known shortcuts, and top three places another model should inspect.
+```
+
+</details>
+
+<a id="prompt-26"></a>
+
+<details>
+<summary><strong>26. Performance Rescue - Keep The Spectacle, Remove The Jank</strong></summary>
+
+```text
+You are working in an existing app or demo that looks ambitious but performs poorly. Improve runtime performance while preserving the core visual or product experience.
+
+This must not become a visual downgrade disguised as optimization. The goal is to identify the actual sources of jank, make targeted improvements, and keep the experience impressive.
+
+#### FIRST STEP - MEASURE OR OBSERVE BEFORE EDITING
+- Inspect the project structure, rendering path, data flow, and performance-sensitive areas.
+- Run or preview the app if practical.
+- Identify likely causes such as too many re-renders, expensive loops, layout thrash, unbounded animations, large data operations, or heavy 3D objects.
+
+#### CORE RESCUE GOAL
+- Preserve the main visual/product promise.
+- Reduce unnecessary work through memoization, batching, throttling, instancing, virtualization, simplified geometry, or smarter state boundaries as appropriate.
+- Keep behavior and controls intact.
+- Add a lightweight performance note or debug indicator if useful.
+
+#### ENGINEERING DISCIPLINE
+- Make small, explainable changes.
+- Do not swap frameworks, rewrite the whole app, or remove major features to hide the problem.
+- Avoid premature optimization unrelated to the observed issue.
+- Keep code readable.
+
+#### VERIFICATION REQUIREMENTS
+- Verify the app still renders and the primary interaction still works.
+- Compare before/after behavior using available signals: frame feel, render count, console, build output, or profiler if practical.
+- Note what could not be measured.
+
+#### QUALITY BAR
+- The final result should feel smoother while still recognizably being the same ambitious app.
+- The final summary should explain the bottleneck, changes, tradeoffs, and remaining risk.
+
+#### AUDIT PACKET
+End with: suspected bottlenecks, optimizations made, verification performed, and any visual compromises.
+```
+
+</details>
+
+<a id="prompt-27"></a>
+
+<details>
+<summary><strong>27. Mobile Overflow Cleanup - Make The Desktop Beauty Survive A Phone</strong></summary>
+
+```text
+You are working in an existing web app that looks good on desktop but breaks on mobile. Make the core experience responsive and usable without redesigning the product from scratch.
+
+This must not be a superficial media-query pass. The goal is to fix real layout, text, control, and navigation issues so the app works on common phone widths.
+
+#### FIRST STEP - FIND THE BREAKS
+- Inspect the main screens and styling approach.
+- Run or preview the app if practical.
+- Identify likely mobile failures: overflow, clipped text, unusable controls, stacked panels, fixed widths, hidden actions, or impossible tables.
+
+#### CORE RESCUE GOAL
+- Preserve the desktop design direction.
+- Make the primary flow usable on mobile.
+- Fix text wrapping, button sizing, panel stacking, tables/lists, navigation, and sticky controls.
+- Add mobile-specific hierarchy where needed, such as summary-first panels, tabs, accordions, or horizontal scroll only when appropriate.
+
+#### ENGINEERING DISCIPLINE
+- Reuse existing classes/components where possible.
+- Avoid deleting desktop functionality.
+- Do not hide core actions on mobile.
+- Keep responsive rules understandable.
+
+#### VERIFICATION REQUIREMENTS
+- Verify at desktop and mobile viewport sizes.
+- Check for horizontal page overflow, clipped labels, overlapping text, and unreachable actions.
+- If browser verification is blocked, explain what static checks were performed.
+
+#### QUALITY BAR
+- The mobile result should feel intentionally designed, not squeezed.
+- The desktop should remain intact.
+
+#### AUDIT PACKET
+End with: mobile issues fixed, viewports checked, verification performed, and remaining responsive risk.
+```
+
+</details>
+
+<a id="prompt-28"></a>
+
+<details>
+<summary><strong>28. Design System Migration - Tokens, Components And No Regressions</strong></summary>
+
+```text
+You are working in an existing app with repeated UI patterns, inconsistent spacing, color, typography, and component variants. Migrate the visible surface toward a small design system without changing product behavior.
+
+This must not become an abstract design-system project detached from the app. The user should see a more consistent product, and the code should become easier to extend.
+
+#### FIRST STEP - AUDIT THE SURFACE
+- Inspect repeated buttons, cards, panels, forms, tables, status labels, spacing, and colors.
+- Identify the smallest set of tokens/components that will reduce meaningful inconsistency.
+- Avoid touching unrelated logic.
+
+#### CORE MIGRATION GOAL
+- Introduce or consolidate tokens for color, spacing, radius, typography, and states.
+- Extract or standardize core components such as button, input, panel, badge, table row, empty state, or toolbar.
+- Apply the system to one or more real screens.
+- Preserve existing interactions and data behavior.
+
+#### ENGINEERING DISCIPLINE
+- Keep the migration incremental.
+- Do not rename everything for aesthetics.
+- Do not introduce a large UI library unless the project already uses it.
+- Keep compatibility with existing styles.
+
+#### VERIFICATION REQUIREMENTS
+- Run available checks.
+- Preview the affected screen if practical.
+- Verify that core interactions still work after component consolidation.
+
+#### QUALITY BAR
+- The app should look more coherent immediately.
+- The design system should be small, visible, and justified by repeated usage.
+
+#### AUDIT PACKET
+End with: components/tokens created, screens migrated, verification performed, and regression risks.
+```
+
+</details>
+
+<a id="prompt-29"></a>
+
+<details>
+<summary><strong>29. Test The Untested Flow - Add Confidence Without Rewriting The App</strong></summary>
+
+```text
+You are working in an existing project with an important user flow that has little or no test coverage. Add practical confidence around that flow without rewriting the app.
+
+This must not become a testing-theater exercise. The tests should cover behavior that would matter to a user or maintainer.
+
+#### FIRST STEP - DISCOVER TEST PATTERNS
+- Inspect the project structure, test framework, scripts, and existing tests.
+- Identify one important flow that is currently weakly covered.
+- Understand how the app expects tests to be written before adding new tools.
+
+#### CORE TESTING GOAL
+- Add focused tests for the chosen flow.
+- Cover at least one success path and one failure, empty, validation, or edge state.
+- If the flow requires minor testability improvements, make the smallest safe changes.
+- Keep implementation behavior unchanged unless you uncover a bug, then fix it narrowly.
+
+#### ENGINEERING DISCIPLINE
+- Do not introduce a new test framework if one exists.
+- Do not snapshot-test everything just to claim coverage.
+- Do not mock away the behavior being tested.
+- Keep tests readable and maintainable.
+
+#### VERIFICATION REQUIREMENTS
+- Run the relevant test command.
+- If tests cannot run, explain exactly why and still provide static confidence.
+- Note any existing failing tests separately from your changes.
+
+#### QUALITY BAR
+- A future maintainer should understand what behavior is protected and why.
+- The final summary should be honest about coverage boundaries.
+
+#### AUDIT PACKET
+End with: flow chosen, tests added, command run, result, and residual risk.
+```
+
+</details>
+
+<a id="prompt-30"></a>
+
+<details>
+<summary><strong>30. Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set</strong></summary>
+
+```text
+You are working in an existing project with five user bug reports. Triage them, identify which are real and actionable, fix the highest-value issues, and avoid changing behavior for reports that are not bugs.
+
+Bug reports:
+1. "Search loses my query when I switch tabs."
+2. "The export button is broken because it does not download anything in the demo account."
+3. "On mobile, the details drawer covers the save button."
+4. "The app is slow after I import 500 rows."
+5. "The status says synced even after I edit a field offline."
+
+This must not become five rushed patches. The goal is to reason carefully, reproduce or inspect the likely paths, and produce a clean patch set for the real issues you can verify.
+
+#### FIRST STEP - TRIAGE BEFORE FIXING
+- Inspect the codebase and identify relevant areas for each report.
+- Classify each report as likely bug, expected behavior, unclear, or needs product decision.
+- Pick the most valuable real bugs to fix within the current scope.
+
+#### CORE REPAIR GOAL
+- Fix at least two real issues if the codebase supports them.
+- Keep changes isolated and explain why any report was not fixed.
+- Add or update tests where the project has a relevant pattern.
+- Preserve intended behavior, especially around demo restrictions and offline/sync semantics.
+
+#### ENGINEERING DISCIPLINE
+- Do not rewrite major systems to solve small bugs.
+- Do not mark every report as fixed without evidence.
+- Do not remove constraints such as demo mode just to satisfy a report.
+- Keep commits or changes logically grouped in the final explanation.
+
+#### VERIFICATION REQUIREMENTS
+- Run relevant tests or manual verification.
+- Verify each fixed report individually.
+- For unfixed reports, state what evidence is missing or what product decision is needed.
+
+#### QUALITY BAR
+- The result should look like senior bug triage: calm, scoped, evidence-based, and honest.
+- The final answer should separate fixed, not-a-bug, unclear, and deferred items.
+
+#### AUDIT PACKET
+End with: triage table, fixes made, verification performed per report, and unresolved risks.
 ```
 
 </details>
