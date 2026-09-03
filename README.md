@@ -4,7 +4,18 @@ A reusable collection of high-density coding prompts for comparing models inside
 
 Each prompt is designed to be copied directly into Verdent. The goal is not to test whether a model can answer a coding question, but whether it can turn an ambitious product or engineering brief into a working result that can be opened, inspected, and compared across models.
 
-The format is inspired by presentation-order prompt collections: numbered prompts, strong titles, collapsed prompt text, and self-contained specifications.
+The format follows a presentation-order prompt collection: numbered prompts, strong titles, collapsed prompt text, and self-contained specifications. Each entry contains only what the builder model needs to run the test.
+
+## Prompt Design Rules
+
+These prompts are intentionally written as pressure tests, not feature requests:
+
+- First screen first: the opening screen or first playable moment must prove the concept immediately.
+- One ambitious object: each prompt asks for a specific product, tool, demo, or rescue outcome, not a vague category.
+- Must-not clauses: every prompt names common low-effort failures so models cannot satisfy the task with a generic template.
+- Layered systems: prompts combine product logic, interaction, state, visual quality, technical constraints, and verification.
+- Local by default: external services are simulated with local data so model runs stay comparable.
+- Reviewable output: every prompt ends with an audit packet for cross-model review.
 
 ## Sections
 
@@ -271,6 +282,9 @@ This must not be a generic CRM, a decorative startup dashboard, or a pile of unr
 - Build the full implementation with the existing stack if one exists.
 - Verify at least one pipeline update, one scenario change, and one decision-log entry.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -298,7 +312,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
+Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
 
 This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
 
@@ -329,6 +343,9 @@ This must not be a generic project tracker or invoice mockup. It should expose t
 - Keep it self-contained and interactive.
 - Verify the primary client triage flow.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -356,7 +373,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
+Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
 
 This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
 
@@ -387,6 +404,9 @@ This must not be a simple calendar, a todo list, or a recipe app. It should show
 - No external APIs required.
 - Verify at least one cross-system update, such as meal swap changing grocery needs.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -414,7 +434,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
+Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
 
 This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
 
@@ -445,6 +465,9 @@ This must not be a generic content calendar or social media dashboard. It should
 - Do not require social platform APIs.
 - Verify idea-to-scheduled flow.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -472,7 +495,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
+Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
 
 This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
 
@@ -502,6 +525,9 @@ This must not be a generic notes app, markdown editor, or static knowledge graph
 - Use local data and state only.
 - Do not require AI APIs; simulate extraction with clear local actions if needed.
 - Verify note-to-brief and note-to-task flows.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -599,7 +625,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create an interactive tool called Spatial Kanban: a project board where work is arranged on a two-axis map instead of columns, with x-axis progress and y-axis risk.
+Create a maximum-ambition interactive tool called Spatial Kanban: a project board where work is arranged on a two-axis map instead of columns, with x-axis progress and y-axis risk.
 
 This must not be a normal kanban with a novelty background. The spatial position must matter and must help users see blocked, risky, nearly-done, and neglected work.
 
@@ -631,6 +657,9 @@ This must not be a normal kanban with a novelty background. The spatial position
 - Keep state synchronized between map, detail, and list.
 - Verify drag/update, filter, and card selection.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -658,7 +687,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a working app called Logic Form Builder: a form-building workspace with conditional fields, validation rules, live preview, and submission review.
+Create a maximum-ambition working app called Logic Form Builder: a form-building workspace with conditional fields, validation rules, live preview, and submission review.
 
 This must not be a static form mockup or a settings page full of fake controls. The user must be able to build or modify a form and see logic affect the preview.
 
@@ -690,6 +719,9 @@ This must not be a static form mockup or a settings page full of fake controls. 
 - Do not require a backend.
 - Verify that schema changes update the preview and validation works.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -717,7 +749,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a browser app called Command Palette File Explorer: a file-navigation workspace optimized for keyboard search, actions, and fast project orientation.
+Create a maximum-ambition browser app called Command Palette File Explorer: a file-navigation workspace optimized for keyboard search, actions, and fast project orientation.
 
 This must not be a simple file tree or static command palette. Search results, selected file context, commands, and recent actions should work together.
 
@@ -749,6 +781,9 @@ This must not be a simple file tree or static command palette. Search results, s
 - No filesystem access required.
 - Verify search, selection, and at least one state-changing command.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -776,7 +811,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete browser tool called Visual Workflow Builder: a node-based automation canvas with triggers, transforms, approvals, outputs, run history, and failure states.
+Create a maximum-ambition browser tool called Visual Workflow Builder: a node-based automation canvas with triggers, transforms, approvals, outputs, run history, and failure states.
 
 This must not be a static flowchart. The user should be able to edit the workflow and simulate a run with visible node states.
 
@@ -808,6 +843,9 @@ This must not be a static flowchart. The user should be able to edit the workflo
 - Use a graph/canvas library if already available; otherwise implement a simple robust layout.
 - Verify node selection, simulated run, and retry/approval flow.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -835,7 +873,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a web app called Design Review Board: a visual review workspace where users pin comments directly onto uploaded screen mockups and resolve design feedback.
+Create a maximum-ambition web app called Design Review Board: a visual review workspace where users pin comments directly onto uploaded screen mockups and resolve design feedback.
 
 This must not be a comment list beside an image. The spatial pinning, threaded feedback, status, and screen navigation must be central to the experience.
 
@@ -866,6 +904,9 @@ This must not be a comment list beside an image. The spatial pinning, threaded f
 - Use local placeholder mockups built with HTML/CSS or lightweight inline assets.
 - Store comments in local state.
 - Verify pin selection, add/reply, resolve, and screen switching.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -963,7 +1004,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete data app called CSV Forensics: a browser workspace that helps a user inspect a messy CSV export, clean it, find anomalies, and produce a short decision brief.
+Create a maximum-ambition data app called CSV Forensics: a browser workspace that helps a user inspect a messy CSV export, clean it, find anomalies, and produce a short decision brief.
 
 This must not be a static dashboard or a file-upload facade. The app should include a built-in messy sample dataset and real interactions for cleaning, filtering, inspecting, and summarizing.
 
@@ -995,6 +1036,9 @@ This must not be a static dashboard or a file-upload facade. The app should incl
 - Do not require file upload to prove functionality, though optional upload is welcome.
 - Verify cleaning toggle, anomaly filter, and finding-to-brief flow.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1022,7 +1066,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a working app called Subscription Leak Detector: a personal or small-business tool that finds waste, duplicate tools, renewal risk, and quiet price increases across recurring subscriptions.
+Create a maximum-ambition working app called Subscription Leak Detector: a personal or small-business tool that finds waste, duplicate tools, renewal risk, and quiet price increases across recurring subscriptions.
 
 This must not be a generic expense dashboard. The product should help a user decide what to cancel, renegotiate, consolidate, or keep.
 
@@ -1054,6 +1098,9 @@ This must not be a generic expense dashboard. The product should help a user dec
 - No banking APIs.
 - Verify filtering, decision update, and savings calculation.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1081,7 +1128,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a browser app called Support Inbox Intelligence: a workspace that clusters customer support tickets into product signals, urgency, themes, and recommended next actions.
+Create a maximum-ambition browser app called Support Inbox Intelligence: a workspace that clusters customer support tickets into product signals, urgency, themes, and recommended next actions.
 
 This must not be a generic inbox UI. It should help product and support teams understand what customers are really asking for and what to fix first.
 
@@ -1113,6 +1160,9 @@ This must not be a generic inbox UI. It should help product and support teams un
 - Do not require AI APIs.
 - Verify filters, status updates, and action creation.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1140,7 +1190,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a complete web app called Workout Progress Lab: a training analysis workspace that helps an athlete understand load, recovery, strength progress, plateaus, and next-week adjustments.
+Create a maximum-ambition web app called Workout Progress Lab: a training analysis workspace that helps an athlete understand load, recovery, strength progress, plateaus, and next-week adjustments.
 
 This must not be a generic fitness dashboard. It should turn workout history into coaching decisions while avoiding medical claims.
 
@@ -1171,6 +1221,9 @@ This must not be a generic fitness dashboard. It should turn workout history int
 - No wearables or health APIs required.
 - Verify workout logging and recommendation update.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1198,7 +1251,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create an analytics app called Revenue Cohort Explorer: a SaaS workspace for understanding retention, expansion, churn, and cohort behavior.
+Create a maximum-ambition analytics app called Revenue Cohort Explorer: a SaaS workspace for understanding retention, expansion, churn, and cohort behavior.
 
 This must not be a generic revenue dashboard. It should let a user compare cohorts, inspect accounts, and decide where growth or churn risk is coming from.
 
@@ -1229,6 +1282,9 @@ This must not be a generic revenue dashboard. It should let a user compare cohor
 - Use local sample data and computed cohort metrics.
 - Do not hard-code every displayed number.
 - Verify cohort selection, filtering, and risk update.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -1326,7 +1382,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a playable browser simulation called Tiny Factory That Teaches Itself: a compact factory where belts, machines, buffers, bottlenecks, and upgrades form a visible production loop.
+Create a maximum-ambition playable browser simulation called Tiny Factory That Teaches Itself: a compact factory where belts, machines, buffers, bottlenecks, and upgrades form a visible production loop.
 
 This must not be a static factory illustration or a clicker with numbers only. The player should see materials move, understand bottlenecks, and improve throughput.
 
@@ -1357,6 +1413,9 @@ This must not be a static factory illustration or a clicker with numbers only. T
 - Use local simulation state and a real update loop.
 - Verify animation, upgrade, reset, and goal state.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1384,7 +1443,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a playable browser game called Rooftop Drone Rescue: the player pilots a rescue drone across rooftops while managing wind, battery, payload, and safe landing zones.
+Create a maximum-ambition playable browser game called Rooftop Drone Rescue: the player pilots a rescue drone across rooftops while managing wind, battery, payload, and safe landing zones.
 
 This must not be a generic top-down square moving around. The drone constraints should create meaningful decisions.
 
@@ -1416,6 +1475,9 @@ This must not be a generic top-down square moving around. The drone constraints 
 - No external assets required.
 - Verify controls, battery drain, rescue success/failure, and restart.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1443,7 +1505,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create an interactive browser sandbox called Ecosystem Sandbox: a living system where water, plants, weather, soil, and small organisms affect each other over time.
+Create a maximum-ambition interactive browser sandbox called Ecosystem Sandbox: a living system where water, plants, weather, soil, and small organisms affect each other over time.
 
 This must not be a static nature animation. User choices should change the balance of the system and create visible consequences.
 
@@ -1474,6 +1536,9 @@ This must not be a static nature animation. User choices should change the balan
 - Canvas/SVG/HTML are all acceptable.
 - Verify controls, simulation progression, reset, and at least two ecosystem states.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1501,7 +1566,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create a playable dispatch simulation called Cyber Train Dispatch: the user manages trains across a busy network, preventing delays, route conflicts, and station overload.
+Create a maximum-ambition playable dispatch simulation called Cyber Train Dispatch: the user manages trains across a busy network, preventing delays, route conflicts, and station overload.
 
 This must not be a static subway map or a decorative animation. The dispatch choices must affect train movement and network health.
 
@@ -1533,6 +1598,9 @@ This must not be a static subway map or a decorative animation. The dispatch cho
 - No external transit APIs required.
 - Verify train movement, conflict resolution, and event handling.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1560,7 +1628,7 @@ End with a compact audit packet containing:
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
-Create an interactive browser toy called Particle Music Sequencer: a soundless visual rhythm machine where particles, lanes, beats, patterns, and effects create an understandable composition.
+Create a maximum-ambition interactive browser toy called Particle Music Sequencer: a soundless visual rhythm machine where particles, lanes, beats, patterns, and effects create an understandable composition.
 
 This must not be a static particle background. It should behave like an instrument even if it does not play audio.
 
@@ -1591,6 +1659,9 @@ This must not be a static particle background. It should behave like an instrume
 - Use a real animation loop.
 - No audio dependency required.
 - Verify play/pause, step toggle, tempo, randomize, and clear.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -1715,6 +1786,9 @@ This must not become a visual downgrade disguised as optimization. The goal is t
 - The final result should feel smoother while still recognizably being the same ambitious app.
 - The final summary should explain the bottleneck, changes, tradeoffs, and remaining risk.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1771,6 +1845,9 @@ This must not be a superficial media-query pass. The goal is to fix real layout,
 #### QUALITY BAR
 - The mobile result should feel intentionally designed, not squeezed.
 - The desktop should remain intact.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -1829,6 +1906,9 @@ This must not become an abstract design-system project detached from the app. Th
 - The app should look more coherent immediately.
 - The design system should be small, visible, and justified by repeated usage.
 
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
@@ -1885,6 +1965,9 @@ This must not become a testing-theater exercise. The tests should cover behavior
 #### QUALITY BAR
 - A future maintainer should understand what behavior is protected and why.
 - The final summary should be honest about coverage boundaries.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
@@ -1949,6 +2032,9 @@ This must not become five rushed patches. The goal is to reason carefully, repro
 #### QUALITY BAR
 - The result should look like senior bug triage: calm, scoped, evidence-based, and honest.
 - The final answer should separate fixed, not-a-bug, unclear, and deferred items.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
