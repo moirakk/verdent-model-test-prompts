@@ -88,6 +88,51 @@ Suggested dimensions:
 - Engineering discipline: is the implementation coherent and maintainable?
 - Verification: did the model run or inspect the result before claiming success?
 
+## Recommended Test Run Protocol
+
+For fair model comparisons, keep the run conditions as stable as possible:
+
+1. Start each model from the same clean project state.
+2. Paste exactly one prompt, without extra hints.
+3. Let the model work until it claims completion or asks for a necessary decision.
+4. Save the final app, patch, screenshots if available, and final response.
+5. Run the cross-audit instruction with a different model or in a separate review pass.
+6. Score the built result, not the elegance of the narrative.
+
+Suggested run record:
+
+```text
+Model:
+Model version:
+Date:
+Prompt number:
+Project starting state:
+Time budget:
+Tools available:
+Completion status:
+Verification performed:
+Human score:
+Cross-audit score:
+Best observed strength:
+Biggest failure:
+Would use this model for this task type again:
+```
+
+## Scoring Sheet
+
+Use 1-5 for each dimension:
+
+| Dimension | 1 | 3 | 5 |
+|---|---|---|---|
+| Completion | Mostly missing or only planned | Partial working slice | Complete requested experience |
+| First-screen quality | Generic or unclear | Understandable but ordinary | Immediately proves the concept |
+| Interaction depth | Static or fake controls | Some working interactions | Core workflow works end to end |
+| Product judgment | Template choices | Reasonable defaults | Strong domain-specific decisions |
+| Visual/UX quality | Broken, cluttered, or bland | Usable but uneven | Intentional, polished, responsive |
+| State handling | No meaningful state | Basic state | Edge, empty, error, and update states |
+| Engineering quality | Brittle or chaotic | Acceptable | Coherent, scoped, maintainable |
+| Verification honesty | Claims without checking | Some checking | Clear checks and honest limits |
+
 ## Cross-Audit Workflow
 
 Use the same prompt for every model. After each run, save the final app, demo, or patch plus the model's final summary.
@@ -120,6 +165,15 @@ Each prompt asks the builder model to leave an audit packet at the end of its re
 <summary><strong>01. Photo Meal Coach - From Camera Moment To Weekly Nutrition Loop</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a maximum-ambition mobile-first web app called Photo Meal Coach: a nutrition assistant that turns a single meal photo moment into a weekly coaching loop.
 
 This must not be a generic calorie tracker, a static landing page, a diet blog layout, or a dashboard full of disconnected cards. It should feel like a product someone could open at lunch, log a meal in under a minute, correct the estimate, and understand how today's choices affect the week.
@@ -159,7 +213,13 @@ This must not be a generic calorie tracker, a static landing page, a diet blog l
 Build the full implementation now. When finished, summarize what was created, how to open it, what interactions work, and what you verified.
 
 #### AUDIT PACKET
-End with: completed requirements, interactive behaviors, verification performed, known shortcuts, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, interactive behaviors, verification performed, known shortcuts, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -170,6 +230,15 @@ End with: completed requirements, interactive behaviors, verification performed,
 <summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
 
 This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
@@ -203,7 +272,13 @@ This must not be a generic CRM, a decorative startup dashboard, or a pile of unr
 - Verify at least one pipeline update, one scenario change, and one decision-log entry.
 
 #### AUDIT PACKET
-End with: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -214,6 +289,15 @@ End with: completed requirements, known shortcuts, verification performed, and t
 <summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
 
 This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
@@ -246,7 +330,13 @@ This must not be a generic project tracker or invoice mockup. It should expose t
 - Verify the primary client triage flow.
 
 #### AUDIT PACKET
-End with: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -257,6 +347,15 @@ End with: what can be changed by the user, which values are computed, verificati
 <summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
 
 This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
@@ -289,7 +388,13 @@ This must not be a simple calendar, a todo list, or a recipe app. It should show
 - Verify at least one cross-system update, such as meal swap changing grocery needs.
 
 #### AUDIT PACKET
-End with: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -300,6 +405,15 @@ End with: cross-system interactions implemented, responsive behavior, verificati
 <summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
 
 This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
@@ -332,7 +446,13 @@ This must not be a generic content calendar or social media dashboard. It should
 - Verify idea-to-scheduled flow.
 
 #### AUDIT PACKET
-End with: implemented workflow, state updates, verification performed, and what is simulated.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -343,6 +463,15 @@ End with: implemented workflow, state updates, verification performed, and what 
 <summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
 
 This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
@@ -375,7 +504,13 @@ This must not be a generic notes app, markdown editor, or static knowledge graph
 - Verify note-to-brief and note-to-task flows.
 
 #### AUDIT PACKET
-End with: working knowledge flows, simulated parts, verification performed, and likely edge cases.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -388,6 +523,15 @@ End with: working knowledge flows, simulated parts, verification performed, and 
 <summary><strong>07. Timeline Surgery - Edit A Podcast Without Playing Video</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a maximum-ambition browser tool called Timeline Surgery: an editing workspace for turning a long podcast or interview into short clips without needing to play the source video.
 
 This must not be a static transcript viewer, a generic media dashboard, or a pretty mockup with fake controls. It should feel like a working editor where transcript, timeline, clip candidates, speaker turns, and export decisions stay synchronized.
@@ -429,7 +573,13 @@ This must not be a static transcript viewer, a generic media dashboard, or a pre
 Build the full implementation now. When finished, summarize the working editor flow, the sample data included, and what you verified.
 
 #### AUDIT PACKET
-End with: completed requirements, synchronized interactions, verification performed, known shortcuts, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, synchronized interactions, verification performed, known shortcuts, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -440,6 +590,15 @@ End with: completed requirements, synchronized interactions, verification perfor
 <summary><strong>08. Spatial Kanban - Projects As A Living Risk Map</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create an interactive tool called Spatial Kanban: a project board where work is arranged on a two-axis map instead of columns, with x-axis progress and y-axis risk.
 
 This must not be a normal kanban with a novelty background. The spatial position must matter and must help users see blocked, risky, nearly-done, and neglected work.
@@ -473,7 +632,13 @@ This must not be a normal kanban with a novelty background. The spatial position
 - Verify drag/update, filter, and card selection.
 
 #### AUDIT PACKET
-End with: spatial behaviors implemented, state synchronization, verification performed, and tradeoffs.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: spatial behaviors implemented, state synchronization, verification performed, and tradeoffs.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -484,6 +649,15 @@ End with: spatial behaviors implemented, state synchronization, verification per
 <summary><strong>09. Logic Form Builder - Conditional Fields, Validation And Live Preview</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a working app called Logic Form Builder: a form-building workspace with conditional fields, validation rules, live preview, and submission review.
 
 This must not be a static form mockup or a settings page full of fake controls. The user must be able to build or modify a form and see logic affect the preview.
@@ -517,7 +691,13 @@ This must not be a static form mockup or a settings page full of fake controls. 
 - Verify that schema changes update the preview and validation works.
 
 #### AUDIT PACKET
-End with: builder features implemented, logic examples, verification performed, and missing production pieces.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: builder features implemented, logic examples, verification performed, and missing production pieces.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -528,6 +708,15 @@ End with: builder features implemented, logic examples, verification performed, 
 <summary><strong>10. Command Palette File Explorer - Search, Actions And Keyboard Flow</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a browser app called Command Palette File Explorer: a file-navigation workspace optimized for keyboard search, actions, and fast project orientation.
 
 This must not be a simple file tree or static command palette. Search results, selected file context, commands, and recent actions should work together.
@@ -561,7 +750,13 @@ This must not be a simple file tree or static command palette. Search results, s
 - Verify search, selection, and at least one state-changing command.
 
 #### AUDIT PACKET
-End with: commands implemented, keyboard/search behavior, verification performed, and limitations.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: commands implemented, keyboard/search behavior, verification performed, and limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -572,6 +767,15 @@ End with: commands implemented, keyboard/search behavior, verification performed
 <summary><strong>11. Visual Workflow Builder - Nodes, Edges, Runs And Failure States</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete browser tool called Visual Workflow Builder: a node-based automation canvas with triggers, transforms, approvals, outputs, run history, and failure states.
 
 This must not be a static flowchart. The user should be able to edit the workflow and simulate a run with visible node states.
@@ -605,7 +809,13 @@ This must not be a static flowchart. The user should be able to edit the workflo
 - Verify node selection, simulated run, and retry/approval flow.
 
 #### AUDIT PACKET
-End with: workflow features implemented, simulation behavior, verification performed, and simplifications.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: workflow features implemented, simulation behavior, verification performed, and simplifications.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -616,6 +826,15 @@ End with: workflow features implemented, simulation behavior, verification perfo
 <summary><strong>12. Design Review Board - Pin Comments Directly Onto Screens</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a web app called Design Review Board: a visual review workspace where users pin comments directly onto uploaded screen mockups and resolve design feedback.
 
 This must not be a comment list beside an image. The spatial pinning, threaded feedback, status, and screen navigation must be central to the experience.
@@ -649,7 +868,13 @@ This must not be a comment list beside an image. The spatial pinning, threaded f
 - Verify pin selection, add/reply, resolve, and screen switching.
 
 #### AUDIT PACKET
-End with: review interactions implemented, spatial pin behavior, verification performed, and known gaps.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: review interactions implemented, spatial pin behavior, verification performed, and known gaps.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -662,6 +887,15 @@ End with: review interactions implemented, spatial pin behavior, verification pe
 <summary><strong>13. Ad Spend War Room - Campaigns That Explain Themselves</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a maximum-ambition analytics workspace called Ad Spend War Room: a self-serve tool where a growth lead can understand campaign performance, spot waste, and decide what to change today.
 
 This must not be a generic chart dashboard, a table dump, or a fake analytics page with vague metrics. It should feel like a decision room: every chart, table, alert, and recommendation should help answer what to pause, scale, inspect, or fix.
@@ -703,7 +937,13 @@ This must not be a generic chart dashboard, a table dump, or a fake analytics pa
 Build the full implementation now. When finished, summarize what decisions the tool supports, what interactions work, and what you verified.
 
 #### AUDIT PACKET
-End with: completed requirements, computed metrics, verification performed, known shortcuts, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, computed metrics, verification performed, known shortcuts, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -714,6 +954,15 @@ End with: completed requirements, computed metrics, verification performed, know
 <summary><strong>14. CSV Forensics - Find The Story In A Messy Export</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete data app called CSV Forensics: a browser workspace that helps a user inspect a messy CSV export, clean it, find anomalies, and produce a short decision brief.
 
 This must not be a static dashboard or a file-upload facade. The app should include a built-in messy sample dataset and real interactions for cleaning, filtering, inspecting, and summarizing.
@@ -747,7 +996,13 @@ This must not be a static dashboard or a file-upload facade. The app should incl
 - Verify cleaning toggle, anomaly filter, and finding-to-brief flow.
 
 #### AUDIT PACKET
-End with: data issues represented, computations implemented, verification performed, and shortcuts.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: data issues represented, computations implemented, verification performed, and shortcuts.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -758,6 +1013,15 @@ End with: data issues represented, computations implemented, verification perfor
 <summary><strong>15. Subscription Leak Detector - Where The Money Quietly Leaves</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a working app called Subscription Leak Detector: a personal or small-business tool that finds waste, duplicate tools, renewal risk, and quiet price increases across recurring subscriptions.
 
 This must not be a generic expense dashboard. The product should help a user decide what to cancel, renegotiate, consolidate, or keep.
@@ -791,7 +1055,13 @@ This must not be a generic expense dashboard. The product should help a user dec
 - Verify filtering, decision update, and savings calculation.
 
 #### AUDIT PACKET
-End with: detection logic implemented, interactive decisions, verification performed, and simulated assumptions.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: detection logic implemented, interactive decisions, verification performed, and simulated assumptions.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -802,6 +1072,15 @@ End with: detection logic implemented, interactive decisions, verification perfo
 <summary><strong>16. Support Inbox Intelligence - Turn Tickets Into Product Signals</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a browser app called Support Inbox Intelligence: a workspace that clusters customer support tickets into product signals, urgency, themes, and recommended next actions.
 
 This must not be a generic inbox UI. It should help product and support teams understand what customers are really asking for and what to fix first.
@@ -835,7 +1114,13 @@ This must not be a generic inbox UI. It should help product and support teams un
 - Verify filters, status updates, and action creation.
 
 #### AUDIT PACKET
-End with: ticket intelligence features, state updates, verification performed, and simulated AI pieces.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: ticket intelligence features, state updates, verification performed, and simulated AI pieces.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -846,6 +1131,15 @@ End with: ticket intelligence features, state updates, verification performed, a
 <summary><strong>17. Workout Progress Lab - Training Load, Recovery And Plateaus</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a complete web app called Workout Progress Lab: a training analysis workspace that helps an athlete understand load, recovery, strength progress, plateaus, and next-week adjustments.
 
 This must not be a generic fitness dashboard. It should turn workout history into coaching decisions while avoiding medical claims.
@@ -878,7 +1172,13 @@ This must not be a generic fitness dashboard. It should turn workout history int
 - Verify workout logging and recommendation update.
 
 #### AUDIT PACKET
-End with: computed metrics, interactive flows, verification performed, and health-related limitations.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: computed metrics, interactive flows, verification performed, and health-related limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -889,6 +1189,15 @@ End with: computed metrics, interactive flows, verification performed, and healt
 <summary><strong>18. Revenue Cohort Explorer - Retention, Expansion And Churn In One View</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create an analytics app called Revenue Cohort Explorer: a SaaS workspace for understanding retention, expansion, churn, and cohort behavior.
 
 This must not be a generic revenue dashboard. It should let a user compare cohorts, inspect accounts, and decide where growth or churn risk is coming from.
@@ -922,7 +1231,13 @@ This must not be a generic revenue dashboard. It should let a user compare cohor
 - Verify cohort selection, filtering, and risk update.
 
 #### AUDIT PACKET
-End with: cohort computations, interactions, verification performed, and caveats.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: cohort computations, interactions, verification performed, and caveats.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -935,6 +1250,15 @@ End with: cohort computations, interactions, verification performed, and caveats
 <summary><strong>19. Desert Evacuation Drive - Sandstorm, Signal Truck, Playable Escape</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a maximum-ambition browser-based 3D demo called Desert Evacuation Drive: a cinematic emergency driving scene at a desert music festival as a sandstorm rolls in and the player must reach a signal truck.
 
 This must not be a static 3D scene, a car on an empty plane, a generic driving toy, or a dark foggy demo that hides missing detail. It should open with cinematic impact, then become immediately playable with clear goals and stable controls.
@@ -976,7 +1300,13 @@ This must not be a static 3D scene, a car on an empty plane, a generic driving t
 Build the full implementation now. When finished, summarize the controls, the objective, performance choices, and what you verified.
 
 #### AUDIT PACKET
-End with: completed requirements, controls and game states, verification performed, known shortcuts, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, controls and game states, verification performed, known shortcuts, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -987,6 +1317,15 @@ End with: completed requirements, controls and game states, verification perform
 <summary><strong>20. Tiny Factory That Teaches Itself - Belts, Bottlenecks And Upgrades</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a playable browser simulation called Tiny Factory That Teaches Itself: a compact factory where belts, machines, buffers, bottlenecks, and upgrades form a visible production loop.
 
 This must not be a static factory illustration or a clicker with numbers only. The player should see materials move, understand bottlenecks, and improve throughput.
@@ -1019,7 +1358,13 @@ This must not be a static factory illustration or a clicker with numbers only. T
 - Verify animation, upgrade, reset, and goal state.
 
 #### AUDIT PACKET
-End with: simulation rules, controls, verification performed, and simplifications.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: simulation rules, controls, verification performed, and simplifications.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1030,6 +1375,15 @@ End with: simulation rules, controls, verification performed, and simplification
 <summary><strong>21. Rooftop Drone Rescue - Wind, Battery And Path Planning</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a playable browser game called Rooftop Drone Rescue: the player pilots a rescue drone across rooftops while managing wind, battery, payload, and safe landing zones.
 
 This must not be a generic top-down square moving around. The drone constraints should create meaningful decisions.
@@ -1063,7 +1417,13 @@ This must not be a generic top-down square moving around. The drone constraints 
 - Verify controls, battery drain, rescue success/failure, and restart.
 
 #### AUDIT PACKET
-End with: game mechanics, controls, verification performed, and known limitations.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: game mechanics, controls, verification performed, and known limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1074,6 +1434,15 @@ End with: game mechanics, controls, verification performed, and known limitation
 <summary><strong>22. Ecosystem Sandbox - Water, Plants, Weather And Balance</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create an interactive browser sandbox called Ecosystem Sandbox: a living system where water, plants, weather, soil, and small organisms affect each other over time.
 
 This must not be a static nature animation. User choices should change the balance of the system and create visible consequences.
@@ -1106,7 +1475,13 @@ This must not be a static nature animation. User choices should change the balan
 - Verify controls, simulation progression, reset, and at least two ecosystem states.
 
 #### AUDIT PACKET
-End with: simulation variables, user controls, verification performed, and model simplifications.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: simulation variables, user controls, verification performed, and model simplifications.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1117,6 +1492,15 @@ End with: simulation variables, user controls, verification performed, and model
 <summary><strong>23. Cyber Train Dispatch - Prevent Delays Across A Living Network</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create a playable dispatch simulation called Cyber Train Dispatch: the user manages trains across a busy network, preventing delays, route conflicts, and station overload.
 
 This must not be a static subway map or a decorative animation. The dispatch choices must affect train movement and network health.
@@ -1150,7 +1534,13 @@ This must not be a static subway map or a decorative animation. The dispatch cho
 - Verify train movement, conflict resolution, and event handling.
 
 #### AUDIT PACKET
-End with: dispatch mechanics, interactions, verification performed, and simplifications.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: dispatch mechanics, interactions, verification performed, and simplifications.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1161,6 +1551,15 @@ End with: dispatch mechanics, interactions, verification performed, and simplifi
 <summary><strong>24. Particle Music Sequencer - Soundless Visual Rhythm Machine</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 Create an interactive browser toy called Particle Music Sequencer: a soundless visual rhythm machine where particles, lanes, beats, patterns, and effects create an understandable composition.
 
 This must not be a static particle background. It should behave like an instrument even if it does not play audio.
@@ -1194,7 +1593,13 @@ This must not be a static particle background. It should behave like an instrume
 - Verify play/pause, step toggle, tempo, randomize, and clear.
 
 #### AUDIT PACKET
-End with: sequencer behavior, controls, verification performed, and limitations.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: sequencer behavior, controls, verification performed, and limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1207,6 +1612,15 @@ End with: sequencer behavior, controls, verification performed, and limitations.
 <summary><strong>25. Save This Half-Built App - From Static Mockup To Working Product</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing project that contains a half-built product UI. Turn it from a static or brittle mockup into a working product slice without changing the product's core concept.
 
 This must not become a rewrite for rewrite's sake, a new unrelated app, or a cosmetic-only pass. The goal is to preserve what is promising, identify what is fake or broken, and make the smallest set of changes that turns the app into something a user can actually try.
@@ -1245,7 +1659,13 @@ This must not become a rewrite for rewrite's sake, a new unrelated app, or a cos
 Make the rescue changes now. When finished, summarize the primary flow you chose, the files changed, the verification performed, and any remaining risks.
 
 #### AUDIT PACKET
-End with: primary flow rescued, changes made, verification performed, known shortcuts, and top three places another model should inspect.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: primary flow rescued, changes made, verification performed, known shortcuts, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1256,6 +1676,15 @@ End with: primary flow rescued, changes made, verification performed, known shor
 <summary><strong>26. Performance Rescue - Keep The Spectacle, Remove The Jank</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing app or demo that looks ambitious but performs poorly. Improve runtime performance while preserving the core visual or product experience.
 
 This must not become a visual downgrade disguised as optimization. The goal is to identify the actual sources of jank, make targeted improvements, and keep the experience impressive.
@@ -1287,7 +1716,13 @@ This must not become a visual downgrade disguised as optimization. The goal is t
 - The final summary should explain the bottleneck, changes, tradeoffs, and remaining risk.
 
 #### AUDIT PACKET
-End with: suspected bottlenecks, optimizations made, verification performed, and any visual compromises.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: suspected bottlenecks, optimizations made, verification performed, and any visual compromises.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1298,6 +1733,15 @@ End with: suspected bottlenecks, optimizations made, verification performed, and
 <summary><strong>27. Mobile Overflow Cleanup - Make The Desktop Beauty Survive A Phone</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing web app that looks good on desktop but breaks on mobile. Make the core experience responsive and usable without redesigning the product from scratch.
 
 This must not be a superficial media-query pass. The goal is to fix real layout, text, control, and navigation issues so the app works on common phone widths.
@@ -1329,7 +1773,13 @@ This must not be a superficial media-query pass. The goal is to fix real layout,
 - The desktop should remain intact.
 
 #### AUDIT PACKET
-End with: mobile issues fixed, viewports checked, verification performed, and remaining responsive risk.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: mobile issues fixed, viewports checked, verification performed, and remaining responsive risk.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1340,6 +1790,15 @@ End with: mobile issues fixed, viewports checked, verification performed, and re
 <summary><strong>28. Design System Migration - Tokens, Components And No Regressions</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing app with repeated UI patterns, inconsistent spacing, color, typography, and component variants. Migrate the visible surface toward a small design system without changing product behavior.
 
 This must not become an abstract design-system project detached from the app. The user should see a more consistent product, and the code should become easier to extend.
@@ -1371,7 +1830,13 @@ This must not become an abstract design-system project detached from the app. Th
 - The design system should be small, visible, and justified by repeated usage.
 
 #### AUDIT PACKET
-End with: components/tokens created, screens migrated, verification performed, and regression risks.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: components/tokens created, screens migrated, verification performed, and regression risks.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1382,6 +1847,15 @@ End with: components/tokens created, screens migrated, verification performed, a
 <summary><strong>29. Test The Untested Flow - Add Confidence Without Rewriting The App</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing project with an important user flow that has little or no test coverage. Add practical confidence around that flow without rewriting the app.
 
 This must not become a testing-theater exercise. The tests should cover behavior that would matter to a user or maintainer.
@@ -1413,7 +1887,13 @@ This must not become a testing-theater exercise. The tests should cover behavior
 - The final summary should be honest about coverage boundaries.
 
 #### AUDIT PACKET
-End with: flow chosen, tests added, command run, result, and residual risk.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: flow chosen, tests added, command run, result, and residual risk.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
@@ -1424,6 +1904,15 @@ End with: flow chosen, tests added, command run, result, and residual risk.
 <summary><strong>30. Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set</strong></summary>
 
 ```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
 You are working in an existing project with five user bug reports. Triage them, identify which are real and actionable, fix the highest-value issues, and avoid changing behavior for reports that are not bugs.
 
 Bug reports:
@@ -1462,7 +1951,13 @@ This must not become five rushed patches. The goal is to reason carefully, repro
 - The final answer should separate fixed, not-a-bug, unclear, and deferred items.
 
 #### AUDIT PACKET
-End with: triage table, fixes made, verification performed per report, and unresolved risks.
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: triage table, fixes made, verification performed per report, and unresolved risks.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
