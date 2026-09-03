@@ -84,70 +84,70 @@ These prompts are intentionally written as pressure tests, not feature requests:
 | 29 | [Test The Untested Flow - Add Confidence Without Rewriting The App](#prompt-29) |
 | 30 | [Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set](#prompt-30) |
 
-## Case Capability Matrix
+## Case Capability Matrix / 测试能力矩阵
 
-Use this matrix to choose prompts based on the model ability you want to show or test.
+用这张表快速选择要跑哪条 prompt：它标注了每个 case 的类型、适合展示的模型能力、主要测试点，以及是否适合公开宣发。
 
-Showcase fit:
+展示适配度：
 
-- High: good for public demos because the result is visually or interactively obvious.
-- Medium: good for deeper product walkthroughs or technical comparison.
-- Low: better for internal engineering evaluation than public launch clips.
+- High：适合公开 demo，最终结果在视觉或交互上比较容易一眼看懂。
+- Medium：适合产品 walkthrough、模型横评、技术对比，需要稍微解释才看得出强弱。
+- Low：更适合内部工程评估，不一定适合做首发宣传视频。
 
-| # | Type | Best For Showcasing | Primary Abilities Tested | Showcase Fit |
+| # | 类型 | 适合展示的能力 | 主要测试点 | 展示适配度 |
 |---:|---|---|---|---|
-| 1 | Mobile product app | AI app UX, mobile polish, local-state product loop | Product shaping, mobile-first UI, editable estimates, state updates, trustworthy AI simulation | High |
-| 2 | Operating dashboard | Founder workflow, dense one-screen command center | Information architecture, prioritization logic, scenario state, B2B product judgment | Medium |
-| 3 | Service-business app | Practical B2B workflow, client/invoice operations | Workflow modeling, tables, status logic, capacity planning, business specificity | Medium |
-| 4 | Household coordination app | Everyday product complexity, mobile utility | Cross-system state, conflict resolution, calendar/list UX, mobile ergonomics | Medium |
-| 5 | Creator workflow app | Creator tooling, multi-platform launch flow | Pipeline design, readiness scoring, platform differences, content operations | High |
-| 6 | Knowledge workspace | Research-to-action workflow, local-first productivity | Search/filter, linked notes, evidence handling, tri-pane layout, simulated extraction | Medium |
-| 7 | Creator editing tool | Complex product UI, synchronized editor workflow | Transcript selection, timeline state, clip rules, export queue, dense workspace design | High |
-| 8 | Spatial project tool | Novel interaction model, visual project management | Drag/update state, spatial reasoning, filters, dependency/risk modeling | High |
-| 9 | Builder tool | App-builder/product-builder capability | Schema state, conditional logic, validation, live preview, form UX | High |
-| 10 | Developer tool | Keyboard-first coding workflow | Fuzzy search, command actions, file preview, local mutations, developer UX | Medium |
-| 11 | Automation canvas | Agentic workflow interface, node systems | Graph UI, run simulation, failure states, approvals, logs, stateful automation | High |
-| 12 | Design collaboration tool | Visual feedback workflow | Spatial comments, pin/thread sync, review status, screen versions, zoom behavior | High |
-| 13 | Analytics workspace | Business decision dashboard | Computed metrics, filtering/sorting, drilldown, recommendations, data-product judgment | High |
-| 14 | Data cleaning tool | Messy-data reasoning, analyst workflow | Profiling, anomaly detection, cleaning toggles, table state, insight summary | Medium |
-| 15 | Finance operations tool | Savings/waste detection, decision workflow | Recurring-cost modeling, recommendation logic, scenario savings, renewal states | Medium |
-| 16 | Support intelligence tool | Text operations, product signal extraction | Clustering metadata, triage state, filters, action creation, product-support bridge | Medium |
-| 17 | Training analytics app | Personal analytics and coaching UX | Time-series trends, recommendation logic, logging state, health-safe language | Medium |
-| 18 | SaaS revenue analytics | Executive analytics, cohort exploration | Cohort calculations, heatmap interaction, MRR bridge, account drilldown | Medium |
-| 19 | 3D browser game demo | Cinematic visual wow, playable 3D | Three.js/canvas, intro camera, controls, game states, performance, scene density | High |
-| 20 | Simulation game | Living system, visible mechanics, gameplay loop | Animation loop, throughput simulation, bottlenecks, upgrades, feedback systems | High |
-| 21 | Mission game | Control constraints, route planning, HUD clarity | Game physics, resource limits, objective design, restart/fail states | High |
-| 22 | Systems sandbox | Cause-and-effect simulation | Simulation variables, scenario controls, visual state changes, recovery logic | High |
-| 23 | Dispatch simulation | Operations game, animated network | Real-time movement, conflict detection, prioritization, event handling | High |
-| 24 | Creative coding toy | Visual rhythm, playful interaction | Animation timing, sequencer state, pattern controls, canvas polish | High |
-| 25 | Existing app rescue | Practical agent usefulness | Codebase inspection, scoped implementation, state repair, responsive fixes, honest summary | Medium |
-| 26 | Performance rescue | Technical depth without visual loss | Bottleneck reasoning, optimization judgment, behavior preservation, performance verification | Low |
-| 27 | Mobile rescue | UI reliability and responsive craft | Layout debugging, viewport checks, overflow fixes, preserving desktop behavior | Medium |
-| 28 | Design system migration | Maintainable UI improvement | Token/component extraction, consistency, incremental refactor, regression control | Low |
-| 29 | Test coverage | Engineering discipline | Test discovery, behavior coverage, minimal testability changes, honest limits | Low |
-| 30 | Bug triage | Senior coding-agent judgment | Triage, prioritization, scoped fixes, not-a-bug handling, verification per report | Low |
+| 1 | 移动端 AI 产品 | AI 应用体验、移动端完成度、本地状态闭环 | 产品塑形、移动端 UI、可编辑估算、状态更新、可信 AI 模拟 | High |
+| 2 | 创始人运营看板 | 创业者工作流、高密度单屏指挥台 | 信息架构、优先级逻辑、场景模拟、B2B 产品判断 | Medium |
+| 3 | 咨询服务工作台 | 实用 B2B 工作流、客户/发票运营 | 工作流建模、表格、状态逻辑、容量规划、业务具体性 | Medium |
+| 4 | 家庭协作应用 | 日常复杂产品、移动端实用性 | 跨系统状态、冲突解决、日历/列表 UX、移动端易用性 | Medium |
+| 5 | 创作者发布工作台 | 创作者工具、多平台发布流程 | 内容管线、ready score、平台差异、内容运营 | High |
+| 6 | 本地知识工作台 | 研究到行动、local-first 生产力 | 搜索/筛选、笔记关联、证据处理、三栏布局、模拟提取 | Medium |
+| 7 | 创作者剪辑工具 | 复杂产品 UI、同步编辑工作流 | 文稿选择、时间线状态、clip 规则、导出队列、高密度工作台设计 | High |
+| 8 | 空间化项目管理 | 新型交互模型、视觉化项目管理 | 拖拽/更新状态、空间推理、筛选、依赖/风险建模 | High |
+| 9 | 表单构建器 | App builder / product builder 能力 | schema 状态、条件逻辑、校验、实时预览、表单 UX | High |
+| 10 | 开发者工具 | 键盘优先的 coding 工作流 | 模糊搜索、命令操作、文件预览、本地状态变更、开发者 UX | Medium |
+| 11 | 自动化画布 | Agentic workflow 界面、节点系统 | 图 UI、运行模拟、失败状态、审批节点、日志、自动化状态 | High |
+| 12 | 设计协作工具 | 视觉反馈工作流 | 空间评论、pin/thread 同步、评审状态、屏幕版本、缩放行为 | High |
+| 13 | 数据分析工作台 | 业务决策 dashboard | 计算指标、筛选/排序、下钻、建议动作、数据产品判断 | High |
+| 14 | 数据清洗工具 | 脏数据推理、分析师工作流 | 数据画像、异常检测、清洗开关、表格状态、洞察总结 | Medium |
+| 15 | 订阅成本工具 | 成本浪费识别、决策工作流 | 周期成本建模、建议逻辑、节省场景、续费状态 | Medium |
+| 16 | 客服智能工作台 | 文本运营、产品信号提取 | 聚类元数据、工单状态、筛选、创建 action、客服到产品桥接 | Medium |
+| 17 | 训练分析应用 | 个人数据分析、教练型 UX | 时间序列趋势、建议逻辑、训练记录状态、健康边界表达 | Medium |
+| 18 | SaaS 收入分析 | 高管分析、cohort 探索 | cohort 计算、热力图交互、MRR bridge、账号下钻 | Medium |
+| 19 | 3D 浏览器游戏 demo | 电影感视觉冲击、可玩 3D | Three.js/canvas、开场镜头、控制、游戏状态、性能、场景密度 | High |
+| 20 | 工厂模拟游戏 | 可运行系统、可见机制、gameplay loop | 动画循环、吞吐模拟、瓶颈、升级、反馈系统 | High |
+| 21 | 任务型小游戏 | 控制约束、路径规划、HUD 清晰度 | 游戏物理、资源限制、目标设计、重开/失败状态 | High |
+| 22 | 系统沙盒 | 因果模拟、参数控制 | 模拟变量、场景控制、视觉状态变化、恢复逻辑 | High |
+| 23 | 调度模拟器 | 运营游戏、动态网络 | 实时移动、冲突检测、优先级调度、事件处理 | High |
+| 24 | 创意 coding 玩具 | 视觉节奏、可玩交互 | 动画时间、sequencer 状态、pattern 控制、canvas polish | High |
+| 25 | 现有应用救援 | Agent 实用性、补完成品能力 | 代码库检查、范围控制、状态修复、响应式修复、诚实总结 | Medium |
+| 26 | 性能救援 | 技术深度、保留视觉复杂度 | 瓶颈判断、优化取舍、行为保持、性能验证 | Low |
+| 27 | 移动端救援 | UI 可靠性、响应式工艺 | 布局调试、viewport 检查、overflow 修复、保留桌面行为 | Medium |
+| 28 | 设计系统迁移 | 可维护 UI 改造 | token/component 抽取、一致性、渐进重构、回归控制 | Low |
+| 29 | 测试覆盖补强 | 工程纪律 | 测试模式识别、行为覆盖、最小可测试性改动、诚实边界 | Low |
+| 30 | Bug 分诊 | 高级 coding agent 判断力 | 分诊、优先级、范围控制、not-a-bug 处理、逐项验证 | Low |
 
-## Suggested Prompt Picks
+## Suggested Prompt Picks / 推荐选题
 
-For public model demos:
+公开展示模型能力：
 
-- Start with 19, 20, 21, 22, 23, or 24 when you want a result that is visually obvious in the first few seconds.
-- Use 7, 9, 11, 12, or 13 when you want to show that a model can build serious product software, not only spectacle.
-- Use 1 or 5 when you want a mobile/product story that is easy for a broad audience to understand.
+- 想要第一眼就有视觉冲击：优先选 19、20、21、22、23、24。
+- 想证明模型能做严肃产品软件，而不只是炫技：优先选 7、9、11、12、13。
+- 想让更广泛的观众容易理解产品价值：优先选 1 或 5。
 
-For balanced model comparison:
+平衡横评模型：
 
-- Visual/playable: 19 or 20
-- Complex workflow: 7 or 11
-- Data product: 13 or 14
-- Mobile product: 1 or 4
-- Engineering discipline: 25, 27, or 30
+- 视觉/可玩：19 或 20
+- 复杂工作流：7 或 11
+- 数据产品：13 或 14
+- 移动端产品：1 或 4
+- 工程纪律：25、27 或 30
 
-For internal evaluation:
+内部工程评估：
 
-- Use 25-30 to test whether the model can inspect an existing project, preserve intent, avoid broad rewrites, and verify honestly.
-- Use 13-18 to test whether the model computes from data rather than decorating static metrics.
-- Use 7-12 to test whether the model can keep multiple panels, selections, and stateful controls synchronized.
+- 用 25-30 测模型是否会读现有项目、保留产品意图、避免大范围乱改，并诚实验证。
+- 用 13-18 测模型是否真的基于数据计算，而不是只装饰静态指标。
+- 用 7-12 测模型是否能让多面板、选中状态和复杂控件保持同步。
 
 ## Suggested Model Comparison Notes
 
