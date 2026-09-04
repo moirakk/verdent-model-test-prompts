@@ -347,6 +347,372 @@ End with a compact audit packet containing (keep every bullet to 1-2 lines; do n
 
 </details>
 
+<a id="prompt-02"></a>
+
+<details>
+<summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
+
+This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
+
+#### FIRST SCREEN - TODAY'S COMPANY, AT A GLANCE
+- Open directly on the operating room, not a landing page.
+- Show runway, revenue pipeline, product progress, launch checklist, customer conversations, and urgent risks in one coherent workspace.
+- The first visible action should be operational: follow up with a customer, ship a feature, fix a blocker, or adjust runway.
+
+#### CORE SYSTEMS
+- Pipeline: leads, trials, active customers, expansion opportunities, churn risk.
+- Cash: current balance, monthly burn, expected invoices, runway, and scenario toggle.
+- Product: roadmap items, status, owner, user impact, and release confidence.
+- Daily focus: automatically derive the top three actions from sample data.
+- Decision log: record what the founder chose and why.
+
+#### INTERACTION AND STATE
+- Let the user update a deal stage, mark a product task shipped, log a customer note, and change a burn-rate scenario.
+- The priority list should update when state changes.
+- Include empty states, overdue states, and risk warnings.
+- Desktop should feel like a command center; mobile should become a tight daily action view.
+
+#### VISUAL AND UX QUALITY
+- Use a calm operating-system feel, not venture-capital theater.
+- Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
+- Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
+
+#### DEPTH CHECKPOINTS
+- The top-three action list must be derived from sample company data, not hard-coded as decorative text.
+- Runway scenario changes should affect at least two visible values.
+- At least one customer/product/risk item should be linked across panels.
+
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and computed values.
+- Build the full implementation with the existing stack if one exists.
+- Verify at least one pipeline update, one scenario change, and one decision-log entry.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
+
+#### AUDIT PACKET
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-03"></a>
+
+<details>
+<summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
+
+This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
+
+#### FIRST SCREEN - WHO NEEDS ATTENTION TODAY?
+- Open on a prioritized client list with money at risk, next milestone, unpaid amount, response status, and scope health.
+- Show one selected client with project timeline, open decisions, recent notes, invoice state, and next action.
+- The first interaction should let the user resolve a practical issue: send reminder, mark invoice paid, log scope change, or move a milestone.
+
+#### CORE SYSTEMS
+- Client portfolio with at least six clients and varied risk states.
+- Project scope tracker with original scope, added requests, estimate impact, and approval state.
+- Invoice tracker with sent, viewed, overdue, partial, and paid states.
+- Weekly capacity view showing booked hours, delivery load, and unallocated time.
+- Next-action engine that derives priorities from deadlines, money, and blocked decisions.
+
+#### INTERACTION AND STATE
+- Update invoice status, add a scope-change request, move a milestone, and filter by risk.
+- Show how one change affects client health or weekly capacity.
+- Include empty, overdue, over-capacity, and all-clear states.
+
+#### VISUAL AND UX QUALITY
+- Professional, compact, and service-business specific.
+- Avoid generic admin templates; every visible element should connect to consultant decision-making.
+- Mobile should support quick client triage and invoice follow-up.
+
+#### DEPTH CHECKPOINTS
+- Scope creep must have a visible cost or capacity consequence.
+- Invoice state changes should affect client priority or money-at-risk totals.
+- At least one client should be healthy, one blocked, and one financially urgent.
+
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and real derived status calculations.
+- Keep it self-contained and interactive.
+- Verify the primary client triage flow.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
+
+#### AUDIT PACKET
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-04"></a>
+
+<details>
+<summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
+
+This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
+
+#### FIRST SCREEN - THE WEEK IS ALREADY IN MOTION
+- Open on the current week with today's schedule, dinner plan, grocery gaps, budget warning, pickup conflicts, and top household tasks.
+- The first screen should include at least one conflict that can be resolved.
+- The first interaction should be concrete: swap dinner, assign pickup, mark pantry item used, or move a task.
+
+#### CORE SYSTEMS
+- Weekly calendar with family members, locations, conflicts, and shared commitments.
+- Meal plan linked to pantry and grocery list.
+- Budget meter for grocery and household spending.
+- Chore/task board with ownership and overdue states.
+- Conflict resolver that suggests realistic changes.
+
+#### INTERACTION AND STATE
+- Let the user assign a task, resolve a pickup conflict, update pantry quantity, and swap a meal.
+- Updating meals should affect groceries and budget.
+- Include states for conflict, missing ingredient, over budget, and quiet day.
+
+#### VISUAL AND UX QUALITY
+- Warm but practical; avoid childish styling or generic productivity layout.
+- Use color to separate people, urgency, and categories without overwhelming the screen.
+- Mobile must be excellent; desktop can show the full week and detail panel.
+
+#### DEPTH CHECKPOINTS
+- At least one meal decision must update pantry, grocery, and budget views.
+- At least one scheduling conflict must show cause and resolution.
+- Family members should have distinguishable responsibilities without relying only on color.
+
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
+#### TECHNICAL REQUIREMENTS
+- Build with local sample data and computed conflicts.
+- No external APIs required.
+- Verify at least one cross-system update, such as meal swap changing grocery needs.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
+
+#### AUDIT PACKET
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-05"></a>
+
+<details>
+<summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
+
+This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
+
+#### FIRST SCREEN - WHAT CAN SHIP NEXT?
+- Open on a launch board with idea backlog, active drafts, scheduled posts, asset gaps, and platform readiness.
+- Show one selected idea expanded into hook, outline, assets needed, platforms, and launch checklist.
+- The first action should move a piece of content closer to shipping.
+
+#### CORE SYSTEMS
+- Idea backlog with score for novelty, effort, audience fit, and urgency.
+- Content pipeline with statuses from raw idea to scheduled.
+- Platform adapters for YouTube, X, LinkedIn, newsletter, and short video.
+- Asset checklist and blocker tracking.
+- Lightweight postmortem area for results and learning.
+
+#### INTERACTION AND STATE
+- Let users promote an idea to draft, edit the hook, assign platforms, mark assets ready, and schedule a date.
+- Filters by platform, status, and blocker.
+- Readiness score should update from real state.
+
+#### VISUAL AND UX QUALITY
+- Creator-professional, not influencer glitter.
+- Clear pipeline, compact cards, readable platform differences, and obvious blockers.
+- Mobile should support idea capture and today's publishing tasks.
+
+#### DEPTH CHECKPOINTS
+- Readiness score must come from checklist/platform/asset state.
+- At least one idea should move through multiple pipeline stages during interaction.
+- Platform outputs should differ in real requirements, not just labels.
+
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample content and real state updates.
+- Do not require social platform APIs.
+- Verify idea-to-scheduled flow.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
+
+#### AUDIT PACKET
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-06"></a>
+
+<details>
+<summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
+
+This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
+
+#### FIRST SCREEN - KNOWLEDGE READY TO USE
+- Open on a workspace with recent notes, topic clusters, open questions, extracted tasks, and a draft brief.
+- Show one selected topic with source notes, linked claims, evidence strength, and next actions.
+- The first interaction should let the user connect notes, extract a task, or add a claim to the brief.
+
+#### CORE SYSTEMS
+- Notes with tags, source type, confidence, and linked topics.
+- Search and filter by topic, source, confidence, and task status.
+- Brief builder that collects claims with citations to local sample notes.
+- Task extraction from notes with ownership and due dates.
+- Knowledge graph or relationship view that is useful, not decorative.
+
+#### INTERACTION AND STATE
+- Add a note, link two notes, promote a highlight into a task, and add evidence to the brief.
+- Show empty search, weak evidence, and unresolved question states.
+- Updates should be reflected across note list, topic view, and brief.
+
+#### VISUAL AND UX QUALITY
+- Quiet, editorial, and tool-like.
+- Avoid mystical garden visuals unless they directly clarify the knowledge structure.
+- Desktop should support tri-pane work; mobile should support capture and review.
+
+#### DEPTH CHECKPOINTS
+- Claims in the brief should link back to source notes.
+- Weak evidence and unresolved questions must be visually distinct.
+- A note action should update both task/brief output and the topic view.
+
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
+#### TECHNICAL REQUIREMENTS
+- Use local data and state only.
+- Do not require AI APIs; simulate extraction with clear local actions if needed.
+- Verify note-to-brief and note-to-task flows.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
+
+#### AUDIT PACKET
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
 ## Complex Interactive Tools
 
 <a id="prompt-07"></a>
@@ -2141,6 +2507,7 @@ End with a compact audit packet containing (keep every bullet to 1-2 lines; do n
 ```
 
 </details>
+
 ## Global Landmark Architecture Modeling
 
 This series is for one-shot 3D modeling demos. Each prompt should produce a finished interactive 3D scene on first load.
@@ -2647,10 +3014,12 @@ End with a compact audit packet containing (keep every bullet to 1-2 lines; do n
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the architecture already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the continent, extreme-climate architecture theme, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
 - Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
 - If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
@@ -2713,372 +3082,6 @@ End with a compact audit packet containing (keep every bullet to 1-2 lines; do n
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Antarctic architectural logic, modular detail, weather readability, inspection controls, and performance.
 - Self-score from 1-5 for architectural accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-02"></a>
-
-<details>
-<summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
-- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
-
-This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
-
-#### FIRST SCREEN - TODAY'S COMPANY, AT A GLANCE
-- Open directly on the operating room, not a landing page.
-- Show runway, revenue pipeline, product progress, launch checklist, customer conversations, and urgent risks in one coherent workspace.
-- The first visible action should be operational: follow up with a customer, ship a feature, fix a blocker, or adjust runway.
-
-#### CORE SYSTEMS
-- Pipeline: leads, trials, active customers, expansion opportunities, churn risk.
-- Cash: current balance, monthly burn, expected invoices, runway, and scenario toggle.
-- Product: roadmap items, status, owner, user impact, and release confidence.
-- Daily focus: automatically derive the top three actions from sample data.
-- Decision log: record what the founder chose and why.
-
-#### INTERACTION AND STATE
-- Let the user update a deal stage, mark a product task shipped, log a customer note, and change a burn-rate scenario.
-- The priority list should update when state changes.
-- Include empty states, overdue states, and risk warnings.
-- Desktop should feel like a command center; mobile should become a tight daily action view.
-
-#### VISUAL AND UX QUALITY
-- Use a calm operating-system feel, not venture-capital theater.
-- Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
-- Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
-
-#### DEPTH CHECKPOINTS
-- The top-three action list must be derived from sample company data, not hard-coded as decorative text.
-- Runway scenario changes should affect at least two visible values.
-- At least one customer/product/risk item should be linked across panels.
-
-#### IF SHORT ON TIME (SCOPE PRIORITY)
-- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
-- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
-- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample data and computed values.
-- Build the full implementation with the existing stack if one exists.
-- Verify at least one pipeline update, one scenario change, and one decision-log entry.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
-
-#### AUDIT PACKET
-End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try immediately after opening the page.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-03"></a>
-
-<details>
-<summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
-- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
-
-This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
-
-#### FIRST SCREEN - WHO NEEDS ATTENTION TODAY?
-- Open on a prioritized client list with money at risk, next milestone, unpaid amount, response status, and scope health.
-- Show one selected client with project timeline, open decisions, recent notes, invoice state, and next action.
-- The first interaction should let the user resolve a practical issue: send reminder, mark invoice paid, log scope change, or move a milestone.
-
-#### CORE SYSTEMS
-- Client portfolio with at least six clients and varied risk states.
-- Project scope tracker with original scope, added requests, estimate impact, and approval state.
-- Invoice tracker with sent, viewed, overdue, partial, and paid states.
-- Weekly capacity view showing booked hours, delivery load, and unallocated time.
-- Next-action engine that derives priorities from deadlines, money, and blocked decisions.
-
-#### INTERACTION AND STATE
-- Update invoice status, add a scope-change request, move a milestone, and filter by risk.
-- Show how one change affects client health or weekly capacity.
-- Include empty, overdue, over-capacity, and all-clear states.
-
-#### VISUAL AND UX QUALITY
-- Professional, compact, and service-business specific.
-- Avoid generic admin templates; every visible element should connect to consultant decision-making.
-- Mobile should support quick client triage and invoice follow-up.
-
-#### DEPTH CHECKPOINTS
-- Scope creep must have a visible cost or capacity consequence.
-- Invoice state changes should affect client priority or money-at-risk totals.
-- At least one client should be healthy, one blocked, and one financially urgent.
-
-#### IF SHORT ON TIME (SCOPE PRIORITY)
-- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
-- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
-- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample data and real derived status calculations.
-- Keep it self-contained and interactive.
-- Verify the primary client triage flow.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
-
-#### AUDIT PACKET
-End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try immediately after opening the page.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-04"></a>
-
-<details>
-<summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
-- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
-
-This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
-
-#### FIRST SCREEN - THE WEEK IS ALREADY IN MOTION
-- Open on the current week with today's schedule, dinner plan, grocery gaps, budget warning, pickup conflicts, and top household tasks.
-- The first screen should include at least one conflict that can be resolved.
-- The first interaction should be concrete: swap dinner, assign pickup, mark pantry item used, or move a task.
-
-#### CORE SYSTEMS
-- Weekly calendar with family members, locations, conflicts, and shared commitments.
-- Meal plan linked to pantry and grocery list.
-- Budget meter for grocery and household spending.
-- Chore/task board with ownership and overdue states.
-- Conflict resolver that suggests realistic changes.
-
-#### INTERACTION AND STATE
-- Let the user assign a task, resolve a pickup conflict, update pantry quantity, and swap a meal.
-- Updating meals should affect groceries and budget.
-- Include states for conflict, missing ingredient, over budget, and quiet day.
-
-#### VISUAL AND UX QUALITY
-- Warm but practical; avoid childish styling or generic productivity layout.
-- Use color to separate people, urgency, and categories without overwhelming the screen.
-- Mobile must be excellent; desktop can show the full week and detail panel.
-
-#### DEPTH CHECKPOINTS
-- At least one meal decision must update pantry, grocery, and budget views.
-- At least one scheduling conflict must show cause and resolution.
-- Family members should have distinguishable responsibilities without relying only on color.
-
-#### IF SHORT ON TIME (SCOPE PRIORITY)
-- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
-- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
-- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
-
-#### TECHNICAL REQUIREMENTS
-- Build with local sample data and computed conflicts.
-- No external APIs required.
-- Verify at least one cross-system update, such as meal swap changing grocery needs.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
-
-#### AUDIT PACKET
-End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try immediately after opening the page.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-05"></a>
-
-<details>
-<summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
-- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
-
-This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
-
-#### FIRST SCREEN - WHAT CAN SHIP NEXT?
-- Open on a launch board with idea backlog, active drafts, scheduled posts, asset gaps, and platform readiness.
-- Show one selected idea expanded into hook, outline, assets needed, platforms, and launch checklist.
-- The first action should move a piece of content closer to shipping.
-
-#### CORE SYSTEMS
-- Idea backlog with score for novelty, effort, audience fit, and urgency.
-- Content pipeline with statuses from raw idea to scheduled.
-- Platform adapters for YouTube, X, LinkedIn, newsletter, and short video.
-- Asset checklist and blocker tracking.
-- Lightweight postmortem area for results and learning.
-
-#### INTERACTION AND STATE
-- Let users promote an idea to draft, edit the hook, assign platforms, mark assets ready, and schedule a date.
-- Filters by platform, status, and blocker.
-- Readiness score should update from real state.
-
-#### VISUAL AND UX QUALITY
-- Creator-professional, not influencer glitter.
-- Clear pipeline, compact cards, readable platform differences, and obvious blockers.
-- Mobile should support idea capture and today's publishing tasks.
-
-#### DEPTH CHECKPOINTS
-- Readiness score must come from checklist/platform/asset state.
-- At least one idea should move through multiple pipeline stages during interaction.
-- Platform outputs should differ in real requirements, not just labels.
-
-#### IF SHORT ON TIME (SCOPE PRIORITY)
-- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
-- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
-- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample content and real state updates.
-- Do not require social platform APIs.
-- Verify idea-to-scheduled flow.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
-
-#### AUDIT PACKET
-End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try immediately after opening the page.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-06"></a>
-
-<details>
-<summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
-- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
-
-This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
-
-#### FIRST SCREEN - KNOWLEDGE READY TO USE
-- Open on a workspace with recent notes, topic clusters, open questions, extracted tasks, and a draft brief.
-- Show one selected topic with source notes, linked claims, evidence strength, and next actions.
-- The first interaction should let the user connect notes, extract a task, or add a claim to the brief.
-
-#### CORE SYSTEMS
-- Notes with tags, source type, confidence, and linked topics.
-- Search and filter by topic, source, confidence, and task status.
-- Brief builder that collects claims with citations to local sample notes.
-- Task extraction from notes with ownership and due dates.
-- Knowledge graph or relationship view that is useful, not decorative.
-
-#### INTERACTION AND STATE
-- Add a note, link two notes, promote a highlight into a task, and add evidence to the brief.
-- Show empty search, weak evidence, and unresolved question states.
-- Updates should be reflected across note list, topic view, and brief.
-
-#### VISUAL AND UX QUALITY
-- Quiet, editorial, and tool-like.
-- Avoid mystical garden visuals unless they directly clarify the knowledge structure.
-- Desktop should support tri-pane work; mobile should support capture and review.
-
-#### DEPTH CHECKPOINTS
-- Claims in the brief should link back to source notes.
-- Weak evidence and unresolved questions must be visually distinct.
-- A note action should update both task/brief output and the topic view.
-
-#### IF SHORT ON TIME (SCOPE PRIORITY)
-- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
-- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
-- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
-
-#### TECHNICAL REQUIREMENTS
-- Use local data and state only.
-- Do not require AI APIs; simulate extraction with clear local actions if needed.
-- Verify note-to-brief and note-to-task flows.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
-
-#### AUDIT PACKET
-End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try immediately after opening the page.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
 </details>
