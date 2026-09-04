@@ -16,6 +16,8 @@ These prompts are intentionally written as pressure tests, not feature requests:
 - Layered systems: prompts combine product logic, interaction, state, visual quality, technical constraints, and verification.
 - Local by default: external services are simulated with local data so model runs stay comparable.
 - Reviewable output: every prompt ends with an audit packet for cross-model review.
+- No mid-run questions: every prompt tells the model this is a one-shot test — ambiguity should be resolved with a stated assumption, not a clarifying question, so a single pass produces a working result.
+- Explicit scope triage: every prompt tells the model what to protect first and what to cut first if it runs short on time, so partial runs still land a working core loop instead of a broken wide surface.
 
 ## Common Failure Modes To Watch
 
@@ -281,6 +283,8 @@ Each prompt asks the builder model to leave an audit packet at the end of its re
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition mobile-first web app called Photo Meal Coach: a nutrition assistant that turns a single meal photo moment into a weekly coaching loop.
@@ -316,6 +320,11 @@ This must not be a generic calorie tracker, a static landing page, a diet blog l
 - Daily totals must visibly recalculate after a macro edit.
 - Advice should reference the current day/week data, not generic nutrition tips.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists. If starting from a blank folder, create the simplest appropriate browser app.
 - Use real interactive state rather than only static mock data.
@@ -324,10 +333,10 @@ This must not be a generic calorie tracker, a static landing page, a diet blog l
 - Run the app or otherwise verify that the main screen renders and the primary interaction works.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize what was created, how to open it, what interactions work, and what you verified.
+Build the full implementation now. When finished, summarize what was created, how to open it, what interactions work, and what you verified. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -353,6 +362,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser tool called Timeline Surgery: an editing workspace for turning a long podcast or interview into short clips without needing to play the source video.
@@ -390,6 +401,11 @@ This must not be a static transcript viewer, a generic media dashboard, or a pre
 - Duration warnings should change when start/end values change.
 - Export targets should enforce different constraints for at least three platforms.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists.
 - Use local sample transcript data with at least 12 speaker turns and 5 detected highlight candidates.
@@ -398,10 +414,10 @@ This must not be a static transcript viewer, a generic media dashboard, or a pre
 - Verify the page renders and at least one clip can be created or edited.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize the working editor flow, the sample data included, and what you verified.
+Build the full implementation now. When finished, summarize the working editor flow, the sample data included, and what you verified. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -425,6 +441,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition interactive tool called Spatial Kanban: a project board where work is arranged on a two-axis map instead of columns, with x-axis progress and y-axis risk.
@@ -459,16 +477,21 @@ This must not be a normal kanban with a novelty background. The spatial position
 - Quadrants should have practical meaning and visible labels.
 - Dependencies should change the interpretation of at least one card.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real drag or controlled position updates.
 - Keep state synchronized between map, detail, and list.
 - Verify drag/update, filter, and card selection.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -492,6 +515,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition working app called Logic Form Builder: a form-building workspace with conditional fields, validation rules, live preview, and submission review.
@@ -526,16 +551,21 @@ This must not be a static form mockup or a settings page full of fake controls. 
 - Validation errors should appear inline and prevent or flag bad submissions.
 - Schema edits should persist during the session and affect submissions.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local state for schema and preview answers.
 - Do not require a backend.
 - Verify that schema changes update the preview and validation works.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -559,6 +589,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser app called Command Palette File Explorer: a file-navigation workspace optimized for keyboard search, actions, and fast project orientation.
@@ -593,16 +625,21 @@ This must not be a simple file tree or static command palette. Search results, s
 - At least one command must change local state.
 - Preview should show related files or metadata that changes with selection.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample file data and real filtering.
 - No filesystem access required.
 - Verify search, selection, and at least one state-changing command.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -626,6 +663,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser tool called Visual Workflow Builder: a node-based automation canvas with triggers, transforms, approvals, outputs, run history, and failure states.
@@ -660,16 +699,21 @@ This must not be a static flowchart. The user should be able to edit the workflo
 - Retry or approval should visibly alter the run history.
 - Misconfigured or disconnected nodes should produce validation feedback.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local workflow data and state.
 - Use a graph/canvas library if already available; otherwise implement a simple robust layout.
 - Verify node selection, simulated run, and retry/approval flow.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -693,6 +737,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition web app called Design Review Board: a visual review workspace where users pin comments directly onto uploaded screen mockups and resolve design feedback.
@@ -727,16 +773,21 @@ This must not be a comment list beside an image. The spatial pinning, threaded f
 - Thread status changes should update project summary counts.
 - Screen switching should preserve and show screen-specific comments.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local placeholder mockups built with HTML/CSS or lightweight inline assets.
 - Store comments in local state.
 - Verify pin selection, add/reply, resolve, and screen switching.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -762,6 +813,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition analytics workspace called Ad Spend War Room: a self-serve tool where a growth lead can understand campaign performance, spot waste, and decide what to change today.
@@ -799,6 +852,11 @@ This must not be a generic chart dashboard, a table dump, or a fake analytics pa
 - Budget simulation should recalculate projected impact.
 - Suspicious tracking data should be represented as a warning, not silently included.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Build the full implementation in the current project using the existing stack if one exists.
 - Use local sample data and real computed metrics; do not hard-code every displayed number independently.
@@ -807,10 +865,10 @@ This must not be a generic chart dashboard, a table dump, or a fake analytics pa
 - Verify the main dashboard renders and at least one filter, one sort, and one campaign drilldown work.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize what decisions the tool supports, what interactions work, and what you verified.
+Build the full implementation now. When finished, summarize what decisions the tool supports, what interactions work, and what you verified. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -834,6 +892,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition data app called CSV Forensics: a browser workspace that helps a user inspect a messy CSV export, clean it, find anomalies, and produce a short decision brief.
@@ -868,16 +928,21 @@ This must not be a static dashboard or a file-upload facade. The app should incl
 - Accepted/rejected findings should alter the generated brief.
 - At least three distinct data-quality issue types must be visible.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real computed stats.
 - Do not require file upload to prove functionality, though optional upload is welcome.
 - Verify cleaning toggle, anomaly filter, and finding-to-brief flow.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -901,6 +966,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition working app called Subscription Leak Detector: a personal or small-business tool that finds waste, duplicate tools, renewal risk, and quiet price increases across recurring subscriptions.
@@ -935,16 +1002,21 @@ This must not be a generic expense dashboard. The product should help a user dec
 - Duplicate subscriptions should be grouped or explained.
 - Renewal timing should affect urgency.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed totals.
 - No banking APIs.
 - Verify filtering, decision update, and savings calculation.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -968,6 +1040,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser app called Support Inbox Intelligence: a workspace that clusters customer support tickets into product signals, urgency, themes, and recommended next actions.
@@ -1002,16 +1076,21 @@ This must not be a generic inbox UI. It should help product and support teams un
 - Promoting a cluster should create a visible product action.
 - Ticket-level and aggregate views must remain connected.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample ticket data and deterministic clustering metadata.
 - Do not require AI APIs.
 - Verify filters, status updates, and action creation.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1035,6 +1114,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition web app called Workout Progress Lab: a training analysis workspace that helps an athlete understand load, recovery, strength progress, plateaus, and next-week adjustments.
@@ -1068,16 +1149,21 @@ This must not be a generic fitness dashboard. It should turn workout history int
 - Plateau/fatigue signals should be tied to sample history.
 - Advice must stay coaching-oriented and avoid medical certainty.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local data and computed trends.
 - No wearables or health APIs required.
 - Verify workout logging and recommendation update.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1101,6 +1187,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition analytics app called Revenue Cohort Explorer: a SaaS workspace for understanding retention, expansion, churn, and cohort behavior.
@@ -1135,16 +1223,21 @@ This must not be a generic revenue dashboard. It should let a user compare cohor
 - MRR bridge values should be computed from account movements.
 - Filters should recompute summary and cohort views.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed cohort metrics.
 - Do not hard-code every displayed number.
 - Verify cohort selection, filtering, and risk update.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1170,6 +1263,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D demo called Desert Evacuation Drive: a cinematic emergency driving scene at a desert music festival as a sandstorm rolls in and the player must reach a signal truck.
@@ -1207,6 +1302,11 @@ This must not be a static 3D scene, a car on an empty plane, a generic driving t
 - Vehicle movement, checkpoints, and storm intensity should all be visible.
 - Performance choices should preserve scene density without going blank or muddy.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use Three.js or an appropriate existing 3D library if available in the project.
 - If using Three.js from a CDN, pin a stable version and import consistently.
@@ -1215,10 +1315,10 @@ This must not be a static 3D scene, a car on an empty plane, a generic driving t
 - Verify that the canvas renders, the intro completes, controls work, and the scene is not blank.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize the controls, the objective, performance choices, and what you verified.
+Build the full implementation now. When finished, summarize the controls, the objective, performance choices, and what you verified. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1242,6 +1342,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition playable browser simulation called Tiny Factory That Teaches Itself: a compact factory where belts, machines, buffers, bottlenecks, and upgrades form a visible production loop.
@@ -1275,16 +1377,21 @@ This must not be a static factory illustration or a clicker with numbers only. T
 - Upgrades must change throughput, bottleneck, or goal progress.
 - The simulation should have enough rules that reviewers can improve or break it.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use canvas/SVG/HTML or a game library appropriate to the stack.
 - Use local simulation state and a real update loop.
 - Verify animation, upgrade, reset, and goal state.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1308,6 +1415,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition playable browser game called Rooftop Drone Rescue: the player pilots a rescue drone across rooftops while managing wind, battery, payload, and safe landing zones.
@@ -1342,16 +1451,21 @@ This must not be a generic top-down square moving around. The drone constraints 
 - Rescue success/failure should be visible and recoverable.
 - The HUD must explain objective, constraints, and current risk at a glance.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local game state and a real loop.
 - No external assets required.
 - Verify controls, battery drain, rescue success/failure, and restart.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1375,6 +1489,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition interactive browser sandbox called Ecosystem Sandbox: a living system where water, plants, weather, soil, and small organisms affect each other over time.
@@ -1408,16 +1524,21 @@ This must not be a static nature animation. User choices should change the balan
 - Balance states should emerge from variables, not only button labels.
 - The event log or explanation should connect cause to visible effect.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use a real simulation loop with local state.
 - Canvas/SVG/HTML are all acceptable.
 - Verify controls, simulation progression, reset, and at least two ecosystem states.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1441,6 +1562,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition playable dispatch simulation called Cyber Train Dispatch: the user manages trains across a busy network, preventing delays, route conflicts, and station overload.
@@ -1475,16 +1598,21 @@ This must not be a static subway map or a decorative animation. The dispatch cho
 - Train movement and delay/score changes should be visible over time.
 - Random or scripted events should alter dispatch decisions.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local simulation data and real movement.
 - No external transit APIs required.
 - Verify train movement, conflict resolution, and event handling.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1508,6 +1636,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition interactive browser toy called Particle Music Sequencer: a soundless visual rhythm machine where particles, lanes, beats, patterns, and effects create an understandable composition.
@@ -1542,16 +1672,21 @@ This must not be a static particle background. It should behave like an instrume
 - Tempo and pattern controls should alter animation timing/state.
 - Presets or randomization should create noticeably different compositions.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use a real animation loop.
 - No audio dependency required.
 - Verify play/pause, step toggle, tempo, randomize, and clear.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1577,6 +1712,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing project that contains a half-built product UI. Turn it from a static or brittle mockup into a working product slice without changing the product's core concept.
@@ -1607,6 +1744,11 @@ This must not become a rewrite for rewrite's sake, a new unrelated app, or a cos
 - Changes should preserve the original product identity.
 - The summary must separate implemented work from assumptions and shortcuts.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Run the relevant install/build/test/dev command if available and practical.
 - If a dev server or preview is available, inspect the actual rendered result.
@@ -1619,10 +1761,10 @@ This must not become a rewrite for rewrite's sake, a new unrelated app, or a cos
 - The final answer should focus on what changed, what works now, what was verified, and what risk remains.
 
 #### FINAL OUTPUT INSTRUCTION
-Make the rescue changes now. When finished, summarize the primary flow you chose, the files changed, the verification performed, and any remaining risks.
+Make the rescue changes now. When finished, summarize the primary flow you chose, the files changed, the verification performed, and any remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1646,6 +1788,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing app or demo that looks ambitious but performs poorly. Improve runtime performance while preserving the core visual or product experience.
@@ -1674,6 +1818,11 @@ This must not become a visual downgrade disguised as optimization. The goal is t
 - The main spectacle or product promise should remain visible.
 - Before/after evidence can be qualitative, but must be honest.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Verify the app still renders and the primary interaction still works.
 - Compare before/after behavior using available signals: frame feel, render count, console, build output, or profiler if practical.
@@ -1684,10 +1833,10 @@ This must not become a visual downgrade disguised as optimization. The goal is t
 - The final summary should explain the bottleneck, changes, tradeoffs, and remaining risk.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1711,6 +1860,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing web app that looks good on desktop but breaks on mobile. Make the core experience responsive and usable without redesigning the product from scratch.
@@ -1739,6 +1890,11 @@ This must not be a superficial media-query pass. The goal is to fix real layout,
 - Desktop behavior should be checked after responsive changes.
 - The primary user flow must remain complete on phone width.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Verify at desktop and mobile viewport sizes.
 - Check for horizontal page overflow, clipped labels, overlapping text, and unreachable actions.
@@ -1749,10 +1905,10 @@ This must not be a superficial media-query pass. The goal is to fix real layout,
 - The desktop should remain intact.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1776,6 +1932,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing app with repeated UI patterns, inconsistent spacing, color, typography, and component variants. Migrate the visible surface toward a small design system without changing product behavior.
@@ -1804,6 +1962,11 @@ This must not become an abstract design-system project detached from the app. Th
 - At least one visible screen should use the migrated system.
 - Behavioral changes should be avoided or explicitly justified.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Run available checks.
 - Preview the affected screen if practical.
@@ -1814,10 +1977,10 @@ This must not become an abstract design-system project detached from the app. Th
 - The design system should be small, visible, and justified by repeated usage.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1841,6 +2004,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing project with an important user flow that has little or no test coverage. Add practical confidence around that flow without rewriting the app.
@@ -1869,6 +2034,11 @@ This must not become a testing-theater exercise. The tests should cover behavior
 - At least one negative or edge state should be tested.
 - The chosen test style should match existing project conventions.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Run the relevant test command.
 - If tests cannot run, explain exactly why and still provide static confidence.
@@ -1879,10 +2049,10 @@ This must not become a testing-theater exercise. The tests should cover behavior
 - The final summary should be honest about coverage boundaries.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1906,6 +2076,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 You are working in an existing project with five user bug reports. Triage them, identify which are real and actionable, fix the highest-value issues, and avoid changing behavior for reports that are not bugs.
@@ -1941,6 +2113,11 @@ This must not become five rushed patches. The goal is to reason carefully, repro
 - Fixed items need individual verification notes.
 - Reports that are expected behavior or unclear must not be force-fit into code changes.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the one primary flow you chose and make it genuinely usable end to end above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary cleanup, extra refactors, and polish beyond the chosen scope before touching the primary flow or the items named in DEPTH CHECKPOINTS.
+- Never leave the primary flow half-fixed or merely prettier just to touch more files. A small, fully working fix beats a broad pass that leaves the core flow still fake or broken.
+
 #### VERIFICATION REQUIREMENTS
 - Run relevant tests or manual verification.
 - Verify each fixed report individually.
@@ -1951,10 +2128,10 @@ This must not become five rushed patches. The goal is to reason carefully, repro
 - The final answer should separate fixed, not-a-bug, unclear, and deferred items.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -1990,6 +2167,8 @@ Critical rule for this series:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Taj Mahal in Agra, India, representing Asia in a global landmark modeling series.
@@ -2027,6 +2206,11 @@ This must not be a generic white palace, a single dome on a box, or a flat postc
 - The four minarets, main dome, central arch, reflecting pool, and garden axis must all be spatially correct and visible.
 - Camera presets and toggles must help inspect the architecture, not just move around a decorative scene.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2035,10 +2219,10 @@ This must not be a generic white palace, a single dome on a box, or a flat postc
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2064,6 +2248,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of La Sagrada Familia in Barcelona, Spain, representing Europe in a global landmark modeling series.
@@ -2101,6 +2287,11 @@ This must not be a generic cathedral, a few cones on a rectangle, or a dark silh
 - Tower clustering, organic verticality, facade depth, and stained-glass/interior light must all be represented.
 - Detail should be procedural and inspectable from more than one camera angle.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2109,10 +2300,10 @@ This must not be a generic cathedral, a few cones on a rectangle, or a dark silh
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2138,6 +2329,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Giza Pyramid Complex in Egypt, representing Africa in a global landmark modeling series.
@@ -2175,6 +2368,11 @@ This must not be one smooth pyramid on a flat sand plane. The model should show 
 - Block/step texture, human scale, and desert lighting must make the monument's size legible.
 - Toggles should reveal modeling differences such as block layers versus smoother reconstruction.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2183,10 +2381,10 @@ This must not be one smooth pyramid on a flat sand plane. The model should show 
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2212,6 +2410,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Empire State Building in New York City, representing North America in a global landmark modeling series.
@@ -2249,6 +2449,11 @@ This must not be a plain skyscraper box, a generic skyline, or a flat silhouette
 - Setbacks, window rhythm, vertical ribs, and spire must all be modeled.
 - Night/day or facade toggles should reveal meaningful architectural layers.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2257,10 +2462,10 @@ This must not be a plain skyscraper box, a generic skyline, or a flat silhouette
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2286,6 +2491,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural and landscape model of Machu Picchu in Peru, representing South America in a global landmark modeling series.
@@ -2323,6 +2530,11 @@ This must not be a random stone village on a hill. The model should communicate 
 - Terraces, stone structures, paths, and mountain backdrop must all be separately inspectable.
 - Camera presets should reveal both macro site planning and close masonry detail.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2331,10 +2543,10 @@ This must not be a random stone village on a hill. The model should communicate 
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2360,6 +2572,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Sydney Opera House in Sydney, Australia, representing Oceania in a global landmark modeling series.
@@ -2397,6 +2611,11 @@ This must not be a few white triangles on a platform or a generic harbor scene. 
 - Multiple shell groups, podium, glass walls, and harbor context must all be represented.
 - Camera presets and toggles should make the roof geometry inspectable from different angles.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2405,10 +2624,10 @@ This must not be a few white triangles on a platform or a generic harbor scene. 
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2432,6 +2651,8 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
 - Make the result comparable across model runs: preserve the continent, extreme-climate architecture theme, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of an Antarctic research station inspired by real South Pole extreme-climate architecture, representing Antarctica in a global landmark modeling series.
@@ -2469,6 +2690,11 @@ This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fe
 - Elevated modules, connectors, scientific equipment, logistics zone, and weather effects must all be inspectable.
 - Storm/night toggles should change the feeling and reveal infrastructure, not just tint the screen.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the first-load 3D view (the landmark visible and framed immediately, no click required) and working orbit/pan/zoom camera controls above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary camera presets, feature toggles, and fine surface/ornament detail before touching the primary silhouette, proportions, or the elements named in DEPTH CHECKPOINTS.
+- Never ship a static image, an unstyled placeholder, or a scene that only looks right from one frozen angle just to make room for extra detail. A simpler model that is spatially correct and inspectable beats a detailed one that only works from one camera position.
+
 #### TECHNICAL REQUIREMENTS
 - Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
@@ -2477,10 +2703,10 @@ This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fe
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2504,6 +2730,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
@@ -2538,16 +2766,21 @@ This must not be a generic CRM, a decorative startup dashboard, or a pile of unr
 - Runway scenario changes should affect at least two visible values.
 - At least one customer/product/risk item should be linked across panels.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and computed values.
 - Build the full implementation with the existing stack if one exists.
 - Verify at least one pipeline update, one scenario change, and one decision-log entry.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2571,6 +2804,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
@@ -2604,16 +2839,21 @@ This must not be a generic project tracker or invoice mockup. It should expose t
 - Invoice state changes should affect client priority or money-at-risk totals.
 - At least one client should be healthy, one blocked, and one financially urgent.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample data and real derived status calculations.
 - Keep it self-contained and interactive.
 - Verify the primary client triage flow.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2637,6 +2877,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
@@ -2670,16 +2912,21 @@ This must not be a simple calendar, a todo list, or a recipe app. It should show
 - At least one scheduling conflict must show cause and resolution.
 - Family members should have distinguishable responsibilities without relying only on color.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Build with local sample data and computed conflicts.
 - No external APIs required.
 - Verify at least one cross-system update, such as meal swap changing grocery needs.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2703,6 +2950,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
@@ -2736,16 +2985,21 @@ This must not be a generic content calendar or social media dashboard. It should
 - At least one idea should move through multiple pipeline stages during interaction.
 - Platform outputs should differ in real requirements, not just labels.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local sample content and real state updates.
 - Do not require social platform APIs.
 - Verify idea-to-scheduled flow.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
@@ -2769,6 +3023,8 @@ End with a compact audit packet containing:
 - Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
 - Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
 - Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- Do not ask the user a clarifying question and stop. This is a one-shot test: if any requirement is ambiguous, choose the most reasonable interpretation, state the assumption in your final summary, and keep building.
+- If you are running low on time or budget, protect the first screen promise and one complete end-to-end interaction before adding secondary panels, extra platforms, or visual polish. A smaller product that fully works beats a larger one that only looks finished.
 - In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
@@ -2802,16 +3058,21 @@ This must not be a generic notes app, markdown editor, or static knowledge graph
 - Weak evidence and unresolved questions must be visually distinct.
 - A note action should update both task/brief output and the topic view.
 
+#### IF SHORT ON TIME (SCOPE PRIORITY)
+- Protect the opening screen promise (what a reviewer sees and can immediately do) and one fully working end-to-end interaction above everything else in this prompt.
+- If something has to be cut or simplified, cut secondary panels, extra platforms/export targets, decorative polish, and the least-central items in DEPTH CHECKPOINTS first.
+- Never cut, fake, or hard-code the core loop this prompt is testing just to make room for secondary features. A smaller product that fully works beats a larger one that only looks finished.
+
 #### TECHNICAL REQUIREMENTS
 - Use local data and state only.
 - Do not require AI APIs; simulate extraction with clear local actions if needed.
 - Verify note-to-brief and note-to-task flows.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks. Do not end your response with a clarifying question; if you had to guess on any requirement, state the assumption instead of asking.
 
 #### AUDIT PACKET
-End with a compact audit packet containing:
+End with a compact audit packet containing (keep every bullet to 1-2 lines; do not write long paragraphs here):
 - Requirements covered: 3-6 bullets tied to the prompt.
 - Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
