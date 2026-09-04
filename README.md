@@ -329,7 +329,7 @@ Build the full implementation now. When finished, summarize what was created, ho
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, interactive behaviors, verification performed, known shortcuts, and top three places another model should inspect.
@@ -403,7 +403,7 @@ Build the full implementation now. When finished, summarize the working editor f
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, synchronized interactions, verification performed, known shortcuts, and top three places another model should inspect.
@@ -470,7 +470,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: spatial behaviors implemented, state synchronization, verification performed, and tradeoffs.
@@ -537,7 +537,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: builder features implemented, logic examples, verification performed, and missing production pieces.
@@ -604,7 +604,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: commands implemented, keyboard/search behavior, verification performed, and limitations.
@@ -671,7 +671,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: workflow features implemented, simulation behavior, verification performed, and simplifications.
@@ -738,7 +738,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: review interactions implemented, spatial pin behavior, verification performed, and known gaps.
@@ -812,7 +812,7 @@ Build the full implementation now. When finished, summarize what decisions the t
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, computed metrics, verification performed, known shortcuts, and top three places another model should inspect.
@@ -879,7 +879,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: data issues represented, computations implemented, verification performed, and shortcuts.
@@ -946,7 +946,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: detection logic implemented, interactive decisions, verification performed, and simulated assumptions.
@@ -1013,7 +1013,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: ticket intelligence features, state updates, verification performed, and simulated AI pieces.
@@ -1079,7 +1079,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: computed metrics, interactive flows, verification performed, and health-related limitations.
@@ -1146,7 +1146,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: cohort computations, interactions, verification performed, and caveats.
@@ -1220,7 +1220,7 @@ Build the full implementation now. When finished, summarize the controls, the ob
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, controls and game states, verification performed, known shortcuts, and top three places another model should inspect.
@@ -1286,7 +1286,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: simulation rules, controls, verification performed, and simplifications.
@@ -1353,7 +1353,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: game mechanics, controls, verification performed, and known limitations.
@@ -1419,7 +1419,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: simulation variables, user controls, verification performed, and model simplifications.
@@ -1486,7 +1486,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: dispatch mechanics, interactions, verification performed, and simplifications.
@@ -1553,7 +1553,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: sequencer behavior, controls, verification performed, and limitations.
@@ -1624,7 +1624,7 @@ Make the rescue changes now. When finished, summarize the primary flow you chose
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: primary flow rescued, changes made, verification performed, known shortcuts, and top three places another model should inspect.
@@ -1689,7 +1689,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: suspected bottlenecks, optimizations made, verification performed, and any visual compromises.
@@ -1754,7 +1754,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: mobile issues fixed, viewports checked, verification performed, and remaining responsive risk.
@@ -1819,7 +1819,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: components/tokens created, screens migrated, verification performed, and regression risks.
@@ -1884,7 +1884,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: flow chosen, tests added, command run, result, and residual risk.
@@ -1956,7 +1956,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: triage table, fixes made, verification performed per report, and unresolved risks.
@@ -1965,6 +1965,15 @@ End with a compact audit packet containing:
 
 </details>
 ## Global Landmark Architecture Modeling
+
+This series is for one-shot 3D modeling demos. Each prompt should produce a finished interactive 3D scene on first load.
+
+Critical rule for this series:
+
+- The browser must open directly into the live full-viewport 3D model.
+- Do not create an intro page, "Enter" button, text-first layout, link directory, scroll-based reveal, or unstyled HTML document.
+- Interface text is allowed only as compact overlays on top of the 3D scene.
+- The landmark must be visible without clicking anything.
 
 <a id="prompt-31"></a>
 
@@ -1975,17 +1984,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Taj Mahal in Agra, India, representing Asia in a global landmark modeling series.
 
 This must not be a generic white palace, a single dome on a box, or a flat postcard scene. The model should make the Taj Mahal recognizable through symmetry, central marble mausoleum massing, onion dome, four minarets, iwans, garden axis, reflecting pool, plinth, and river-facing context.
 
 #### FIRST VIEW - THE SYMMETRY MUST READ IMMEDIATELY
+- On page load, render the live 3D model immediately with no click required.
 - Open with a cinematic camera view aligned to the long Charbagh garden axis, looking across the reflecting pool toward the central mausoleum.
 - The first frame should show the main dome, four minarets, central arch, side wings, garden paths, water reflection, and warm marble light.
 - Include a compact overlay naming the landmark, continent, location, and the architectural features currently visible.
@@ -1999,7 +2011,7 @@ This must not be a generic white palace, a single dome on a box, or a flat postc
 - Context: Yamuna river suggestion behind the mausoleum, low horizon haze, visitor-scale figures or markers for scale.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Feature toggles for garden, facade detail, minarets, water reflection, and annotation labels.
 - At least four guided camera buttons: Front Axis, Dome Closeup, Minaret Detail, Garden Overview.
 - Hover or click labels should identify key features without blocking the model.
@@ -2016,18 +2028,19 @@ This must not be a generic white palace, a single dome on a box, or a flat postc
 - Camera presets and toggles must help inspect the architecture, not just move around a decorative scene.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Build with procedural geometry where possible: boxes, cylinders, spheres, lathed shapes, curves, instancing, or custom meshes.
 - Keep the scene performant by reusing geometry/materials and limiting decorative object counts.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Taj Mahal recognizability, architectural proportions, symmetry, inspection controls, and performance.
@@ -2045,17 +2058,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of La Sagrada Familia in Barcelona, Spain, representing Europe in a global landmark modeling series.
 
 This must not be a generic cathedral, a few cones on a rectangle, or a dark silhouette that hides missing detail. The model should communicate the Sagrada Familia through vertical towers, branching organic structure, dense facades, sculptural portals, stained-glass interior light, and Barcelona urban context.
 
 #### FIRST VIEW - VERTICAL COMPLEXITY AND SACRED LIGHT
+- On page load, render the live 3D model immediately with no click required.
 - Open with a low street-level camera looking up at the basilica, emphasizing height, clustered towers, carved facade rhythm, and warm city light.
 - The first frame should include multiple towers with different heights, portal depth, organic ribs, facade texture, and surrounding urban scale.
 - Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
@@ -2069,7 +2085,7 @@ This must not be a generic cathedral, a few cones on a rectangle, or a dark silh
 - Context: Barcelona street edge, people/trees/cars as scale markers, warm stone palette, and construction-era cranes or scaffolding as optional detail.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle between Exterior, Interior Light, Facade Detail, and Structural Ribs.
 - Guided camera buttons: Street Approach, Tower Crown, Portal Detail, Interior Columns.
 - Annotation labels should identify towers, portals, branching columns, stained glass, and facade zones.
@@ -2086,18 +2102,19 @@ This must not be a generic cathedral, a few cones on a rectangle, or a dark silh
 - Detail should be procedural and inspectable from more than one camera angle.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use instancing/repeated modules for tower ribs, windows, facade relief, or columns.
 - Provide performance-friendly geometry and clamp pixel ratio if needed.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Sagrada Familia recognizability, tower/facade complexity, interior light, procedural detail, and performance.
@@ -2115,17 +2132,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Giza Pyramid Complex in Egypt, representing Africa in a global landmark modeling series.
 
 This must not be one smooth pyramid on a flat sand plane. The model should show monumental scale, pyramid geometry, limestone block layers, multiple pyramids, causeway/tomb context, desert atmosphere, and human-scale comparison.
 
 #### FIRST VIEW - SCALE BEFORE DETAIL
+- On page load, render the live 3D model immediately with no click required.
 - Open with a wide desert camera view at low sun angle, showing the Great Pyramid, neighboring pyramids, foreground stone blocks, long shadows, and small human/vehicle scale markers.
 - The first frame should make the mass and geometry unmistakable, with desert haze and a sense of distance.
 - Include a compact overlay naming the landmark, continent, location, and modeled scale features.
@@ -2139,7 +2159,7 @@ This must not be one smooth pyramid on a flat sand plane. The model should show 
 - Optional Sphinx silhouette or distant plateau elements, but do not let it steal focus from the pyramid complex.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle block layers, smooth casing reconstruction, scale markers, and site labels.
 - Guided camera buttons: Plateau Wide, Great Pyramid Base, Block Detail, Complex Overview.
 - Include a measurement/annotation overlay for base, height, slope, and alignment.
@@ -2156,18 +2176,19 @@ This must not be one smooth pyramid on a flat sand plane. The model should show 
 - Toggles should reveal modeling differences such as block layers versus smoother reconstruction.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use procedural geometry/materials for pyramids, block layers, dunes, and labels.
 - Keep performance smooth by reusing geometry and limiting high-poly terrain.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: pyramid complex scale, block layering, desert context, inspection controls, and performance.
@@ -2185,17 +2206,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Empire State Building in New York City, representing North America in a global landmark modeling series.
 
 This must not be a plain skyscraper box, a generic skyline, or a flat silhouette. The model should communicate Art Deco verticality, stepped setbacks, window grid density, spire/mast, limestone/metal material contrast, and Manhattan street context.
 
 #### FIRST VIEW - VERTICAL CITY ICON
+- On page load, render the live 3D model immediately with no click required.
 - Open with a street-canyon camera looking upward from a Manhattan avenue, showing the tower rising through setbacks to the spire.
 - The first frame should show base massing, vertical ribs, window rhythm, stepped crown, mast, surrounding smaller buildings, traffic/light scale, and evening or dawn atmosphere.
 - Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
@@ -2209,7 +2233,7 @@ This must not be a plain skyscraper box, a generic skyline, or a flat silhouette
 - Scale: include height markers or camera presets that show base-to-spire proportion.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle facade grid, night lights, surrounding city blocks, and annotation labels.
 - Guided camera buttons: Street Canyon, Crown And Spire, Facade Grid, Skyline View.
 - Include a simple section/height indicator or floor band overlay.
@@ -2226,18 +2250,19 @@ This must not be a plain skyscraper box, a generic skyline, or a flat silhouette
 - Night/day or facade toggles should reveal meaningful architectural layers.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use instancing or repeated geometry for window grids and city blocks.
 - Keep draw calls reasonable and avoid excessive individual window meshes if performance suffers.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Art Deco recognizability, vertical proportion, facade repetition, city context, and performance.
@@ -2255,17 +2280,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural and landscape model of Machu Picchu in Peru, representing South America in a global landmark modeling series.
 
 This must not be a random stone village on a hill. The model should communicate the mountain citadel through terraces, dry-stone walls, roofless structures, sacred plaza organization, steep topography, Huayna Picchu-like backdrop, paths, clouds, and altitude.
 
 #### FIRST VIEW - CITADEL ABOVE THE CLOUDS
+- On page load, render the live 3D model immediately with no click required.
 - Open with a high oblique camera showing the terraces stepping down the ridge, central stone building clusters, mountain backdrop, mist, and dramatic drop-offs.
 - The first frame should show the relationship between architecture and terrain, not only isolated buildings.
 - Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
@@ -2279,7 +2307,7 @@ This must not be a random stone village on a hill. The model should communicate 
 - Atmosphere: moving mist/clouds, high-altitude light, soft shadows, and depth haze.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle terrain contours, terrace labels, building zones, paths, and mist.
 - Guided camera buttons: Classic Overlook, Terrace Detail, Plaza Walkthrough, Mountain Context.
 - Include annotation labels for terraces, plaza, temple zone, residential zone, and mountain backdrop.
@@ -2296,18 +2324,19 @@ This must not be a random stone village on a hill. The model should communicate 
 - Camera presets should reveal both macro site planning and close masonry detail.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use procedural terrain, stepped geometry, instancing, or repeated wall modules.
 - Keep performance smooth by simplifying terrain mesh and reusing terrace components.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Machu Picchu recognizability, terrace/terrain integration, stone detail, guided inspection, and performance.
@@ -2325,17 +2354,20 @@ End with a compact audit packet containing:
 #### MODEL TEST MODE
 - Build the working result now; do not stop at a plan, explanation, or static mockup.
 - Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
-- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- The initial page load must show the finished 3D scene immediately. Do not create a splash screen, intro page, text-first page, Enter button, feature directory, or scroll-down reveal.
+- The 3D canvas must occupy the full viewport on first load, with the landmark already visible and framed. Any title, labels, controls, or notes must be compact overlays on top of the live 3D scene.
+- Include a complete CSS reset and explicit layout rules for html, body, root/app, and canvas so the result does not fall back to unstyled browser defaults.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, external CSS, or large downloads.
 - Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
-- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- Before finishing, verify that the 3D scene renders on first load, the camera controls work, the main architectural features are visible without clicking, and no default unstyled HTML is visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of the Sydney Opera House in Sydney, Australia, representing Oceania in a global landmark modeling series.
 
 This must not be a few white triangles on a platform or a generic harbor scene. The model should communicate the Opera House through grouped shell roofs, tile-like surface segmentation, podium/base, glass walls, harbor water, promenade, and Sydney context.
 
 #### FIRST VIEW - SHELLS OVER THE HARBOR
+- On page load, render the live 3D model immediately with no click required.
 - Open with a harbor-side camera showing the shell roof groups rising from the podium, water reflections, promenade, and distant bridge/city context.
 - The first frame should make the silhouette instantly recognizable while preserving enough detail to inspect.
 - Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
@@ -2349,7 +2381,7 @@ This must not be a few white triangles on a platform or a generic harbor scene. 
 - Lighting: day/sunset toggle or animated light direction to show shell curvature.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle shell tile lines, harbor reflection, city context, and annotation labels.
 - Guided camera buttons: Harbor Icon View, Shell Closeup, Podium Walk, Skyline Context.
 - Include a simple diagram overlay showing shell groups and orientation.
@@ -2366,18 +2398,19 @@ This must not be a few white triangles on a platform or a generic harbor scene. 
 - Camera presets and toggles should make the roof geometry inspectable from different angles.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use parametric or approximated curved geometry for shells; if exact curves are too hard, explain the approximation in the final summary.
 - Reuse shell materials and keep reflection effects performant.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Opera House recognizability, shell curvature, harbor context, inspection controls, and performance.
@@ -2399,13 +2432,14 @@ End with a compact audit packet containing:
 - Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
 - Make the result comparable across model runs: preserve the continent, extreme-climate architecture theme, core geometry, and inspection controls.
 - Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what is visible on first load, what can be inspected, what was verified, known shortcuts, and remaining risk.
 
 Create a maximum-ambition browser-based 3D architectural model of an Antarctic research station inspired by real South Pole extreme-climate architecture, representing Antarctica in a global landmark modeling series.
 
 This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fewer public monumental buildings than other continents, so the test is to model iconic extreme-environment architecture: elevated modular buildings, support stilts, enclosed connectors, scientific equipment, snow management, wind, darkness/light, and survival infrastructure.
 
 #### FIRST VIEW - ARCHITECTURE AGAINST EXTREME WEATHER
+- On page load, render the live 3D model immediately with no click required.
 - Open with a low polar camera view showing an elevated research station above wind-scoured snow, modular wings, connector tunnels, antennas, fuel/storage modules, flags, and blowing snow.
 - The first frame should communicate that architecture is responding to climate: elevation, wind, snow drift, logistics, and isolation.
 - Include a compact overlay naming the continent, architectural theme, and modeled feature groups.
@@ -2419,7 +2453,7 @@ This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fe
 - Human scale: small figures or markers, safety lights, and path ropes to show distance and harshness.
 
 #### INTERACTION AND INSPECTION
-- Orbit/pan/zoom camera controls.
+- Orbit/pan/zoom camera controls must be active immediately on the 3D canvas.
 - Toggle storm intensity, aurora/night mode, infrastructure labels, interior cutaway, and safe-path visibility.
 - Guided camera buttons: Station Wide, Elevated Structure, Science Equipment, Logistics Yard, Storm Mode.
 - Include annotations explaining why modules are elevated, how snow/wind affects layout, and what systems keep the station operating.
@@ -2436,18 +2470,19 @@ This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fe
 - Storm/night toggles should change the feeling and reveal infrastructure, not just tint the screen.
 
 #### TECHNICAL REQUIREMENTS
+- Prefer a single self-contained `index.html` when starting from a blank folder, with CSS and JavaScript included or imported in a way that works from local preview.
 - Use Three.js or an equivalent browser 3D approach.
 - Use procedural geometry, particles or simple billboards for blowing snow, and reusable module components.
 - Keep weather effects performant and avoid a blank white scene.
 - Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
 
 #### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+Build the full implementation now. The delivered page must open directly into the finished full-screen 3D model, not an introduction or navigation page. When finished, summarize how to open it, what is visible immediately on first load, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
 
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
 - Cross-audit focus: Antarctic architectural logic, modular detail, weather readability, inspection controls, and performance.
@@ -2514,7 +2549,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
@@ -2580,7 +2615,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
@@ -2646,7 +2681,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
@@ -2712,7 +2747,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
@@ -2778,7 +2813,7 @@ Build the full implementation now. When finished, summarize how to open it, what
 #### AUDIT PACKET
 End with a compact audit packet containing:
 - Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
+- Working interactions: what a reviewer can actually try immediately after opening the page.
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
