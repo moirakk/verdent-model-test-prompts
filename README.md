@@ -38,6 +38,7 @@ These are the failures this collection is designed to expose:
 | [Data-To-Decision Workspaces](#data-to-decision-workspaces) | 13-18 | 6 |
 | [Playable Browser Worlds](#playable-browser-worlds) | 19-24 | 6 |
 | [Repair, Rescue, And Refactor](#repair-rescue-and-refactor) | 25-30 | 6 |
+| [Global Landmark Architecture Modeling](#global-landmark-architecture-modeling) | 31-37 | 7 |
 
 ## Quick Index
 
@@ -96,6 +97,18 @@ These are the failures this collection is designed to expose:
 | 29 | [Test The Untested Flow - Add Confidence Without Rewriting The App](#prompt-29) |
 | 30 | [Bug Triage Gauntlet - Five Reports, Three Real Bugs, One Clean Patch Set](#prompt-30) |
 
+### Global Landmark Architecture Modeling
+
+| # | Title |
+|---:|---|
+| 31 | [Asia - Taj Mahal Architectural Model, Marble Symmetry And Garden Axis](#prompt-31) |
+| 32 | [Europe - Sagrada Familia Procedural Facades, Towers And Interior Light](#prompt-32) |
+| 33 | [Africa - Great Pyramid Complex, Limestone Massing And Desert Context](#prompt-33) |
+| 34 | [North America - Empire State Building, Art Deco Vertical City Model](#prompt-34) |
+| 35 | [South America - Machu Picchu Citadel, Terraces And Mountain Topography](#prompt-35) |
+| 36 | [Oceania - Sydney Opera House, Shell Roofs And Harbor Setting](#prompt-36) |
+| 37 | [Antarctica - South Pole Research Station, Extreme-Climate Modular Architecture](#prompt-37) |
+
 ## Case Capability Matrix / 测试能力矩阵
 
 用这张表快速选择要跑哪条 prompt：它标注了每个 case 的类型、适合展示的模型能力、主要测试点，以及是否适合公开宣发。
@@ -138,6 +151,13 @@ These are the failures this collection is designed to expose:
 | 28 | 设计系统迁移 | 可维护 UI 改造 | token/component 抽取、一致性、渐进重构、回归控制 | Low |
 | 29 | 测试覆盖补强 | 工程纪律 | 测试模式识别、行为覆盖、最小可测试性改动、诚实边界 | Low |
 | 30 | Bug 分诊 | 高级 coding agent 判断力 | 分诊、优先级、范围控制、not-a-bug 处理、逐项验证 | Low |
+| 31 | 亚洲地标建筑建模 | 对称建筑、材质、园林轴线 | 3D 比例、白色大理石材质、穹顶/尖塔、倒影水池、相机导览 | High |
+| 32 | 欧洲地标建筑建模 | 高复杂立面、塔楼、室内光 | 程序化细节、哥特/现代主义混合形体、彩窗光、性能控制 | High |
+| 33 | 非洲地标建筑建模 | 巨型尺度、历史建筑群、地形 | 金字塔体量、石块层次、沙漠环境、太阳角度、游客尺度对比 | High |
+| 34 | 北美地标建筑建模 | 摩天楼、城市峡谷、Art Deco | 垂直比例、退台结构、窗格阵列、夜景灯光、城市上下文 | High |
+| 35 | 南美地标建筑建模 | 山地遗址、台地、复杂地形 | 梯田、石墙、路径、云雾、海拔感、地形生成 | High |
+| 36 | 大洋洲地标建筑建模 | 壳状屋顶、海港环境、曲面表达 | 曲面近似、结构节奏、水面反射、桥港关系、日夜光照 | High |
+| 37 | 南极地标建筑建模 | 极地建筑、模块化基地、极端环境 | 架空结构、冰雪材质、风雪粒子、生活/科研模块、环境叙事 | Medium |
 
 ## Suggested Prompt Picks / 推荐选题
 
@@ -160,6 +180,7 @@ These are the failures this collection is designed to expose:
 - 用 25-30 测模型是否会读现有项目、保留产品意图、避免大范围乱改，并诚实验证。
 - 用 13-18 测模型是否真的基于数据计算，而不是只装饰静态指标。
 - 用 7-12 测模型是否能让多面板、选中状态和复杂控件保持同步。
+- 用 31-37 测模型是否能把真实世界建筑转成可检查的 3D 结构，而不是做成抽象地标剪影。
 
 ## Suggested Model Comparison Notes
 
@@ -312,337 +333,6 @@ End with a compact audit packet containing:
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: completed requirements, interactive behaviors, verification performed, known shortcuts, and top three places another model should inspect.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-02"></a>
-
-<details>
-<summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
-
-This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
-
-#### FIRST SCREEN - TODAY'S COMPANY, AT A GLANCE
-- Open directly on the operating room, not a landing page.
-- Show runway, revenue pipeline, product progress, launch checklist, customer conversations, and urgent risks in one coherent workspace.
-- The first visible action should be operational: follow up with a customer, ship a feature, fix a blocker, or adjust runway.
-
-#### CORE SYSTEMS
-- Pipeline: leads, trials, active customers, expansion opportunities, churn risk.
-- Cash: current balance, monthly burn, expected invoices, runway, and scenario toggle.
-- Product: roadmap items, status, owner, user impact, and release confidence.
-- Daily focus: automatically derive the top three actions from sample data.
-- Decision log: record what the founder chose and why.
-
-#### INTERACTION AND STATE
-- Let the user update a deal stage, mark a product task shipped, log a customer note, and change a burn-rate scenario.
-- The priority list should update when state changes.
-- Include empty states, overdue states, and risk warnings.
-- Desktop should feel like a command center; mobile should become a tight daily action view.
-
-#### VISUAL AND UX QUALITY
-- Use a calm operating-system feel, not venture-capital theater.
-- Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
-- Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
-
-#### DEPTH CHECKPOINTS
-- The top-three action list must be derived from sample company data, not hard-coded as decorative text.
-- Runway scenario changes should affect at least two visible values.
-- At least one customer/product/risk item should be linked across panels.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample data and computed values.
-- Build the full implementation with the existing stack if one exists.
-- Verify at least one pipeline update, one scenario change, and one decision-log entry.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
-
-#### AUDIT PACKET
-End with a compact audit packet containing:
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-03"></a>
-
-<details>
-<summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
-
-This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
-
-#### FIRST SCREEN - WHO NEEDS ATTENTION TODAY?
-- Open on a prioritized client list with money at risk, next milestone, unpaid amount, response status, and scope health.
-- Show one selected client with project timeline, open decisions, recent notes, invoice state, and next action.
-- The first interaction should let the user resolve a practical issue: send reminder, mark invoice paid, log scope change, or move a milestone.
-
-#### CORE SYSTEMS
-- Client portfolio with at least six clients and varied risk states.
-- Project scope tracker with original scope, added requests, estimate impact, and approval state.
-- Invoice tracker with sent, viewed, overdue, partial, and paid states.
-- Weekly capacity view showing booked hours, delivery load, and unallocated time.
-- Next-action engine that derives priorities from deadlines, money, and blocked decisions.
-
-#### INTERACTION AND STATE
-- Update invoice status, add a scope-change request, move a milestone, and filter by risk.
-- Show how one change affects client health or weekly capacity.
-- Include empty, overdue, over-capacity, and all-clear states.
-
-#### VISUAL AND UX QUALITY
-- Professional, compact, and service-business specific.
-- Avoid generic admin templates; every visible element should connect to consultant decision-making.
-- Mobile should support quick client triage and invoice follow-up.
-
-#### DEPTH CHECKPOINTS
-- Scope creep must have a visible cost or capacity consequence.
-- Invoice state changes should affect client priority or money-at-risk totals.
-- At least one client should be healthy, one blocked, and one financially urgent.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample data and real derived status calculations.
-- Keep it self-contained and interactive.
-- Verify the primary client triage flow.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
-
-#### AUDIT PACKET
-End with a compact audit packet containing:
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-04"></a>
-
-<details>
-<summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
-
-This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
-
-#### FIRST SCREEN - THE WEEK IS ALREADY IN MOTION
-- Open on the current week with today's schedule, dinner plan, grocery gaps, budget warning, pickup conflicts, and top household tasks.
-- The first screen should include at least one conflict that can be resolved.
-- The first interaction should be concrete: swap dinner, assign pickup, mark pantry item used, or move a task.
-
-#### CORE SYSTEMS
-- Weekly calendar with family members, locations, conflicts, and shared commitments.
-- Meal plan linked to pantry and grocery list.
-- Budget meter for grocery and household spending.
-- Chore/task board with ownership and overdue states.
-- Conflict resolver that suggests realistic changes.
-
-#### INTERACTION AND STATE
-- Let the user assign a task, resolve a pickup conflict, update pantry quantity, and swap a meal.
-- Updating meals should affect groceries and budget.
-- Include states for conflict, missing ingredient, over budget, and quiet day.
-
-#### VISUAL AND UX QUALITY
-- Warm but practical; avoid childish styling or generic productivity layout.
-- Use color to separate people, urgency, and categories without overwhelming the screen.
-- Mobile must be excellent; desktop can show the full week and detail panel.
-
-#### DEPTH CHECKPOINTS
-- At least one meal decision must update pantry, grocery, and budget views.
-- At least one scheduling conflict must show cause and resolution.
-- Family members should have distinguishable responsibilities without relying only on color.
-
-#### TECHNICAL REQUIREMENTS
-- Build with local sample data and computed conflicts.
-- No external APIs required.
-- Verify at least one cross-system update, such as meal swap changing grocery needs.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
-
-#### AUDIT PACKET
-End with a compact audit packet containing:
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-05"></a>
-
-<details>
-<summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
-
-This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
-
-#### FIRST SCREEN - WHAT CAN SHIP NEXT?
-- Open on a launch board with idea backlog, active drafts, scheduled posts, asset gaps, and platform readiness.
-- Show one selected idea expanded into hook, outline, assets needed, platforms, and launch checklist.
-- The first action should move a piece of content closer to shipping.
-
-#### CORE SYSTEMS
-- Idea backlog with score for novelty, effort, audience fit, and urgency.
-- Content pipeline with statuses from raw idea to scheduled.
-- Platform adapters for YouTube, X, LinkedIn, newsletter, and short video.
-- Asset checklist and blocker tracking.
-- Lightweight postmortem area for results and learning.
-
-#### INTERACTION AND STATE
-- Let users promote an idea to draft, edit the hook, assign platforms, mark assets ready, and schedule a date.
-- Filters by platform, status, and blocker.
-- Readiness score should update from real state.
-
-#### VISUAL AND UX QUALITY
-- Creator-professional, not influencer glitter.
-- Clear pipeline, compact cards, readable platform differences, and obvious blockers.
-- Mobile should support idea capture and today's publishing tasks.
-
-#### DEPTH CHECKPOINTS
-- Readiness score must come from checklist/platform/asset state.
-- At least one idea should move through multiple pipeline stages during interaction.
-- Platform outputs should differ in real requirements, not just labels.
-
-#### TECHNICAL REQUIREMENTS
-- Use local sample content and real state updates.
-- Do not require social platform APIs.
-- Verify idea-to-scheduled flow.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
-
-#### AUDIT PACKET
-End with a compact audit packet containing:
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
-- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
-```
-
-</details>
-
-<a id="prompt-06"></a>
-
-<details>
-<summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
-
-```text
-#### MODEL TEST MODE
-- Build the working result now; do not stop at a plan, explanation, or static mockup.
-- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
-- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
-- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
-- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
-- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
-- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
-
-Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
-
-This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
-
-#### FIRST SCREEN - KNOWLEDGE READY TO USE
-- Open on a workspace with recent notes, topic clusters, open questions, extracted tasks, and a draft brief.
-- Show one selected topic with source notes, linked claims, evidence strength, and next actions.
-- The first interaction should let the user connect notes, extract a task, or add a claim to the brief.
-
-#### CORE SYSTEMS
-- Notes with tags, source type, confidence, and linked topics.
-- Search and filter by topic, source, confidence, and task status.
-- Brief builder that collects claims with citations to local sample notes.
-- Task extraction from notes with ownership and due dates.
-- Knowledge graph or relationship view that is useful, not decorative.
-
-#### INTERACTION AND STATE
-- Add a note, link two notes, promote a highlight into a task, and add evidence to the brief.
-- Show empty search, weak evidence, and unresolved question states.
-- Updates should be reflected across note list, topic view, and brief.
-
-#### VISUAL AND UX QUALITY
-- Quiet, editorial, and tool-like.
-- Avoid mystical garden visuals unless they directly clarify the knowledge structure.
-- Desktop should support tri-pane work; mobile should support capture and review.
-
-#### DEPTH CHECKPOINTS
-- Claims in the brief should link back to source notes.
-- Weak evidence and unresolved questions must be visually distinct.
-- A note action should update both task/brief output and the topic view.
-
-#### TECHNICAL REQUIREMENTS
-- Use local data and state only.
-- Do not require AI APIs; simulate extraction with clear local actions if needed.
-- Verify note-to-brief and note-to-task flows.
-
-#### FINAL OUTPUT INSTRUCTION
-Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
-
-#### AUDIT PACKET
-End with a compact audit packet containing:
-- Requirements covered: 3-6 bullets tied to the prompt.
-- Working interactions: what a reviewer can actually try.
-- Verification performed: commands, preview, viewport checks, or manual flow checks.
-- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
-- Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
 - Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
@@ -2270,6 +1960,828 @@ End with a compact audit packet containing:
 - Verification performed: commands, preview, viewport checks, or manual flow checks.
 - Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
 - Cross-audit focus: triage table, fixes made, verification performed per report, and unresolved risks.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+## Global Landmark Architecture Modeling
+
+<a id="prompt-31"></a>
+
+<details>
+<summary><strong>31. Asia - Taj Mahal Architectural Model, Marble Symmetry And Garden Axis</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of the Taj Mahal in Agra, India, representing Asia in a global landmark modeling series.
+
+This must not be a generic white palace, a single dome on a box, or a flat postcard scene. The model should make the Taj Mahal recognizable through symmetry, central marble mausoleum massing, onion dome, four minarets, iwans, garden axis, reflecting pool, plinth, and river-facing context.
+
+#### FIRST VIEW - THE SYMMETRY MUST READ IMMEDIATELY
+- Open with a cinematic camera view aligned to the long Charbagh garden axis, looking across the reflecting pool toward the central mausoleum.
+- The first frame should show the main dome, four minarets, central arch, side wings, garden paths, water reflection, and warm marble light.
+- Include a compact overlay naming the landmark, continent, location, and the architectural features currently visible.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Central mausoleum: square plinth, large central iwan arch, smaller side arches, four corner chhatri-like kiosks, onion dome, finial, and layered base.
+- Dome system: large central onion dome plus smaller domes/kiosks with different scale and height.
+- Minarets: four slender towers on the plinth corners, each with stacked balconies, tapered vertical shape, small domed cap, and slight outward placement.
+- Facade detail: use procedural inlay patterns, arch outlines, dark recessed openings, repeated panels, and subtle marble veining.
+- Garden axis: long water channel, reflecting pool, stone walkways, cypress-like trees, geometric lawns, and axial symmetry.
+- Context: Yamuna river suggestion behind the mausoleum, low horizon haze, visitor-scale figures or markers for scale.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Feature toggles for garden, facade detail, minarets, water reflection, and annotation labels.
+- At least four guided camera buttons: Front Axis, Dome Closeup, Minaret Detail, Garden Overview.
+- Hover or click labels should identify key features without blocking the model.
+
+#### VISUAL AND MATERIAL QUALITY
+- Marble should feel luminous and slightly varied, not pure flat white.
+- Water should reflect the silhouette enough to sell the axis.
+- Lighting should emphasize dawn or late-afternoon warmth, soft shadows, and the contrast between marble, water, green garden, and sandy stone.
+- Avoid excessive bloom, tiny unreadable ornaments, and noisy textures that hide the form.
+
+#### DEPTH CHECKPOINTS
+- From the opening view, a reviewer should recognize the Taj Mahal without reading the label.
+- The four minarets, main dome, central arch, reflecting pool, and garden axis must all be spatially correct and visible.
+- Camera presets and toggles must help inspect the architecture, not just move around a decorative scene.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Build with procedural geometry where possible: boxes, cylinders, spheres, lathed shapes, curves, instancing, or custom meshes.
+- Keep the scene performant by reusing geometry/materials and limiting decorative object counts.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Taj Mahal recognizability, architectural proportions, symmetry, inspection controls, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-32"></a>
+
+<details>
+<summary><strong>32. Europe - Sagrada Familia Procedural Facades, Towers And Interior Light</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of La Sagrada Familia in Barcelona, Spain, representing Europe in a global landmark modeling series.
+
+This must not be a generic cathedral, a few cones on a rectangle, or a dark silhouette that hides missing detail. The model should communicate the Sagrada Familia through vertical towers, branching organic structure, dense facades, sculptural portals, stained-glass interior light, and Barcelona urban context.
+
+#### FIRST VIEW - VERTICAL COMPLEXITY AND SACRED LIGHT
+- Open with a low street-level camera looking up at the basilica, emphasizing height, clustered towers, carved facade rhythm, and warm city light.
+- The first frame should include multiple towers with different heights, portal depth, organic ribs, facade texture, and surrounding urban scale.
+- Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Towers: model multiple tapering towers with perforated or ribbed surfaces, spires, cross/finial suggestions, and varied heights.
+- Facades: create at least two visually distinct sides: a denser sculptural facade and a cleaner geometric facade.
+- Nave/interior suggestion: include a cutaway, toggle, or visible interior zone with branching columns and stained-glass color shafts.
+- Organic structure: use branching columns, angled supports, rib-like geometry, and repeated vertical modules to avoid plain Gothic boxes.
+- Surface detail: procedural relief panels, small extrusions, recessed portals, window slots, and clustered ornament density.
+- Context: Barcelona street edge, people/trees/cars as scale markers, warm stone palette, and construction-era cranes or scaffolding as optional detail.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle between Exterior, Interior Light, Facade Detail, and Structural Ribs.
+- Guided camera buttons: Street Approach, Tower Crown, Portal Detail, Interior Columns.
+- Annotation labels should identify towers, portals, branching columns, stained glass, and facade zones.
+
+#### VISUAL AND MATERIAL QUALITY
+- Stone should have warm variation, depth, and shadow, not a flat beige tower.
+- Stained-glass light should cast recognizable color zones or visible translucent panels.
+- The model should balance dense detail with readable massing.
+- Avoid noisy micro-ornament that kills performance or hides the silhouette.
+
+#### DEPTH CHECKPOINTS
+- A reviewer should see that this is specifically Sagrada Familia, not a generic European church.
+- Tower clustering, organic verticality, facade depth, and stained-glass/interior light must all be represented.
+- Detail should be procedural and inspectable from more than one camera angle.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use instancing/repeated modules for tower ribs, windows, facade relief, or columns.
+- Provide performance-friendly geometry and clamp pixel ratio if needed.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Sagrada Familia recognizability, tower/facade complexity, interior light, procedural detail, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-33"></a>
+
+<details>
+<summary><strong>33. Africa - Great Pyramid Complex, Limestone Massing And Desert Context</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of the Giza Pyramid Complex in Egypt, representing Africa in a global landmark modeling series.
+
+This must not be one smooth pyramid on a flat sand plane. The model should show monumental scale, pyramid geometry, limestone block layers, multiple pyramids, causeway/tomb context, desert atmosphere, and human-scale comparison.
+
+#### FIRST VIEW - SCALE BEFORE DETAIL
+- Open with a wide desert camera view at low sun angle, showing the Great Pyramid, neighboring pyramids, foreground stone blocks, long shadows, and small human/vehicle scale markers.
+- The first frame should make the mass and geometry unmistakable, with desert haze and a sense of distance.
+- Include a compact overlay naming the landmark, continent, location, and modeled scale features.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Great Pyramid: accurate square base, triangular faces, slight stepped/block surface, optional missing casing stones, and top cap suggestion.
+- Complex: include at least three pyramids with different sizes, smaller queen pyramids or mastaba-like structures, and a causeway/ceremonial path.
+- Surface detail: layered limestone blocks, edge wear, color variation, and shadow-catching seams.
+- Desert terrain: dunes, sand ripples, scattered stones, sun-baked material, and atmospheric dust.
+- Scale context: visitor markers, camel/vehicle silhouettes or measurement posts, and labels showing height/base relationships.
+- Optional Sphinx silhouette or distant plateau elements, but do not let it steal focus from the pyramid complex.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle block layers, smooth casing reconstruction, scale markers, and site labels.
+- Guided camera buttons: Plateau Wide, Great Pyramid Base, Block Detail, Complex Overview.
+- Include a measurement/annotation overlay for base, height, slope, and alignment.
+
+#### VISUAL AND MATERIAL QUALITY
+- Stone should feel heavy, weathered, and sunlit, not plastic yellow.
+- Use strong shadows and warm desert color, with enough contrast to read block layers.
+- The environment should support scale without becoming empty.
+- Avoid overpopulating the scene with decorative props.
+
+#### DEPTH CHECKPOINTS
+- The scene must include more than one pyramid and communicate the complex, not only a single icon.
+- Block/step texture, human scale, and desert lighting must make the monument's size legible.
+- Toggles should reveal modeling differences such as block layers versus smoother reconstruction.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use procedural geometry/materials for pyramids, block layers, dunes, and labels.
+- Keep performance smooth by reusing geometry and limiting high-poly terrain.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: pyramid complex scale, block layering, desert context, inspection controls, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-34"></a>
+
+<details>
+<summary><strong>34. North America - Empire State Building, Art Deco Vertical City Model</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of the Empire State Building in New York City, representing North America in a global landmark modeling series.
+
+This must not be a plain skyscraper box, a generic skyline, or a flat silhouette. The model should communicate Art Deco verticality, stepped setbacks, window grid density, spire/mast, limestone/metal material contrast, and Manhattan street context.
+
+#### FIRST VIEW - VERTICAL CITY ICON
+- Open with a street-canyon camera looking upward from a Manhattan avenue, showing the tower rising through setbacks to the spire.
+- The first frame should show base massing, vertical ribs, window rhythm, stepped crown, mast, surrounding smaller buildings, traffic/light scale, and evening or dawn atmosphere.
+- Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Massing: stacked rectangular volumes with accurate Art Deco setbacks and a strong vertical central shaft.
+- Facade: dense window grid, vertical piers/ribs, darker recessed window bands, and warmer stone cladding.
+- Crown: stepped top, observation deck suggestion, antenna/mast/spire, beacon light, and metal cap contrast.
+- Base/street: sidewalk, neighboring buildings, street lanes, small vehicles/people, and entry canopy suggestion.
+- Lighting: day/night toggle or animated city lights to reveal windows and crown.
+- Scale: include height markers or camera presets that show base-to-spire proportion.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle facade grid, night lights, surrounding city blocks, and annotation labels.
+- Guided camera buttons: Street Canyon, Crown And Spire, Facade Grid, Skyline View.
+- Include a simple section/height indicator or floor band overlay.
+
+#### VISUAL AND MATERIAL QUALITY
+- The building should feel tall through camera, proportions, shadows, and surrounding scale.
+- Windows should be patterned and varied enough to read as a facade system.
+- Art Deco geometry should be clean and vertical, not a glass office tower.
+- Avoid making surrounding buildings more detailed than the landmark.
+
+#### DEPTH CHECKPOINTS
+- A reviewer should recognize the Empire State Building from massing and crown, not only from a label.
+- Setbacks, window rhythm, vertical ribs, and spire must all be modeled.
+- Night/day or facade toggles should reveal meaningful architectural layers.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use instancing or repeated geometry for window grids and city blocks.
+- Keep draw calls reasonable and avoid excessive individual window meshes if performance suffers.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Art Deco recognizability, vertical proportion, facade repetition, city context, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-35"></a>
+
+<details>
+<summary><strong>35. South America - Machu Picchu Citadel, Terraces And Mountain Topography</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural and landscape model of Machu Picchu in Peru, representing South America in a global landmark modeling series.
+
+This must not be a random stone village on a hill. The model should communicate the mountain citadel through terraces, dry-stone walls, roofless structures, sacred plaza organization, steep topography, Huayna Picchu-like backdrop, paths, clouds, and altitude.
+
+#### FIRST VIEW - CITADEL ABOVE THE CLOUDS
+- Open with a high oblique camera showing the terraces stepping down the ridge, central stone building clusters, mountain backdrop, mist, and dramatic drop-offs.
+- The first frame should show the relationship between architecture and terrain, not only isolated buildings.
+- Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
+
+#### ARCHITECTURAL AND LANDSCAPE MODELING REQUIREMENTS
+- Terraces: many stepped agricultural terraces following terrain contours, with retaining walls and grass/stone material contrast.
+- Building clusters: roofless stone rooms, walls, door openings, plazas, stair paths, and different precincts.
+- Sacred/urban layout: central plaza, temple-like zone, residential-like zone, and path network.
+- Terrain: steep ridge, surrounding mountain peaks, valley depth, cloud layers, and vegetation patches.
+- Stone detail: irregular masonry suggestion, wall thickness, weathering, and scale markers.
+- Atmosphere: moving mist/clouds, high-altitude light, soft shadows, and depth haze.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle terrain contours, terrace labels, building zones, paths, and mist.
+- Guided camera buttons: Classic Overlook, Terrace Detail, Plaza Walkthrough, Mountain Context.
+- Include annotation labels for terraces, plaza, temple zone, residential zone, and mountain backdrop.
+
+#### VISUAL AND MATERIAL QUALITY
+- The site should feel integrated with the mountain, not placed on a flat platform.
+- Stone walls should read as constructed masonry even if simplified.
+- Clouds/mist should add altitude without hiding the model.
+- Avoid making the scene too green and smooth; the geometry should show hard terraces and rugged topography.
+
+#### DEPTH CHECKPOINTS
+- The terrain/architecture relationship must be visible from the first view.
+- Terraces, stone structures, paths, and mountain backdrop must all be separately inspectable.
+- Camera presets should reveal both macro site planning and close masonry detail.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use procedural terrain, stepped geometry, instancing, or repeated wall modules.
+- Keep performance smooth by simplifying terrain mesh and reusing terrace components.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Machu Picchu recognizability, terrace/terrain integration, stone detail, guided inspection, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-36"></a>
+
+<details>
+<summary><strong>36. Oceania - Sydney Opera House, Shell Roofs And Harbor Setting</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the landmark, continent, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of the Sydney Opera House in Sydney, Australia, representing Oceania in a global landmark modeling series.
+
+This must not be a few white triangles on a platform or a generic harbor scene. The model should communicate the Opera House through grouped shell roofs, tile-like surface segmentation, podium/base, glass walls, harbor water, promenade, and Sydney context.
+
+#### FIRST VIEW - SHELLS OVER THE HARBOR
+- Open with a harbor-side camera showing the shell roof groups rising from the podium, water reflections, promenade, and distant bridge/city context.
+- The first frame should make the silhouette instantly recognizable while preserving enough detail to inspect.
+- Include a compact overlay naming the landmark, continent, location, and modeled feature groups.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Shell roofs: multiple overlapping sail/shell forms with different sizes, orientations, and heights.
+- Surface detail: tile panel lines or segmented ceramic pattern across shells.
+- Podium: broad stepped base, promenade edges, stairs, and terrace levels.
+- Facade: glass wall suggestions under shells, dark interior voids, entry areas, and structural rhythm.
+- Harbor context: water plane with reflection, quay edge, boats or ferry scale markers, distant skyline, optional Harbour Bridge silhouette.
+- Lighting: day/sunset toggle or animated light direction to show shell curvature.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle shell tile lines, harbor reflection, city context, and annotation labels.
+- Guided camera buttons: Harbor Icon View, Shell Closeup, Podium Walk, Skyline Context.
+- Include a simple diagram overlay showing shell groups and orientation.
+
+#### VISUAL AND MATERIAL QUALITY
+- Shells should feel curved and layered, not flat triangles.
+- Tile segmentation should enhance scale without becoming noisy.
+- Water should support the silhouette and scene context.
+- Avoid over-detailing the skyline at the expense of the Opera House.
+
+#### DEPTH CHECKPOINTS
+- The shell roof system must be recognizable from the opening view.
+- Multiple shell groups, podium, glass walls, and harbor context must all be represented.
+- Camera presets and toggles should make the roof geometry inspectable from different angles.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use parametric or approximated curved geometry for shells; if exact curves are too hard, explain the approximation in the final summary.
+- Reuse shell materials and keep reflection effects performant.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Opera House recognizability, shell curvature, harbor context, inspection controls, and performance.
+- Self-score from 1-5 for landmark accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-37"></a>
+
+<details>
+<summary><strong>37. Antarctica - South Pole Research Station, Extreme-Climate Modular Architecture</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page.
+- Use local geometry, procedural materials, and local state. Do not require paid assets, external 3D models, or large downloads.
+- Make the result comparable across model runs: preserve the continent, extreme-climate architecture theme, core geometry, and inspection controls.
+- Before finishing, verify that the 3D scene renders, the camera controls work, and the main architectural features are visible.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what can be inspected, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition browser-based 3D architectural model of an Antarctic research station inspired by real South Pole extreme-climate architecture, representing Antarctica in a global landmark modeling series.
+
+This must not be a generic sci-fi base or a few boxes on snow. Antarctica has fewer public monumental buildings than other continents, so the test is to model iconic extreme-environment architecture: elevated modular buildings, support stilts, enclosed connectors, scientific equipment, snow management, wind, darkness/light, and survival infrastructure.
+
+#### FIRST VIEW - ARCHITECTURE AGAINST EXTREME WEATHER
+- Open with a low polar camera view showing an elevated research station above wind-scoured snow, modular wings, connector tunnels, antennas, fuel/storage modules, flags, and blowing snow.
+- The first frame should communicate that architecture is responding to climate: elevation, wind, snow drift, logistics, and isolation.
+- Include a compact overlay naming the continent, architectural theme, and modeled feature groups.
+
+#### ARCHITECTURAL MODELING REQUIREMENTS
+- Main station: long elevated modular building, insulated panels, small windows, service doors, and structural stilts.
+- Connectors: enclosed passageways linking modules, stairs/ramps, and utility corridors.
+- Climate systems: wind baffles, snowdrift berms, raised foundation logic, vents, exhaust, satellite dishes, antennas, and weather instruments.
+- Support zone: fuel tanks, cargo containers, tracked vehicle, generator hut, storage sleds, and marked safe paths.
+- Environment: snow terrain, wind streaks, low sun or polar twilight, aurora/night toggle, flags or poles showing wind direction.
+- Human scale: small figures or markers, safety lights, and path ropes to show distance and harshness.
+
+#### INTERACTION AND INSPECTION
+- Orbit/pan/zoom camera controls.
+- Toggle storm intensity, aurora/night mode, infrastructure labels, interior cutaway, and safe-path visibility.
+- Guided camera buttons: Station Wide, Elevated Structure, Science Equipment, Logistics Yard, Storm Mode.
+- Include annotations explaining why modules are elevated, how snow/wind affects layout, and what systems keep the station operating.
+
+#### VISUAL AND MATERIAL QUALITY
+- Snow should have shape, wind streaks, and shadow, not a flat white plane.
+- Materials should distinguish insulated panels, metal supports, glass, lights, and equipment.
+- Weather effects should create atmosphere without hiding the model.
+- Avoid overly futuristic styling; keep it grounded, functional, and harsh.
+
+#### DEPTH CHECKPOINTS
+- The architecture must clearly respond to Antarctic conditions, not merely sit in a snowy scene.
+- Elevated modules, connectors, scientific equipment, logistics zone, and weather effects must all be inspectable.
+- Storm/night toggles should change the feeling and reveal infrastructure, not just tint the screen.
+
+#### TECHNICAL REQUIREMENTS
+- Use Three.js or an equivalent browser 3D approach.
+- Use procedural geometry, particles or simple billboards for blowing snow, and reusable module components.
+- Keep weather effects performant and avoid a blank white scene.
+- Verify scene rendering, controls, toggles, camera presets, and nonblank canvas.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what architectural features are modeled, what interactions work, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simplified, approximate, fragile, or worth rechecking.
+- Cross-audit focus: Antarctic architectural logic, modular detail, weather readability, inspection controls, and performance.
+- Self-score from 1-5 for architectural accuracy, first-view impact, modeling detail, interaction depth, visual quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-02"></a>
+
+<details>
+<summary><strong>02. Founder Operating Room - One Screen To Run A Tiny Startup</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition web app called Founder Operating Room: one operational screen for a solo founder to run a tiny startup across customers, cash, product, launches, and risks.
+
+This must not be a generic CRM, a decorative startup dashboard, or a pile of unrelated widgets. It should feel like the founder can open it in the morning and decide what to do next.
+
+#### FIRST SCREEN - TODAY'S COMPANY, AT A GLANCE
+- Open directly on the operating room, not a landing page.
+- Show runway, revenue pipeline, product progress, launch checklist, customer conversations, and urgent risks in one coherent workspace.
+- The first visible action should be operational: follow up with a customer, ship a feature, fix a blocker, or adjust runway.
+
+#### CORE SYSTEMS
+- Pipeline: leads, trials, active customers, expansion opportunities, churn risk.
+- Cash: current balance, monthly burn, expected invoices, runway, and scenario toggle.
+- Product: roadmap items, status, owner, user impact, and release confidence.
+- Daily focus: automatically derive the top three actions from sample data.
+- Decision log: record what the founder chose and why.
+
+#### INTERACTION AND STATE
+- Let the user update a deal stage, mark a product task shipped, log a customer note, and change a burn-rate scenario.
+- The priority list should update when state changes.
+- Include empty states, overdue states, and risk warnings.
+- Desktop should feel like a command center; mobile should become a tight daily action view.
+
+#### VISUAL AND UX QUALITY
+- Use a calm operating-system feel, not venture-capital theater.
+- Make dense information scannable through tables, compact cards, tabs, and clear hierarchy.
+- Avoid oversized hero type, decorative gradients, and generic SaaS fluff.
+
+#### DEPTH CHECKPOINTS
+- The top-three action list must be derived from sample company data, not hard-coded as decorative text.
+- Runway scenario changes should affect at least two visible values.
+- At least one customer/product/risk item should be linked across panels.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and computed values.
+- Build the full implementation with the existing stack if one exists.
+- Verify at least one pipeline update, one scenario change, and one decision-log entry.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: completed requirements, known shortcuts, verification performed, and top three places another model should inspect.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-03"></a>
+
+<details>
+<summary><strong>03. Solo Consultant Command Center - Clients, Invoices, Scope And Next Actions</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition working app called Solo Consultant Command Center: a practical workspace for a one-person consultant managing clients, projects, invoices, scope changes, and next actions.
+
+This must not be a generic project tracker or invoice mockup. It should expose the tension of consulting: billable work, scope creep, client responsiveness, unpaid invoices, and delivery commitments.
+
+#### FIRST SCREEN - WHO NEEDS ATTENTION TODAY?
+- Open on a prioritized client list with money at risk, next milestone, unpaid amount, response status, and scope health.
+- Show one selected client with project timeline, open decisions, recent notes, invoice state, and next action.
+- The first interaction should let the user resolve a practical issue: send reminder, mark invoice paid, log scope change, or move a milestone.
+
+#### CORE SYSTEMS
+- Client portfolio with at least six clients and varied risk states.
+- Project scope tracker with original scope, added requests, estimate impact, and approval state.
+- Invoice tracker with sent, viewed, overdue, partial, and paid states.
+- Weekly capacity view showing booked hours, delivery load, and unallocated time.
+- Next-action engine that derives priorities from deadlines, money, and blocked decisions.
+
+#### INTERACTION AND STATE
+- Update invoice status, add a scope-change request, move a milestone, and filter by risk.
+- Show how one change affects client health or weekly capacity.
+- Include empty, overdue, over-capacity, and all-clear states.
+
+#### VISUAL AND UX QUALITY
+- Professional, compact, and service-business specific.
+- Avoid generic admin templates; every visible element should connect to consultant decision-making.
+- Mobile should support quick client triage and invoice follow-up.
+
+#### DEPTH CHECKPOINTS
+- Scope creep must have a visible cost or capacity consequence.
+- Invoice state changes should affect client priority or money-at-risk totals.
+- At least one client should be healthy, one blocked, and one financially urgent.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample data and real derived status calculations.
+- Keep it self-contained and interactive.
+- Verify the primary client triage flow.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: what can be changed by the user, which values are computed, verification performed, and likely weak spots.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-04"></a>
+
+<details>
+<summary><strong>04. Family Logistics Console - The Week, The Fridge, The Budget And The Ride</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition mobile-first web app called Family Logistics Console: a shared weekly operations board for meals, groceries, school pickups, household tasks, budget pressure, and schedule conflicts.
+
+This must not be a simple calendar, a todo list, or a recipe app. It should show how household decisions collide and help the family choose what to do next.
+
+#### FIRST SCREEN - THE WEEK IS ALREADY IN MOTION
+- Open on the current week with today's schedule, dinner plan, grocery gaps, budget warning, pickup conflicts, and top household tasks.
+- The first screen should include at least one conflict that can be resolved.
+- The first interaction should be concrete: swap dinner, assign pickup, mark pantry item used, or move a task.
+
+#### CORE SYSTEMS
+- Weekly calendar with family members, locations, conflicts, and shared commitments.
+- Meal plan linked to pantry and grocery list.
+- Budget meter for grocery and household spending.
+- Chore/task board with ownership and overdue states.
+- Conflict resolver that suggests realistic changes.
+
+#### INTERACTION AND STATE
+- Let the user assign a task, resolve a pickup conflict, update pantry quantity, and swap a meal.
+- Updating meals should affect groceries and budget.
+- Include states for conflict, missing ingredient, over budget, and quiet day.
+
+#### VISUAL AND UX QUALITY
+- Warm but practical; avoid childish styling or generic productivity layout.
+- Use color to separate people, urgency, and categories without overwhelming the screen.
+- Mobile must be excellent; desktop can show the full week and detail panel.
+
+#### DEPTH CHECKPOINTS
+- At least one meal decision must update pantry, grocery, and budget views.
+- At least one scheduling conflict must show cause and resolution.
+- Family members should have distinguishable responsibilities without relying only on color.
+
+#### TECHNICAL REQUIREMENTS
+- Build with local sample data and computed conflicts.
+- No external APIs required.
+- Verify at least one cross-system update, such as meal swap changing grocery needs.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: cross-system interactions implemented, responsive behavior, verification performed, and unresolved limitations.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-05"></a>
+
+<details>
+<summary><strong>05. Creator Launch Studio - From Idea Backlog To Scheduled Release</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition app called Creator Launch Studio: a workspace that turns a creator's rough content ideas into a scheduled multi-platform release plan.
+
+This must not be a generic content calendar or social media dashboard. It should support the messy path from idea, angle, asset, draft, review, schedule, and postmortem.
+
+#### FIRST SCREEN - WHAT CAN SHIP NEXT?
+- Open on a launch board with idea backlog, active drafts, scheduled posts, asset gaps, and platform readiness.
+- Show one selected idea expanded into hook, outline, assets needed, platforms, and launch checklist.
+- The first action should move a piece of content closer to shipping.
+
+#### CORE SYSTEMS
+- Idea backlog with score for novelty, effort, audience fit, and urgency.
+- Content pipeline with statuses from raw idea to scheduled.
+- Platform adapters for YouTube, X, LinkedIn, newsletter, and short video.
+- Asset checklist and blocker tracking.
+- Lightweight postmortem area for results and learning.
+
+#### INTERACTION AND STATE
+- Let users promote an idea to draft, edit the hook, assign platforms, mark assets ready, and schedule a date.
+- Filters by platform, status, and blocker.
+- Readiness score should update from real state.
+
+#### VISUAL AND UX QUALITY
+- Creator-professional, not influencer glitter.
+- Clear pipeline, compact cards, readable platform differences, and obvious blockers.
+- Mobile should support idea capture and today's publishing tasks.
+
+#### DEPTH CHECKPOINTS
+- Readiness score must come from checklist/platform/asset state.
+- At least one idea should move through multiple pipeline stages during interaction.
+- Platform outputs should differ in real requirements, not just labels.
+
+#### TECHNICAL REQUIREMENTS
+- Use local sample content and real state updates.
+- Do not require social platform APIs.
+- Verify idea-to-scheduled flow.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: implemented workflow, state updates, verification performed, and what is simulated.
+- Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
+```
+
+</details>
+
+<a id="prompt-06"></a>
+
+<details>
+<summary><strong>06. Local Knowledge Garden - Notes That Turn Into Tasks And Briefs</strong></summary>
+
+```text
+#### MODEL TEST MODE
+- Build the working result now; do not stop at a plan, explanation, or static mockup.
+- Use the existing project stack when one exists; if the folder is blank, choose the simplest practical browser implementation.
+- The first screen or first playable moment must prove the concept immediately. Do not create a marketing landing page unless the prompt explicitly asks for one.
+- Use local sample data and local state when external services would otherwise be needed. Simulate AI/API behavior transparently and make it interactive.
+- Make the result comparable across model runs: preserve the requested name, core workflow, and constraints instead of substituting an easier product.
+- Before finishing, verify the main screen renders and the primary interaction works. If verification is blocked, say exactly what blocked it and what you checked instead.
+- In the final response, report only what matters for evaluation: what was built, how to open it, what works, what was verified, known shortcuts, and remaining risk.
+
+Create a maximum-ambition local-first web app called Local Knowledge Garden: a notes workspace where research notes, highlights, tasks, and briefs grow from the same material.
+
+This must not be a generic notes app, markdown editor, or static knowledge graph. It should help a user find source material, connect it, and turn it into an actionable brief.
+
+#### FIRST SCREEN - KNOWLEDGE READY TO USE
+- Open on a workspace with recent notes, topic clusters, open questions, extracted tasks, and a draft brief.
+- Show one selected topic with source notes, linked claims, evidence strength, and next actions.
+- The first interaction should let the user connect notes, extract a task, or add a claim to the brief.
+
+#### CORE SYSTEMS
+- Notes with tags, source type, confidence, and linked topics.
+- Search and filter by topic, source, confidence, and task status.
+- Brief builder that collects claims with citations to local sample notes.
+- Task extraction from notes with ownership and due dates.
+- Knowledge graph or relationship view that is useful, not decorative.
+
+#### INTERACTION AND STATE
+- Add a note, link two notes, promote a highlight into a task, and add evidence to the brief.
+- Show empty search, weak evidence, and unresolved question states.
+- Updates should be reflected across note list, topic view, and brief.
+
+#### VISUAL AND UX QUALITY
+- Quiet, editorial, and tool-like.
+- Avoid mystical garden visuals unless they directly clarify the knowledge structure.
+- Desktop should support tri-pane work; mobile should support capture and review.
+
+#### DEPTH CHECKPOINTS
+- Claims in the brief should link back to source notes.
+- Weak evidence and unresolved questions must be visually distinct.
+- A note action should update both task/brief output and the topic view.
+
+#### TECHNICAL REQUIREMENTS
+- Use local data and state only.
+- Do not require AI APIs; simulate extraction with clear local actions if needed.
+- Verify note-to-brief and note-to-task flows.
+
+#### FINAL OUTPUT INSTRUCTION
+Build the full implementation now. When finished, summarize how to open it, what the reviewer can try, what you verified, known shortcuts, and remaining risks.
+
+#### AUDIT PACKET
+End with a compact audit packet containing:
+- Requirements covered: 3-6 bullets tied to the prompt.
+- Working interactions: what a reviewer can actually try.
+- Verification performed: commands, preview, viewport checks, or manual flow checks.
+- Known shortcuts and risks: what is simulated, incomplete, fragile, or worth rechecking.
+- Cross-audit focus: working knowledge flows, simulated parts, verification performed, and likely edge cases.
 - Self-score from 1-5 for completion, first-screen quality, interaction depth, visual/UX quality, engineering quality, and verification honesty.
 ```
 
